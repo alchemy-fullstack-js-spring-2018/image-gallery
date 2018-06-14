@@ -1,6 +1,7 @@
-// * { border: 1px solid black; }
 @import url('https://fonts.googleapis.com/css?family=Karla');
+
 * {
+    background-size: cover;
     font-family: 'Karla', sans-serif;
 }
 
@@ -8,14 +9,14 @@
  
     display: grid;
     grid-template-columns: 150px 2fr 1fr;
-    grid-template-rows: 100px 5fr 1fr;
+    grid-template-rows: 5fr 5fr 1fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.5rem;
     grid-template-areas: "nav head head" 
-                         "nav main main" 
-                         "nav foot foot";
-
-
+    "nav main main" 
+    "nav foot foot";
+    width: 100vw;
+    height: 100vh;
 }
 
 .header {
@@ -50,7 +51,8 @@
         grid-column-gap: 0.5rem;
         grid-row-gap: 0.5rem;    
         grid-template-areas: "nav nav" "head head" "main main" "foot foot";
-
+        width: 100vw;
+        height: 100vh;
     }
     .nav-bar {
         text-align: center;
@@ -69,6 +71,12 @@
         grid-column-gap: 0.5rem;
         grid-row-gap: 0.5rem;    
         grid-template-areas: "head head" "main main" "nav nav" "foot foot";
+        width: 100vw;
+        height: 100vh;
 
+    }
+
+    .foot {
+        display: none;
     }
 }
