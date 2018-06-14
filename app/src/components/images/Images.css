@@ -1,7 +1,12 @@
 :local(.images) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .image-placeholder {
     border: 2px solid pink;
     width: 200px;
     height: 200px;
+    margin: 15px;
   }
 }
