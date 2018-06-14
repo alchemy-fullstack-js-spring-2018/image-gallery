@@ -22,12 +22,6 @@ describe('Album E2E API', () => {
         return res;
     };
 
-    const getAllFields = ({ _id, content, question}) => {
-        return {
-            _id, content, question
-        };
-    };
-
     before(() => dropCollection('albums'));
 
     it('adds an album', () => {
@@ -71,13 +65,13 @@ describe('Album E2E API', () => {
         france = { 
             ...france, 
             description: 'I got sick here, terrible trip'
-        }
+        };
         
         return request.put(`/albums/${france._id}`)
             .send(france)
             .then(({ body }) => {
                 assert.deepEqual(body, france);
-            })
+            });
     });
 
     it('deletes an album', () => {
