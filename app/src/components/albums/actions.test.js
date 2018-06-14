@@ -7,7 +7,7 @@ import { loadAlbums, addAlbum } from './actions';
 import { ALBUMS_LOAD, ALBUM_ADD } from './reducers';
 import { getAllAlbums, postAlbum } from '../../services/api';
 
-describe('Album Actions', () => {
+describe.skip('Album Actions', () => {
   it('Loads Albums', () => {
     const promise = Promise.resolve();
     getAllAlbums.mockReturnValueOnce(promise);
