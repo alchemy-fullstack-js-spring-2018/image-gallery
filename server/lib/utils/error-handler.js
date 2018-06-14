@@ -4,8 +4,8 @@ module.exports = function createErrorHandler(log = console.log) {
     // eslint-disable-next-line
     return (err, req, res, next) => {
         let showLog = process.env.NODE_ENV !== 'production';
-        let code = 500;
-        let error = 'Internal Server Error';
+        let code = 404;
+        let error = 'Not Found';
 
         if(err.code) {
             code = err.code;

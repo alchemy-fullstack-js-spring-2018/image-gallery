@@ -8,13 +8,17 @@ app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 
+const albums = require('./routes/albums');
+// const images = require('./routes/images');
+
 // add routes
-app.get('/api/whatever', (req, res) => {
-    res.json([1, 2, 3]);
-});
+// app.get('/api/whatever', (req, res) => {
+//     res.json([1, 2, 3]);
+// });
 
 // bunch o other routes
-
+app.use('/albums', albums);
+// app.use('/albums/:id/images', images);
 app.use((req, res) => {
     res.sendFile('index.html', { root: './public'} );
 });
