@@ -5,6 +5,8 @@ export function albums(state = [], { type, payload }) {
   switch(type) {
     case ALBUMS_LOAD:
       return payload;
+    case ALBUM_ADD:
+      return [...state, payload];
     default:
       return state;
   }

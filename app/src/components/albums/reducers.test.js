@@ -24,4 +24,9 @@ describe('albums reducer', () => {
     const state = albums([], { type: ALBUMS_LOAD, payload: [album1, album2] });
     expect(state).toEqual([album1, album2]);
   });
+
+  it('adds an album', () => {
+    const state = albums([album1], { type: ALBUM_ADD, payload: album2 });
+    expect(state).toEqual([album1, album2]);
+  });
 });
