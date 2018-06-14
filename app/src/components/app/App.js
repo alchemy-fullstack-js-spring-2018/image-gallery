@@ -5,7 +5,7 @@ import About from '../about/About';
 import Images from '../images/Images';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
-import style from './App.css';
+import './App.css';
 
 export default class App extends PureComponent {
   render() {
