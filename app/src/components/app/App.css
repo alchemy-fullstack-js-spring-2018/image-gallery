@@ -1,0 +1,74 @@
+// * { border: 1px solid black; }
+@import url('https://fonts.googleapis.com/css?family=Karla');
+* {
+    font-family: 'Karla', sans-serif;
+}
+
+.grid-class {
+ 
+    display: grid;
+    grid-template-columns: 150px 2fr 1fr;
+    grid-template-rows: 100px 5fr 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    grid-template-areas: "nav head head" 
+                         "nav main main" 
+                         "nav foot foot";
+
+
+}
+
+.header {
+    grid-area: head;
+    border: 1px solid black; 
+    text-align: center;
+}
+
+.nav-bar {
+    grid-area: nav;
+    border: 1px solid black; 
+
+}
+
+.main-area {
+    grid-area: main;
+    border: 1px solid black; 
+    text-align: center;
+}
+
+.foot {
+    grid-area: foot;
+    border: 1px solid black; 
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .grid-class {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 75px auto 1fr 60px;
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;    
+        grid-template-areas: "nav nav" "head head" "main main" "foot foot";
+
+    }
+    .nav-bar {
+        text-align: center;
+
+        li {
+            display: inline-block;
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .grid-class {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 75px auto 1fr 60px;
+        grid-column-gap: 0.5rem;
+        grid-row-gap: 0.5rem;    
+        grid-template-areas: "head head" "main main" "nav nav" "foot foot";
+
+    }
+}
