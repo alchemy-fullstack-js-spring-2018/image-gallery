@@ -8,6 +8,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.static('public'));
 
+const albums = require('./routes/albums');
+
+app.use('/albums', albums);
+
 app.use(errorHandler());
 
 module.exports = app;
