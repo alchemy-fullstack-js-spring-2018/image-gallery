@@ -16,4 +16,5 @@ describe.only('Album Reducers', () => {
     const state = albums([{ title: 'album1' }], { type: ALBUM_ADD, payload: { title: 'album2' } });
     expect(state).toEqual([{ title: 'album1' }, { title: 'album2' }]);
   });
+  
 });
