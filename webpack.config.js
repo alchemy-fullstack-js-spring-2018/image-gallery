@@ -6,7 +6,7 @@ const buildDir = 'docs';
 const path = `${__dirname}/${buildDir}`;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './app/src/index.js',
   output: {
     path,
     filename: 'bundle.[hash].js',
@@ -19,7 +19,7 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`), 
-    new HtmlPlugin({ template: './src/index.html' })
+    new HtmlPlugin({ template: './app/src/index.html' })
   ],
   module: {
     rules: [
