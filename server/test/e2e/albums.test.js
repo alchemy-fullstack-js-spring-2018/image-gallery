@@ -24,7 +24,7 @@ describe('albums e2e test', () => {
     };
 
     it('posts an album to the db', () => {
-        return request.post('/albums')
+        return request.post('/api/albums')
             .send(album1)
             .then(checkOk)
             .then(({ body }) => {
@@ -37,12 +37,12 @@ describe('albums e2e test', () => {
     });
 
     it('get all albums', () => {
-        return request.post('/albums')
+        return request.post('/api/albums')
             .send(album2)
             .then(checkOk)
             .then(({ body }) => {
                 album2 = body;
-                return request.get('/albums');
+                return request.get('/api/albums');
             })
             .then(checkOk)
             .then(({ body }) => {
