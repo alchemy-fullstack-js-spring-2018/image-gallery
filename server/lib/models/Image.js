@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { RequiredString } = require('../util/mongoose-helpers');
+const { RequiredString } = require('../utils/mongoose-helpers');
 
 const schema = new Schema({
 
@@ -18,7 +18,6 @@ const schema = new Schema({
     added: { 
         type: Date, 
         default: Date.now,
-        required: true
     },
 });
 
