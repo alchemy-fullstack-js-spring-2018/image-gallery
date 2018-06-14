@@ -7,7 +7,7 @@
     "build:prod": "npm run build && npm run copy",
     "build": "webpack --mode production",
     "copy": "rm -rf ../server/public && cp -R ./docs ../server/public",
-    "start": "webpack-dev-server --hot --mode development",
+    "start": "webpack-dev-server --hot --mode development --open",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "jest": "jest",
