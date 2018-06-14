@@ -1,5 +1,5 @@
 {
-  "name": "image-gallery",
+  "name": "app",
   "version": "1.0.0",
   "description": "image galley",
   "main": "src/index.js",
