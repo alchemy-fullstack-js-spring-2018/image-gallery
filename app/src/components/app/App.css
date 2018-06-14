@@ -1,0 +1,20 @@
+:local(.app) {
+  display: grid;
+  @media (min-width: 375px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 60px 1fr 60px;
+    grid-template-areas: "header" "nav" "main" "footer";
+    h1 {
+      grid-area: header;
+    }
+    footer {
+      grid-area: footer;
+    }
+    nav {
+      grid-area: nav;
+    }
+    main {
+      grid-area: main;
+    }
+  }
+}
