@@ -5,16 +5,25 @@ import About from '../about/About';
 import Images from '../images/Images';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
+import './App.css';
 
 export default class App extends PureComponent {
   render() {
 
     return (
       <Router>
-        <div>
-          <header>IMAGES!</header>
-          <nav></nav>
-          <main>
+        <div className = "grid-class">
+          <header className = "header">Header!</header>
+          <nav className = "nav-bar"> navigation bar &nbsp;
+            <ul>
+              <li>Albums</li>
+              <li>Add Albums</li>
+              <li>Images</li>
+              <li>About</li>
+            </ul>
+          </nav>
+          <main className = "main-area">
+            Main
             {<Switch>
               <Route exact path="/" component={Albums}/>
               <Route path="/about" component={About}/>
@@ -29,7 +38,7 @@ export default class App extends PureComponent {
               <Redirect to="/"/>
             </Switch>}
           </main>
-          <footer></footer>
+          <footer className = "foot">footer</footer>
         </div>
       </Router>
     );
