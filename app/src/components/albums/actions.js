@@ -23,8 +23,10 @@ export function loadAlbum(id) {
 }
 
 export function addImage(albumId, image) {
+  image.albumId = albumId;
+
   return {
     type: IMAGE_ADD,
-    payload: postImage(albumId, image)
+    payload: postImage(image)
   };
 }

@@ -53,11 +53,12 @@ describe('action creators', () => {
 
   it('creates an add action for a new image', () => {
     const image = { title: 'stuff', description: 'and things' };
+    const albumId = '1';
 
     const promise = Promise.resolve(image);
     postImage.mockReturnValueOnce(promise);
 
-    const { type, payload } = addImage(1, image);
+    const { type, payload } = addImage(albumId, image);
     expect(type).toBe(IMAGE_ADD);
     expect(postImage.mock.calls.length).toBe(1);
     expect(payload).toBe(promise);
