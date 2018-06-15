@@ -4,6 +4,7 @@ import {
   ALBUMS_LOAD,
   ALBUM_ADD,
   ALBUM_LOAD,
+  IMAGE_ADD,
   getAlbums,
   getCurrentAlbum } from './reducers';
 
@@ -45,6 +46,12 @@ describe('album reducer', () => {
   it('loads a single album', () => {
     const state = album(null, { type: ALBUM_LOAD, payload: album1 });
     expect(state).toEqual(album1);
+  });
+
+  it('adds an image to the current album', () => {
+    const image2 = { title: 'kitten2' };
+    const state = album(album1, { type: IMAGE_ADD, payload: image2 });
+    expect(state).toEqual({ ...album1, images: [...album1.images, image2] });
   });
 });
 

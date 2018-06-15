@@ -1,6 +1,7 @@
 export const ALBUMS_LOAD = 'ALBUMS_LOAD';
 export const ALBUM_ADD = 'ALBUM_ADD';
 export const ALBUM_LOAD = 'ALBUM_LOAD';
+export const IMAGE_ADD = 'IMAGE_ADD';
 
 export const getAlbums = state => state.albums;
 export const getCurrentAlbum = state => state.album;
@@ -20,6 +21,11 @@ export function album(state = null, { type, payload }) {
   switch(type) {
     case ALBUM_LOAD:
       return payload;
+    case IMAGE_ADD:
+      return {
+        ...state,
+        images: [...state.images, payload]
+      };
     default:
       return state;
   }
