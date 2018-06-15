@@ -18,6 +18,7 @@ export class Albums extends PureComponent {
 
   render() {
     const { albums } = this.props;
+    if(!albums) return null;
 
     return (
       <div><h1>Album Component</h1>
