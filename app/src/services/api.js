@@ -6,3 +6,4 @@ const ALBUMS_URL = `${URL}/albums`;
 export const getAllAlbums = () => get(ALBUMS_URL);
 export const postAlbum = album => post(ALBUMS_URL, album);
 export const getOneAlbum = id => get(`${ALBUMS_URL}/${id}`);
+export const postImage = (albumId, image) => get(`${ALBUMS_URL}/${albumId}/images`, image);

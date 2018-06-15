@@ -1,5 +1,5 @@
-import { getAllAlbums, postAlbum, getOneAlbum } from '../../services/api';
-import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_LOAD } from './reducers';
+import { getAllAlbums, postAlbum, getOneAlbum, postImage } from '../../services/api';
+import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_LOAD, IMAGE_ADD } from './reducers';
 
 export function loadAlbums() {
   return {
@@ -19,5 +19,12 @@ export function loadAlbum(id) {
   return {
     type: ALBUM_LOAD,
     payload: getOneAlbum(id)
+  };
+}
+
+export function addImage(albumId, image) {
+  return {
+    type: IMAGE_ADD,
+    payload: postImage(albumId, image)
   };
 }
