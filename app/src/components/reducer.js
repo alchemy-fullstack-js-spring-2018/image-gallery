@@ -1,6 +1,6 @@
 export const ALBUMS_SHOW = 'ALBUMS_SHOW';
 export const ALBUM_SHOW = 'ALBUM_SHOW';
-export const ALBUMS_ADD = 'ALBUMS_ADD';
+export const ALBUM_ADD = 'ALBUM_ADD';
 
 export const getAlbumsById = state => state.albumsById;
 export const getAlbumsList = state => state.albumList;
@@ -34,6 +34,8 @@ export function albums(state = [], { type, payload }) {
   switch(type) {
     case ALBUMS_SHOW:
       return payload.map(album => album._id);
+    case ALBUM_ADD:
+      return [...state, payload];
     default: 
       return state;
   }
