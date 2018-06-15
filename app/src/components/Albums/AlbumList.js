@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { loadAlbums, addAlbums } from '../action';
+import { loadAlbums, addAlbums } from '../actions';
 import { getAlbumsList } from '../reducer';
 import AlbumItem from './AlbumItem';
 import { connect } from 'react-redux';

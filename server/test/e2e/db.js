@@ -7,7 +7,8 @@ after(() => mongoose.connection.close());
 
 module.exports = {
     dropCollection(name) {
-        return mongoose.connection.dropCollection(name)
+        const collection = mongoose.connection.collections[name];
+        return collection.drop()
             .catch(err => {
                 if(err.codeName !== 'NamespaceNotFound') throw err;
             });

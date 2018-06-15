@@ -1,4 +1,4 @@
-export const ALBUMS_SHOW = 'ALBUMS_SHOW';
+export const ALBUMS_LOAD = 'ALBUMS_LOAD';
 export const ALBUM_SHOW = 'ALBUM_SHOW';
 export const ALBUM_ADD = 'ALBUM_ADD';
 
@@ -11,7 +11,7 @@ export const getPet = state => state.pet;
 
 export function albumsById(state = [], { type, payload }) {
   switch(type) {
-    case ALBUMS_SHOW:
+    case ALBUMS_LOAD:
       return payload.reduce((map, album) => {
         map[album._id] = { 
           ...state[album._id],
@@ -24,6 +24,8 @@ export function albumsById(state = [], { type, payload }) {
         ...state,
         [payload._id]: payload
       };
+    case ALBUM_ADD:
+      return [...state, payload];
     default:
       return state;
   }
@@ -32,10 +34,10 @@ export function albumsById(state = [], { type, payload }) {
 
 export function albumList(state = [], { type, payload }) {
   switch(type) {
-    case ALBUMS_SHOW:
+    case ALBUM_SHOW:
       return payload.map(album => album._id);
     case ALBUM_ADD:
-      return [...state, payload];
+      return [...state, payload._id];
     default: 
       return state;
   }

@@ -1,4 +1,4 @@
-import { ALBUMS_SHOW, ALBUM_ADD } from './reducer';
+import { ALBUMS_LOAD, ALBUM_ADD } from './reducer';
 import { fetchLoadAlbums, fetchAddAlbum } from '../services/db';
 
 export function loadAlbums() {
@@ -6,7 +6,7 @@ export function loadAlbums() {
     return fetchLoadAlbums()
       .then(albums => {
         dispatch({
-          type: ALBUMS_SHOW,
+          type: ALBUMS_LOAD,
           payload: albums 
         });
       });
