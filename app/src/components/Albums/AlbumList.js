@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { loadAlbums } from '../action';
@@ -6,21 +6,19 @@ import { getAlbumsList } from '../reducer';
 import AlbumItem from './AlbumItem';
 import { connect } from 'react-redux';
 
-class AlbumList extends PureComponent {
+class AlbumList extends Component {
     
     static propTypes = {
       albums: PropTypes.array,
       loadAlbums: PropTypes.func.isRequired
     };
 
-
-    conponentDidMount() {
+    componentDidMount(){
       this.props.loadAlbums();
     }
 
     render() {
       const { albums } = this.props;
-      if(!albums) return null;
   
       return (
         <div>
@@ -29,7 +27,7 @@ class AlbumList extends PureComponent {
             <button>Add New</button>
           </Link>
           <ul>
-            {albums.map(album => <AlbumItem key={album.id} {...album}/>)}
+            {albums ? albums.map(album => <AlbumItem key={album.id} {...album}/>) : null}
           </ul>
         </div>
       );

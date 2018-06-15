@@ -25,7 +25,7 @@ describe('Album E2E API', () => {
     before(() => dropCollection('albums'));
 
     it('adds an album', () => {
-        return request.post('/albums/new')
+        return request.post('/api/albums/new')
             .send(spain)
             .then(checkOk)
             .then(( {body }) => {
@@ -41,12 +41,12 @@ describe('Album E2E API', () => {
     });
 
     it('gets all albums', () => {
-        return request.post('/albums/new')
+        return request.post('/api/albums/new')
             .send(france)
             .then(checkOk)
             .then(( {body }) => {
                 france = body;
-                request.get('/albums')
+                request.get('/api/albums')
                     .then(checkOk)
                     .then(({ body }) => {
                         assert.deepEqual(body, [spain, france]);
@@ -55,7 +55,7 @@ describe('Album E2E API', () => {
     });
 
     it('gets an album by id', () => {
-        return request.get(`/albums/${france._id}`)
+        return request.get(`/api/albums/${france._id}`)
             .then(({ body }) => {
                 assert.deepEqual(body._id, france._id);
             });
@@ -67,7 +67,7 @@ describe('Album E2E API', () => {
             description: 'I got sick here, terrible trip'
         };
         
-        return request.put(`/albums/${france._id}`)
+        return request.put(`/api/albums/${france._id}`)
             .send(france)
             .then(({ body }) => {
                 assert.deepEqual(body, france);
@@ -75,7 +75,7 @@ describe('Album E2E API', () => {
     });
 
     it('deletes an album', () => {
-        return request.delete(`/albums/${france._id}`)
+        return request.delete(`/api/albums/${france._id}`)
             .then(() => {
                 return Album.findById(france._id);
             })

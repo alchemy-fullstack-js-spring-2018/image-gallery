@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 const defaultState = {
   id: '',
   title: '',
-  description: ''
+  description: '',
+  coverImage: '',
 };
 
 export default class AlbumsForm extends Component {
@@ -26,17 +27,21 @@ export default class AlbumsForm extends Component {
   };
 
   render() {
-    const { title, description } = this.state;
+    const { title, description, coverImage } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
           Title:
-          <input name="title" value={title} onChange={this.handleChange}/>
+          <input name="title" value={title} onChange={this.handleChange} required/>
         </label>
         <label>
           Description:
-          <input name="description" value={description} onChange={this.handleChange}/>
+          <input name="description" value={description} onChange={this.handleChange} required/>
+        </label>
+        <label>
+          Cover:
+          <input name="coverImage" value={coverImage} onChange={this.handleChange} required/>
         </label>
         <button type="submit">Create</button>
       </form>

@@ -17,8 +17,8 @@ const images = require('./routes/images');
 // });
 
 // bunch o other routes
-app.use('/albums', albums);
-app.use('/albums', images);
+app.use('/api/albums', albums);
+app.use('/api/images', images);
 app.use((req, res) => {
     res.sendFile('index.html', { root: './public'} );
 });

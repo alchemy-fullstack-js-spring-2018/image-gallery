@@ -16,7 +16,7 @@ export default class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route path="/albums" component={AlbumList}/>
+              <Route exact path="/albums" component={AlbumList}/>
               <Route path="/albums/new" component={AlbumsForm}/>
               <Route path="/about" component={About}/>
               <Redirect to="/"/>

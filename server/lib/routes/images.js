@@ -7,35 +7,34 @@ module.exports = router
     .param('id', getParam)
     .param('albumId', getParam)
 
-    .get('/:albumId/images', respond(
+    .get('/:albumId', respond(
         ({ query }) => {
             return Image.find(query)
                 .lean();
         }
     ))
 
-    .get('/:albumId/images/list', respond(
+    .get('/:albumId/list', respond(
         ({ query }) => {
             return Image.find(query)
                 .lean()
                 .select('albumId title description');
-
         }
     ))
 
-    .post('/:albumId/images/new', respond(
+    .post('/:albumId/new', respond(
         ({ body }) => {
             return Image.create(body);
         }
     ))
 
-    .put('/:albumId/images/:id', respond(
+    .put('/:albumId/:id', respond(
         ({ body, id }) => {
             return Image.findByIdAndUpdate(id, body, { new: true});
         }
     ))
 
-    .delete('/:albumId/images/:id', respond(
+    .delete('/:albumId/:id', respond(
         ({ id }) => {
             return Image.findByIdAndRemove(id);
         }
