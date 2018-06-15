@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+// import { styles } from './Nav.css';
 
 export default class Nav extends Component {
+  
   render() {
     return (
       <header>
-        <h1>Image Gallery</h1>
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
