@@ -5,35 +5,36 @@ const Image = require('../models/Image');
 module.exports = router
 
     .param('id', getParam)
+    .param('albumId', getParam)
 
-    .get('/thumbnail', respond(
+    .get('/:albumId/images/thumbnail', respond(
         ({ query }) => {
             return Image.find(query)
                 .lean();
         }
     ))
 
-    .get('/gallery', respond(
+    .get('/:albumId/images/gallery', respond(
         ({ query }) => {
             return Image.find(query)
                 .lean();
         }
     ))
 
-    .get('/list', respond(
+    .get('/:albumId/images/list', respond(
         ({ query }) => {
             return Image.find(query)
                 .lean();
         }
     ))
 
-    .post('/new', respond(
+    .post('/:albumId/images/new', respond(
         ({ body }) => {
             return Image.create(body);
         }
     ))
 
-    .delete('/:id', respond(
+    .delete('/:albumId/images/:id', respond(
         ({ id }) => {
             return Image.findByIdAndRemove(id);
         }

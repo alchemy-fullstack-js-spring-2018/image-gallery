@@ -9,7 +9,7 @@ app.use(express.static('./public'));
 app.use(bodyParser.json());
 
 const albums = require('./routes/albums');
-// const images = require('./routes/images');
+const images = require('./routes/images');
 
 // add routes
 // app.get('/api/whatever', (req, res) => {
@@ -17,9 +17,8 @@ const albums = require('./routes/albums');
 // });
 
 // bunch o other routes
-
 app.use('/albums', albums);
-// app.use('/albums/:id/images', images);
+app.use('/albums', images);
 app.use((req, res) => {
     res.sendFile('index.html', { root: './public'} );
 });

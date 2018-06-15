@@ -15,10 +15,7 @@ const schema = new Schema({
         maxlength: 200
     },
     url: RequiredString,
-    added: { 
-        type: Date, 
-        default: Date.now,
-    },
+
 });
 
 module.exports = mongoose.model('Image', schema);
