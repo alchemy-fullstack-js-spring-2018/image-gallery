@@ -12,27 +12,20 @@ class Albums extends Component {
       addAlbums: PropTypes.func.isRequired
     }
 
-
     handleAdd = album => {
       this.props.addAlbums(album);
     }
   
-
-
     render() {
 
       return (
-        <div>
-          <Router>
-            <Switch>
-              <Route exact path="/albums" component={AlbumsList}/>
-              <Route path="/albums/new" render = {() => {
-                return <AlbumsForm onAdd={this.handleAdd}/>;
-              }}/>
-              <Redirect to="/"/>
-            </Switch>
-          </Router>
-        </div>
+        <Switch>
+          <Route exact path="/albums" component={AlbumsList}/>
+          <Route path="/albums/new" render = {() => {
+            return <AlbumsForm onAdd={this.handleAdd}/>;
+          }}/>
+          <Redirect to="/albums"/>
+        </Switch>
       );
     }
 }
