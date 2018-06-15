@@ -1,16 +1,19 @@
 jest.mock('../../services/api', () => ({
   getAllAlbums: jest.fn(),
-  postAlbum: jest.fn()
+  postAlbum: jest.fn(),
+  getOneAlbum: jest.fn()
 }));
 
 import {
   ALBUMS_LOAD,
-  ALBUM_ADD } from './reducers';
+  ALBUM_ADD,
+  ALBUM_LOAD } from './reducers';
 
 import {
   loadAlbums,
-  addAlbum } from './actions';
-import { getAllAlbums, postAlbum } from '../../services/api';
+  addAlbum,
+  loadAlbum } from './actions';
+import { getAllAlbums, postAlbum, getOneAlbum } from '../../services/api';
 
 describe('action creators', () => {
   it('creates a load action', () => {
@@ -32,6 +35,16 @@ describe('action creators', () => {
     const { type, payload } = addAlbum(album);
     expect(type).toBe(ALBUM_ADD);
     expect(postAlbum.mock.calls.length).toBe(1);
+    expect(payload).toBe(promise);
+  });
+
+  it('creates a load action for a single album', () => {
+    const promise = Promise.resolve({ title: 'album1' });
+    getOneAlbum.mockReturnValueOnce(promise);
+
+    const { type, payload } = loadAlbum();
+    expect(type).toBe(ALBUM_LOAD);
+    expect(getOneAlbum.mock.calls.length).toBe(1);
     expect(payload).toBe(promise);
   });
 });
