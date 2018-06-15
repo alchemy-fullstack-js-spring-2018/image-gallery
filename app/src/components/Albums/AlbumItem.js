@@ -15,7 +15,7 @@ export default class AlbumItem extends PureComponent {
       <li>
         <div>
           <img src={album.coverImage}/>
-          <Link to={`/album/${album._id}`}>{album.title}</Link>
+          <Link to={`/albums/${album._id}`}>{album.title}</Link>
           <p>{album.description}</p>
         </div>
       </li>

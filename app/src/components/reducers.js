@@ -3,10 +3,10 @@ export const ALBUM_ADD = 'ALBUM_ADD';
 export const ALBUM_SHOW = 'ALBUM_SHOW';
 export const IMAGE_ADD = 'IMAGE_ADD';
 
-export const getAlbumById = state => state.albumsById;
+export const getAlbumById = state => state.albumById;
 export const getAlbumsList = state => state.albumList;
 
-export function albumsById(state = [], { type, payload }) {
+export function albumById(state = {}, { type, payload }) {
   switch(type) {
     case ALBUM_SHOW:
       return {

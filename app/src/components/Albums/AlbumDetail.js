@@ -10,7 +10,7 @@ class AlbumDetail extends PureComponent {
     static propTypes = {
       match: PropTypes.object.isRequired,
       showAlbum: PropTypes.func.isRequired,
-      album: PropTypes.object
+      albumObject: PropTypes.object
     };
 
     state = {
@@ -22,11 +22,13 @@ class AlbumDetail extends PureComponent {
     }
 
     render() {    
-      const { album } = this.props;
+      const { albumObject } = this.props;
+      const { albumId } = this.state;
+      const album = albumObject[albumId];
 
-      return (
+      return !album ? (<p> Loading! </p>) : (
         <div>
-          <image src={album.coverImage}/>
+          <img src={album.coverImage}/>
           <p> Title: {album.title} </p>
           <p> Description: {album.description} </p>
           <Link to={`/albums/${album._id}/images/thumbnail`}>
@@ -48,7 +50,7 @@ class AlbumDetail extends PureComponent {
 
 export default connect(
   state => ({ 
-    album: getAlbumById(state) 
+    albumObject: getAlbumById(state) 
   }),
   { showAlbum }
 )(AlbumDetail);
