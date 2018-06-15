@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { loadAlbums } from '../action';
+import { loadAlbums, addAlbums } from '../action';
 import { getAlbumsList } from '../reducer';
 import AlbumItem from './AlbumItem';
+import AlbumsForm from './AlbumsForm';
 import { connect } from 'react-redux';
 
 class AlbumList extends Component {
     
     static propTypes = {
       albums: PropTypes.array,
-      loadAlbums: PropTypes.func.isRequired
+      loadAlbums: PropTypes.func.isRequired,
+      addAlbums: PropTypes.func
     };
 
     componentDidMount(){
       this.props.loadAlbums();
+    }
+
+    handleAdd = album => {
+      this.props.addAlbums(album);
     }
 
     render() {
@@ -29,6 +35,7 @@ class AlbumList extends Component {
           <ul>
             {albums ? albums.map(album => <AlbumItem key={album.id} {...album}/>) : null}
           </ul>
+          <AlbumsForm onAdd={this.handleAdd}/>
         </div>
       );
     }
@@ -36,5 +43,5 @@ class AlbumList extends Component {
 
 export default connect(
   state => ({ albums: getAlbumsList(state) }),
-  { loadAlbums }
+  { loadAlbums, addAlbums }
 )(AlbumList);
