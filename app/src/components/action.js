@@ -1,5 +1,5 @@
 import { SHOW_ALBUMS, ADD_ALBUMS } from './reducer';
-import { dummyfunc, dummyfunc2 } from '../../services/api';
+import { dummyfunc, dummyfunc2 } from '../services/';
 
 export function loadAlbums() {
   return {

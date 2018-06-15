@@ -17,6 +17,7 @@ const albums = require('./routes/albums');
 // });
 
 // bunch o other routes
+
 app.use('/albums', albums);
 // app.use('/albums/:id/images', images);
 app.use((req, res) => {
