@@ -11,10 +11,6 @@ app.use(bodyParser.json());
 const albums = require('./routes/albums');
 app.use('/api', albums);
 
-app.get('/api/albums', (req, res) => {
-    res.json([{ title: 'Example Album' }]);
-});
-
 app.use((req, res) => {
     res.sendFile('index.html', { root: '/public'} );
 });
