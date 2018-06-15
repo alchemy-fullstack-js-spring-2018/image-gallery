@@ -43,8 +43,6 @@ describe('Image E2E API', () => {
         return res;
     };
 
-    const getListFields = ({ _id, albumId, title, description }) => ({ _id, albumId, title, description });
-
     before(() => dropCollection('albums'));
     before(() => dropCollection('images')); 
 
@@ -96,14 +94,6 @@ describe('Image E2E API', () => {
             .then(checkOk)
             .then(({ body }) => {
                 assert.deepEqual(body, [image1, image2]);
-            });
-    });
- 
-    it('gets image and list data by album', () => {
-        return request.get(`/api/images/${image2.albumId}/list`)
-            .then(checkOk)
-            .then(({ body }) => {
-                assert.deepEqual(body, [image1, image2].map(getListFields));
             });
     });
 

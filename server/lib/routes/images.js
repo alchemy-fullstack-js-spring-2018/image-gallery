@@ -14,14 +14,6 @@ module.exports = router
         }
     ))
 
-    .get('/:albumId/list', respond(
-        ({ query }) => {
-            return Image.find(query)
-                .lean()
-                .select('albumId title description');
-        }
-    ))
-
     .post('/:albumId/new', respond(
         ({ body }) => {
             return Image.create(body);

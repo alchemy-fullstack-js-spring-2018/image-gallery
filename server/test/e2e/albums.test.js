@@ -22,6 +22,8 @@ describe('Album E2E API', () => {
         return res;
     };
 
+    const getListFields = ({ _id, title, coverImage }) => ({ _id, title, coverImage });
+
     before(() => dropCollection('albums'));
 
     it('adds an album', () => {
@@ -50,7 +52,7 @@ describe('Album E2E API', () => {
             })
             .then(checkOk)
             .then(({ body }) => {
-                return assert.deepEqual(body, [spain, france]);
+                return assert.deepEqual(body, [spain, france].map(getListFields));
             });
     });
 
