@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getAlbumById } from '../reducer';
 
-class AlbumItem extends PureComponent {
+export default class AlbumItem extends PureComponent {
   
   static propTypes = {
-    album: PropTypes.object
+    album: PropTypes.object,
   };
 
   render() {
@@ -24,10 +22,3 @@ class AlbumItem extends PureComponent {
     );
   }
 }
-
-export default connect(
-  (state, { id }) => ({
-    album: getAlbumById(state, id)
-  }),
-  null
-)(AlbumItem);

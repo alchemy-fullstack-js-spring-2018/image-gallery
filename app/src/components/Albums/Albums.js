@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { addAlbums } from '../actions';
 import AlbumsForm from './AlbumsForm';
 import AlbumsList from './AlbumList';
-
+import AlbumDetail from './AlbumDetail';
 
 class Albums extends Component {
 
@@ -26,6 +26,7 @@ class Albums extends Component {
             <Route path="/albums/new" render = {() => {
               return <AlbumsForm onAdd={this.handleAdd}/>;
             }}/>
+            <Route path="/albums/:albumId" component={AlbumDetail}/>
             <Redirect to="/albums"/>
           </Switch>
         </div>

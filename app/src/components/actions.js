@@ -1,4 +1,4 @@
-import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_SHOW } from './reducer';
+import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_SHOW } from './reducers';
 import { fetchLoadAlbums, fetchAddAlbum } from '../services/db';
 
 export function loadAlbums() {

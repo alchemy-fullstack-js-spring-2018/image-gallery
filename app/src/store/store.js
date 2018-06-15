@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { albumList, albumsById } from '../components/reducer';
+import { albumList, albumsById } from '../components/reducers';
 
 const rootReducer = combineReducers({
   albumsById,
