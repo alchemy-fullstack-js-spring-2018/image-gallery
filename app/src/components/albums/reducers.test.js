@@ -1,4 +1,4 @@
-import { albums, ALBUMS_LOAD, ALBUM_ADD } from './reducers';
+import { albums, ALBUMS_LOAD, ALBUM_ADD, images, LOAD_IMAGES, IMAGE_ADD, } from './reducers';
 
 describe.only('Album Reducers', () => {
 
@@ -15,6 +15,21 @@ describe.only('Album Reducers', () => {
   it('Adds an Album', () => {
     const state = albums([{ title: 'album1' }], { type: ALBUM_ADD, payload: { title: 'album2' } });
     expect(state).toEqual([{ title: 'album1' }, { title: 'album2' }]);
+  });
+
+  it('Returns an empty array for default state', () => {
+    const state = images(undefined, {});
+    expect(state).toEqual([]);
+  });
+
+  it('loads album images', () => {
+    const state = images(undefined, { type: LOAD_IMAGES, payload: [{ title: 'fakeImage' }] });
+    expect(state).toEqual([{ title: 'fakeImage' }]);
+  });
+
+  it('Adds an Image', () => {
+    const state = images([{ title: 'fakeImage' }], { type: IMAGE_ADD, payload: { title: 'fakeImage2' } });
+    expect(state).toEqual([{ title: 'fakeImage' }, { title: 'fakeImage2' }]);
   });
   
 });

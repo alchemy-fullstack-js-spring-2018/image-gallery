@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Elsie:400,900');
+
 
 * {
     background-size: cover;
@@ -8,38 +10,57 @@
 .grid-class {
  
     display: grid;
-    grid-template-columns: 150px 2fr 1fr;
+    grid-template-columns: 200px 2fr 1fr;
     grid-template-rows: 5fr 5fr 1fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.5rem;
-    grid-template-areas: "nav head head" 
+    grid-template-areas: "image head head" 
     "nav main main" 
     "nav foot foot";
     width: 100vw;
     height: 100vh;
+   
+}
+#logo {
+    grid-area: image;
+    padding-left: 20px;
 }
 
 .header {
-    grid-area: head;
-    border: 1px solid black; 
+    font-family: 'Elsie', cursive;
+    font-weight: 900;
     text-align: center;
+    font-size: 10em;
+    grid-area: head;
+    /* border: 1px solid black;  */
 }
 
 .nav-bar {
     grid-area: nav;
-    border: 1px solid black; 
+    line-height: 5rem; 
+    padding-left: 20px;
 
 }
 
+.nav-bar a {
+    color: gray;
+    opacity: 0.7;
+} 
+
+.nav-bar a:hover {
+    color: black;
+    opacity: 1;
+    
+}
+
+
 .main-area {
     grid-area: main;
-    border: 1px solid black; 
     text-align: center;
 }
 
 .foot {
     grid-area: foot;
-    border: 1px solid black; 
     text-align: center;
 }
 
@@ -50,33 +71,48 @@
         grid-template-rows: 75px auto 1fr 60px;
         grid-column-gap: 0.5rem;
         grid-row-gap: 0.5rem;    
-        grid-template-areas: "nav nav" "head head" "main main" "foot foot";
+        grid-template-areas: "image image" "nav nav" "main main" "foot foot";
         width: 100vw;
         height: 100vh;
     }
-    .nav-bar {
+    .nav-bar li {
         text-align: center;
+        display: inline-block;
+        padding-right: 5em;
 
-        li {
-            display: inline-block;
         }
-    }
+
+        #logo {
+            align-items: center;
+        }
+  
 }
 
-@media(max-width: 400px) {
+@media(max-width: 585px) {
     .grid-class {
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: 75px auto 1fr 60px;
         grid-column-gap: 0.5rem;
         grid-row-gap: 0.5rem;    
-        grid-template-areas: "head head" "main main" "nav nav" "foot foot";
+        grid-template-areas: "head head" "main main" "nav nav" "image image";
         width: 100vw;
         height: 100vh;
-
+        
     }
 
+    .nav-bar li {
+        text-align: center;
+        display: inline-block;
+        padding-right: 1em;
+        padding-left: 1em;
+
+        }
     .foot {
+        display: none;
+    }
+
+    #logo {
         display: none;
     }
 }
