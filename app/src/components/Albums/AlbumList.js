@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { loadAlbums, addAlbums } from '../action';
 import { getAlbumsList } from '../reducer';
 import AlbumItem from './AlbumItem';
-import AlbumsForm from './AlbumsForm';
 import { connect } from 'react-redux';
 
 class AlbumList extends Component {
@@ -19,10 +18,6 @@ class AlbumList extends Component {
       this.props.loadAlbums();
     }
 
-    handleAdd = album => {
-      this.props.addAlbums(album);
-    }
-
     render() {
       const { albums } = this.props;
   
@@ -35,7 +30,6 @@ class AlbumList extends Component {
           <ul>
             {albums ? albums.map(album => <AlbumItem key={album.id} {...album}/>) : null}
           </ul>
-          <AlbumsForm onAdd={this.handleAdd}/>
         </div>
       );
     }

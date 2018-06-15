@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './Home';
 import Header from './Nav';
-import AlbumList from './Albums/AlbumList';
-import AlbumsForm from './Albums/AlbumsForm';
+import Albums from './Albums/Albums';
 import About from './About';
 
 export default class App extends Component {
@@ -16,8 +15,7 @@ export default class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/albums" component={AlbumList}/>
-              <Route path="/albums/new" component={AlbumsForm}/>
+              <Route exact path="/albums" component={Albums}/>
               <Route path="/about" component={About}/>
               <Redirect to="/"/>
             </Switch>
