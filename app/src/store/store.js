@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import { albums } from '.components/reducer';
+import { albums } from '../components/reducer';
 
 const rootReducer = combineReducers({
   albums

@@ -1,5 +1,5 @@
 // import React, { Component } from 'react';
-
+// import PropTypes from 'prop-types';
 
 // const defaultState = {
 //   id: '',
@@ -7,6 +7,6 @@
 //   description: ''
 // };
 
-// export default class Albums extends Component {
+// export default class AlbumsNew extends Component {
 
 // }
