@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; //eslint-disable-line
 import { connect } from 'react-redux';
 import { addAlbums } from '../action';
 import AlbumsForm from './AlbumsForm';
@@ -20,13 +20,15 @@ class Albums extends Component {
     render() {
 
       return (
-        <Switch>
-          <Route exact path="/albums" component={AlbumsList}/>
-          <Route path="/albums/new" render = {() => {
-            return <AlbumsForm onAdd={this.handleAdd}/>;
-          }}/>
-          <Redirect to="/albums"/>
-        </Switch>
+        <div>
+          <Switch>
+            <Route exact path="/albums" component={AlbumsList}/>
+            <Route path="/albums/new" render = {() => {
+              return <AlbumsForm onAdd={this.handleAdd}/>;
+            }}/>
+            <Redirect to="/albums"/>
+          </Switch>
+        </div>
       );
     }
 }
