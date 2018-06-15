@@ -6,7 +6,7 @@ export const getAlbumsById = state => state.albumsById;
 export const getAlbumsList = state => state.albumList;
 export const getAlbumById = (state, id) => getAlbumsById(state)[id];
 
-export const getPet = state => state.pet;
+export const getAlbum = state => state.album;
 
 
 export function albumsById(state = [], { type, payload }) {
