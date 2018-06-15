@@ -8,6 +8,9 @@ app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(bodyParser.json());
 
+const albums = require('./routes/albums');
+app.use('/api', albums);
+
 app.get('/api/albums', (req, res) => {
     res.json([{ title: 'Example Album' }]);
 });

@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 
-module.exports = function(dbUri = defaultUri) {
+module.exports = function(dbUri) {
 
     const promise = mongoose.connect(dbUri, { useMongoClient: true });
 
