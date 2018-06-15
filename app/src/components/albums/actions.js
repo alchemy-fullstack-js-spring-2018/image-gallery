@@ -22,15 +22,15 @@ const staticAlbums = [
   },
   {
     id: 4,
-    title: 'Album 2',
-    description: 'album2 description',
-    posterImage: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Dentata_Ryan_Obermeyer.jpg',
+    title: 'Guild Wars 2 Concept Art',
+    description: 'By Daniel Damaciu',
+    posterImage: 'http://danieldociu.weebly.com/uploads/1/3/0/0/13009351/496565_1_orig.jpg',
   },
   {
     id: 5,
-    title: 'Album 2',
-    description: 'album2 description',
-    posterImage: 'https://thumb1.shutterstock.com/display_pic_with_logo/923585/117628360/stock-vector-a-old-wanted-posters-vector-wanted-poster-image-117628360.jpg'
+    title: 'Generative Art',
+    description: 'Processing Artwork',
+    posterImage: 'https://i.pinimg.com/736x/ed/e2/c2/ede2c25114170dff6a8298a29a070ebb--generative-art-cg-art.jpg'
   },
   {
     id: 6,
@@ -40,9 +40,9 @@ const staticAlbums = [
   },
   {
     id: 7,
-    title: 'Album 2',
-    description: 'album2 description',
-    posterImage: 'https://thumb1.shutterstock.com/display_pic_with_logo/923585/117628360/stock-vector-a-old-wanted-posters-vector-wanted-poster-image-117628360.jpg'
+    title: 'Voyage',
+    description: 'Photogarphy by Emily Albertson',
+    posterImage: 'http://payload338.cargocollective.com/1/15/499597/9071167/Voyage-83_1896.jpg'
   },
   {
     id: 8,
@@ -52,9 +52,9 @@ const staticAlbums = [
   },
   {
     id: 9,
-    title: 'Album 2',
-    description: 'album2 description',
-    posterImage: 'https://thumb1.shutterstock.com/display_pic_with_logo/923585/117628360/stock-vector-a-old-wanted-posters-vector-wanted-poster-image-117628360.jpg'
+    title: 'Traditional Art',
+    description: 'Art that defined an Age',
+    posterImage: 'https://is2-ssl.mzstatic.com/image/thumb/Purple/45/1b/72/mzm.ullnfcki.png/246x0w.jpg'
   }
 ];
 
