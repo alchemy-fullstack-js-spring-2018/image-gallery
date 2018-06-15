@@ -1,16 +1,16 @@
 import { SHOW_ALBUMS, ADD_ALBUMS } from './reducer';
-import { dummyfunc, dummyfunc2 } from '../services/';
+import { fetchLoadAlbums, fetchAddAlbums } from '../services/db';
 
 export function loadAlbums() {
   return {
     type: SHOW_ALBUMS,
-    payload: dummyfunc //GET request goes here
+    payload: fetchLoadAlbums() //GET request goes here
   };
 }
 
 export function addAlbums() {
   return {
     type: ADD_ALBUMS,
-    payload: dummyfunc2 // DELETE request goes here
+    payload: fetchAddAlbums() // POST request goes here
   };
 }
