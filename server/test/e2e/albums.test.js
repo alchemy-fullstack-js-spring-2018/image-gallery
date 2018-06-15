@@ -46,7 +46,7 @@ describe('Album E2E API', () => {
             .then(checkOk)
             .then(( {body }) => {
                 france = body;
-                return request.get('/api/albums')
+                return request.get('/api/albums');
             })
             .then(checkOk)
             .then(({ body }) => {

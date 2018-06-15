@@ -6,9 +6,6 @@ export const getAlbumsById = state => state.albumsById;
 export const getAlbumsList = state => state.albumList;
 export const getAlbumById = (state, id) => getAlbumsById(state)[id];
 
-export const getPet = state => state.pet;
-
-
 export function albumsById(state = [], { type, payload }) {
   switch(type) {
     case ALBUMS_LOAD:
@@ -31,14 +28,27 @@ export function albumsById(state = [], { type, payload }) {
   }
 }
 
-
 export function albumList(state = [], { type, payload }) {
   switch(type) {
-    case ALBUM_SHOW:
+    case ALBUMS_LOAD:
       return payload.map(album => album._id);
     case ALBUM_ADD:
       return [...state, payload._id];
     default: 
+      return state;
+  }
+}
+
+export function imagesByAlbum(state = [], { type, payload }) {
+  switch(type) {
+    case ALBUM_SHOW:
+      return {
+        ...state,
+        [payload._id]: payload
+      };
+    case ALBUM_ADD:
+      return [...state, payload];
+    default:
       return state;
   }
 }
