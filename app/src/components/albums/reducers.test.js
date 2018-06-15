@@ -4,7 +4,8 @@ import {
   ALBUMS_LOAD,
   ALBUM_ADD,
   ALBUM_LOAD,
-  getAlbums } from './reducers';
+  getAlbums,
+  getCurrentAlbum } from './reducers';
 
 const album1 = {
   title: 'kittens',
@@ -52,5 +53,11 @@ describe('selectors', () => {
     const albums = [album1, album2];
     const got = getAlbums({ albums });
     expect(got).toEqual(albums);
+  });
+
+  it('gets the current album', () => {
+    const album = album1;
+    const got = getCurrentAlbum({ album });
+    expect(got).toEqual(album);
   });
 });
