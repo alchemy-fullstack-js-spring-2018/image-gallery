@@ -30,6 +30,8 @@ describe('Image E2E API', () => {
         return res;
     };
 
+    const getListFields = ({ _id, albumId, title, description }) => ({ _id, albumId, title, description });
+
     before(() => dropCollection('albums'));
     before(() => dropCollection('images')); 
 
@@ -43,7 +45,7 @@ describe('Image E2E API', () => {
             });
     });
 
-    it.only('uploads an image', () => {
+    it('uploads an image', () => {
         return request.post(`/albums/${image1.albumId}/images/new`)
             .send(image1)
             .then(checkOk)
@@ -59,44 +61,45 @@ describe('Image E2E API', () => {
             });
     });
 
-    it('gets all albums', () => {
-        return request.post('/albums/new')
-            .send(france)
+    it('gets all image and all data', () => {
+        return request.post(`/albums/${image2.albumId}/images/new`)
+            .send(image2)
             .then(checkOk)
-            .then(( {body }) => {
-                france = body;
-                request.get('/albums')
+            .then(({ body }) => {
+                image2 = body;
+                request.get(`/albums/${image2.albumId}/images`)
                     .then(checkOk)
                     .then(({ body }) => {
-                        assert.deepEqual(body, [spain, france]);
+                        assert.deepEqual(body, [image1, image2]);
                     });
             });
     });
 
-    it('gets an album by id', () => {
-        return request.get(`/albums/${france._id}`)
+    it('gets all image and list data', () => {
+        return request.get(`/albums/${image2.albumId}/images/list`)
+            .then(checkOk)
             .then(({ body }) => {
-                assert.deepEqual(body._id, france._id);
+                assert.deepEqual(body, [image1, image2].map(getListFields));
             });
     });
 
-    it('updates an album', () => {
-        france = { 
-            ...france, 
-            description: 'I got sick here, terrible trip'
+    it('updates an image', () => {
+        image1 = { 
+            ...image1, 
+            description: 'Bob is kind of a creep',
         };
         
-        return request.put(`/albums/${france._id}`)
-            .send(france)
+        return request.put(`/albums/${image1.albumId}/images/${image1._id}`)
+            .send(image1)
             .then(({ body }) => {
-                assert.deepEqual(body, france);
+                assert.deepEqual(body, image1);
             });
     });
 
     it('deletes an album', () => {
-        return request.delete(`/albums/${france._id}`)
+        return request.delete(`/albums/${image1.albumId}/images/${image1._id}`)
             .then(() => {
-                return Album.findById(france._id);
+                return Image.findById(image1._id);
             })
             .then(found => {
                 assert.isNull(found);

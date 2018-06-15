@@ -7,14 +7,7 @@ module.exports = router
     .param('id', getParam)
     .param('albumId', getParam)
 
-    .get('/:albumId/images/thumbnail', respond(
-        ({ query }) => {
-            return Image.find(query)
-                .lean();
-        }
-    ))
-
-    .get('/:albumId/images/gallery', respond(
+    .get('/:albumId/images', respond(
         ({ query }) => {
             return Image.find(query)
                 .lean();
@@ -24,13 +17,21 @@ module.exports = router
     .get('/:albumId/images/list', respond(
         ({ query }) => {
             return Image.find(query)
-                .lean();
+                .lean()
+                .select('albumId title description');
+
         }
     ))
 
     .post('/:albumId/images/new', respond(
         ({ body }) => {
             return Image.create(body);
+        }
+    ))
+
+    .put('/:albumId/images/:id', respond(
+        ({ body, id }) => {
+            return Image.findByIdAndUpdate(id, body, { new: true});
         }
     ))
 
