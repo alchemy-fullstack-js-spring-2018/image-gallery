@@ -13,9 +13,11 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    proxy: { '/api': 'http://localhost:3000' },
     contentBase: './${buildDir}',
     historyApiFallback: true,
+    proxy: { 
+      '/api': 'http://localhost:3000' 
+    },
   },
   devtool: 'inline-source-map',
   plugins: [
