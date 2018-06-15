@@ -12,4 +12,14 @@ const schema = new Schema({
     url: RequiredString
 });
 
+schema.statics = {
+
+    findByQuery(query) {
+        return this.find(query)
+            .lean()
+            .select();
+    }
+    
+};
+
 module.exports = mongoose.model('Image', schema);

@@ -5,7 +5,10 @@ const { RequiredString } = require('../util/mongoose-helpers');
 const schema = new Schema({
     title: RequiredString,
     description: RequiredString,
-    posterImage: RequiredString
+    posterImage: {
+        type: Schema.Types.ObjectId,
+        ref: 'Image'
+    }
 });
 
 schema.statics = {

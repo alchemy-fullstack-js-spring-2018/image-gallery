@@ -2,9 +2,10 @@ const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./db');
 
-describe('albums e2e test', () => {
+describe('albums API', () => {
 
     before(() => dropCollection('albums'));
+    before(() => dropCollection('images'));
 
     const checkOk = res => {
         if(!res.ok) throw res.error;
@@ -14,16 +15,32 @@ describe('albums e2e test', () => {
     let album1 = {
         title: 'title1',
         description: 'des1',
-        posterImage: 'img1'
+        posterImage: {}
     };
 
     let album2 = {
         title: 'title2',
         description: 'des2',
-        posterImage: 'img2'
+        posterImage: {}
     };
 
+    let image1 = {
+        albumId: [],
+        title: 'image1',
+        description: 'des1',
+        url: 'url1'
+    };
+
+    before(() => {
+        return request.post('/api/images') 
+            .send(image1)
+            .then(({ body }) => {
+                image1 = body;
+            });
+    });
+
     it('posts an album to the db', () => {
+        album1.posterImage._id = image1._id;
         return request.post('/api/albums')
             .send(album1)
             .then(checkOk)
@@ -37,6 +54,7 @@ describe('albums e2e test', () => {
     });
 
     it('get all albums', () => {
+        album2.posterImage._id = image1._id;
         return request.post('/api/albums')
             .send(album2)
             .then(checkOk)
