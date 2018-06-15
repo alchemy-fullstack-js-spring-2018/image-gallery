@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700');
+
+
+ul {
+    
+    list-style-type: none;
+
+    .album-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    grid-template-areas: "album album album
+                          album album album
+                          album album album";
+
+    }
+
+    #title {
+        font-weight: 700;
+
+    }
+
+    #poster-image {
+        height: 100px;
+    }
+
+    #description {
+        font-size: 10px;
+        font-style: italic;
+    }
+}
+
