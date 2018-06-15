@@ -24,7 +24,6 @@ export default class App extends PureComponent {
             </ul>
           </nav>
           <main className = "main-area">
-            Main
             {<Switch>
               <Route exact path="/" component={Albums}/>
               <Route path="/about" component={About}/>

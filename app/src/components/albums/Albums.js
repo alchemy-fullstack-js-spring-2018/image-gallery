@@ -21,7 +21,7 @@ export class Albums extends PureComponent {
     if(!albums) return null;
 
     return (
-      <div><h1>Album Component</h1>
+      <div><h1>Featured Albums</h1>
         <ul className = 'album-grid'>
           {albums.map((album, i) => <li key={i}>
             <div id = 'title'>{album.title}</div>
