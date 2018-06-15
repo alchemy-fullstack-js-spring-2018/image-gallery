@@ -1,6 +1,6 @@
 export const ALBUMS_LOAD = 'ALBUMS_LOAD';
-export const ALBUM_SHOW = 'ALBUM_SHOW';
 export const ALBUM_ADD = 'ALBUM_ADD';
+export const ALBUM_SHOW = 'ALBUM_SHOW';
 
 export const getAlbumsById = state => state.albumsById;
 export const getAlbumsList = state => state.albumList;
