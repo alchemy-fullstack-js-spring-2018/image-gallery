@@ -6,6 +6,7 @@ import { addAlbums } from '../action';
 import AlbumsForm from './AlbumsForm';
 import AlbumsList from './AlbumList';
 
+
 class Albums extends Component {
 
     static propTypes = {
@@ -29,7 +30,7 @@ class Albums extends Component {
               <Route path="/albums/new" render = {() => {
                 return <AlbumsForm onAdd={this.handleAdd}/>;
               }}/>
-              <Redirect to="/"/>
+              <Redirect to="albums"/>
             </Switch>
           </Router>
         </div>
