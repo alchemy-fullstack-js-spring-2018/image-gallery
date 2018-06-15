@@ -1,5 +1,6 @@
 export const ALBUMS_LOAD = 'ALBUMS_LOAD';
 export const ALBUM_ADD = 'ALBUM_ADD';
+export const ALBUM_LOAD = 'ALBUM_LOAD';
 
 export const getAlbums = state => state.albums;
 
@@ -14,8 +15,10 @@ export function albums(state = [], { type, payload }) {
   }
 }
 
-export function album(state = {}, { type, payload }) {
+export function album(state = null, { type, payload }) {
   switch(type) {
+    case ALBUM_LOAD:
+      return payload;
     default:
       return state;
   }

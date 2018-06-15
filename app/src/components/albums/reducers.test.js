@@ -3,11 +3,13 @@ import {
   album,
   ALBUMS_LOAD,
   ALBUM_ADD,
+  ALBUM_LOAD,
   getAlbums } from './reducers';
 
 const album1 = {
   title: 'kittens',
-  description: 'all the best kittens' 
+  description: 'all the best kittens',
+  images: [{ title: 'kitten1' }]
 };
 
 const album2 = {
@@ -36,7 +38,12 @@ describe('albums reducer', () => {
 describe('album reducer', () => {
   it('has a default value of an empty object', () => {
     const state = album(undefined, {});
-    expect(state).toEqual({});
+    expect(state).toEqual(null);
+  });
+
+  it('loads a single album', () => {
+    const state = album(null, { type: ALBUM_LOAD, payload: album1 });
+    expect(state).toEqual(album1);
   });
 });
 
