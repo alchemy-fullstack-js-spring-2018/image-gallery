@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import AlbumsForm from './AlbumsForm';
+import { loadAlbums } from '../action';
+import { getAlbumsList } from '../reducer';
 import AlbumItem from './AlbumItem';
-import { loadAlbums, addAlbums } from '../action';
+import { connect } from 'react-redux';
 
-export default class Albums extends Component {
+class AlbumList extends PureComponent {
     
     static propTypes = {
       albums: PropTypes.array,
-      addAlbums: PropTypes.func.isRequired,
       loadAlbums: PropTypes.func.isRequired
     };
 
@@ -19,7 +19,7 @@ export default class Albums extends Component {
     }
 
     render() {
-      const { albums, addAlbums } = this.props;
+      const { albums } = this.props;
       if(!albums) return null;
   
       return (
@@ -34,5 +34,9 @@ export default class Albums extends Component {
         </div>
       );
     }
-
 }
+
+export default connect(
+  state => ({ albums: getAlbumsList(state) }),
+  { loadAlbums }
+)(AlbumList);

@@ -1,25 +1,29 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getAblumById } from '../reducer';
 
-export default class AlbumItem extends Component {
+class AlbumItem extends PureComponent {
   
   static propTypes = {
-    id: PropTypes.number,
-    title: PropTypes.string,
-    image: PropTypes.any,
+    album: PropTypes.object
   };
 
   render() {
-    const { id, title, image } = this.props;
+    const { album } = this.props;
     
     return (
       <li>
-        <Link to={`/album/${id}`}>
-          <h2>{title}</h2>
-          <img src={image}/>
-        </Link>
+        <Link to={`/album/${album._id}`}>album.title</Link>
       </li>
     );
   }
 }
+
+export default connect(
+  (state, { id }) => ({
+    album: getAblumById(state, id)
+  }),
+  null
+)(AlbumItem);
