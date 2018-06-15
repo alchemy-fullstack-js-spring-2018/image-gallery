@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getAblumById } from '../reducer';
+import { getAlbumById } from '../reducer';
 
 class AlbumItem extends PureComponent {
   
@@ -15,7 +15,11 @@ class AlbumItem extends PureComponent {
     
     return (
       <li>
-        <Link to={`/album/${album._id}`}>album.title</Link>
+        <div>
+          <img src={album.coverImage}/>
+          <Link to={`/album/${album._id}`}>{album.title}</Link>
+          <p>{album.description}</p>
+        </div>
       </li>
     );
   }
@@ -23,7 +27,7 @@ class AlbumItem extends PureComponent {
 
 export default connect(
   (state, { id }) => ({
-    album: getAblumById(state, id)
+    album: getAlbumById(state, id)
   }),
   null
 )(AlbumItem);

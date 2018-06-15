@@ -28,7 +28,7 @@ class AlbumList extends Component {
             <button>Add New</button>
           </Link>
           <ul>
-            {albums ? albums.map(album => <AlbumItem key={album.id} {...album}/>) : null}
+            {albums ? albums.map(album => <AlbumItem key={album} id = {album}/>) : null}
           </ul>
         </div>
       );

@@ -4,12 +4,12 @@ export const ALBUM_ADD = 'ALBUM_ADD';
 
 export const getAlbumsById = state => state.albumsById;
 export const getAlbumsList = state => state.albumList;
-export const getAblumById = (state, id) => getAlbumsById(state)[id];
+export const getAlbumById = (state, id) => getAlbumsById(state)[id];
 
 export const getPet = state => state.pet;
 
 
-export function albumsbyId(state = [], { type, payload }) {
+export function albumsById(state = [], { type, payload }) {
   switch(type) {
     case ALBUMS_SHOW:
       return payload.reduce((map, album) => {
@@ -30,7 +30,7 @@ export function albumsbyId(state = [], { type, payload }) {
 }
 
 
-export function albums(state = [], { type, payload }) {
+export function albumList(state = [], { type, payload }) {
   switch(type) {
     case ALBUMS_SHOW:
       return payload.map(album => album._id);
