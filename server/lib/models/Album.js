@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const { RequiredString } = require('../util/mongoose-helpers');
+const Image = require('./Image');
 
 const schema = new Schema({
     title: RequiredString,
@@ -17,7 +18,27 @@ schema.statics = {
         return this.find(query)
             .lean()
             .select();
+    },
+
+    getDetailById(id) {
+
+        return Promise.all([
+            this.findById(id)
+                .lean()
+                .select(),
+            
+            Image.find({ albumId: id })
+                .lean()
+                .select('title description url')
+        ])
+            .then(([album, images]) => {
+                if(!album) return null;
+                album.images = images;
+                return album;
+            });
     }
+
+
     
 };
 

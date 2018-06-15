@@ -11,21 +11,36 @@ describe('images API', () => {
         return res;
     };
 
+    let album1 = {
+        title: 'title2',
+        description: 'des2',
+        // posterImage: {}
+    };
+
     let image1 = {
-        albumId: [],
+        albumId: {},
         title: 'image1',
         description: 'des1',
         url: 'url1'
     };
 
     let image2 = {
-        albumId: [],
+        albumId: {},
         title: 'image2',
         description: 'des2',
         url: 'url2'
     };
 
+    before(() => {
+        return request.post('/api/albums') 
+            .send(album1)
+            .then(({ body }) => {
+                album1 = body;
+            });
+    });
+
     it('posts and image to the db', () => {
+        image1.albumId = album1._id;
         return request.post('/api/images')
             .send(image1)
             .then(checkOk)
@@ -39,6 +54,7 @@ describe('images API', () => {
     });
 
     it('get all images', () => {
+        image2.albumId = album1._id;
         return request.post('/api/images')
             .send(image2)
             .then(checkOk)

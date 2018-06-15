@@ -15,32 +15,23 @@ describe('albums API', () => {
     let album1 = {
         title: 'title1',
         description: 'des1',
-        posterImage: {}
+        // posterImage: {}
     };
 
     let album2 = {
         title: 'title2',
         description: 'des2',
-        posterImage: {}
+        // posterImage: {}
     };
 
     let image1 = {
-        albumId: [],
+        albumId: {},
         title: 'image1',
         description: 'des1',
         url: 'url1'
     };
 
-    before(() => {
-        return request.post('/api/images') 
-            .send(image1)
-            .then(({ body }) => {
-                image1 = body;
-            });
-    });
-
     it('posts an album to the db', () => {
-        album1.posterImage._id = image1._id;
         return request.post('/api/albums')
             .send(album1)
             .then(checkOk)
@@ -54,7 +45,6 @@ describe('albums API', () => {
     });
 
     it('get all albums', () => {
-        album2.posterImage._id = image1._id;
         return request.post('/api/albums')
             .send(album2)
             .then(checkOk)
@@ -66,6 +56,20 @@ describe('albums API', () => {
             .then(({ body }) => {
                 assert.deepEqual(body, [album1, album2]);
             });
+    });
+
+    it('gets an album by id', () => {
+        image1.albumId = album1._id;
+        return request.post('/api/images') 
+            .send(image1)
+            .then(({ body }) => {
+                image1 = body;
+                return request.get(`/api/albums/${album1._id}`);
+            })
+            .then(({ body }) => {
+                assert.equal(body.images.length, 1);
+            });
+            
     });
 
 });

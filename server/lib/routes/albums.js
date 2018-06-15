@@ -12,4 +12,8 @@ module.exports = router
     
     .get('/', respond(
         ({ query }) => Album.findByQuery(query)
+    ))
+    
+    .get('/:id', respond(
+        ({ id }) => Album.getDetailById(id)
     ));

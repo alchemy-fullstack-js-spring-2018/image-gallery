@@ -7,7 +7,7 @@ describe('Image unit test', () => {
 
     it('valid good model', () => {
         const data = {
-            albumId: [Types.ObjectId()],
+            albumId: Types.ObjectId(),
             title: 'album1',
             description: 'des1',
             url: 'url1'

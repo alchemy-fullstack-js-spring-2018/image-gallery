@@ -3,10 +3,10 @@ const { Schema } = mongoose;
 const { RequiredString } = require('../util/mongoose-helpers');
 
 const schema = new Schema({
-    albumId: [{
+    albumId: {
         type: Schema.Types.ObjectId,
         ref: 'Album'
-    }],
+    },
     title: RequiredString,
     description: RequiredString,
     url: RequiredString
