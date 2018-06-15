@@ -61,7 +61,7 @@ const staticAlbums = [
 export function loadAlbums() {
   return {
     type: ALBUMS_LOAD,
-    payload: staticAlbums || getAllAlbums()
+    payload: getAllAlbums() || staticAlbums
   };
 }
 
