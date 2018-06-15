@@ -13,13 +13,14 @@ export default class App extends PureComponent {
     return (
       <Router>
         <div className = "grid-class">
-          <header className = "header">Header!</header>
-          <nav className = "nav-bar"> navigation bar &nbsp;
+          <img src={require('../../assets/Logo2.png')} id="logo"/><header className="header"></header>
+          
+          <nav className = "nav-bar">
             <ul>
-              <li>Albums</li>
-              <li>Add Albums</li>
-              <li>Images</li>
-              <li>About</li>
+              <li><a>Albums</a></li>
+              <li><a>Add Albums</a></li>
+              <li><a>Images</a></li>
+              <li><a>About</a></li>
             </ul>
           </nav>
           <main className = "main-area">

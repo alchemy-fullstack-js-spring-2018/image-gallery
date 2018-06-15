@@ -34,9 +34,9 @@ const staticAlbums = [
   },
   {
     id: 6,
-    title: 'Album 2',
-    description: 'album2 description',
-    posterImage: 'https://thumb1.shutterstock.com/display_pic_with_logo/923585/117628360/stock-vector-a-old-wanted-posters-vector-wanted-poster-image-117628360.jpg'
+    title: 'Mural Art',
+    description: 'street art exhibition',
+    posterImage: 'http://streetart.today/wp-content/uploads/StreetArtToday_Astro_SAT7_March2018_h-600x400.jpg'
   },
   {
     id: 7,
@@ -46,9 +46,9 @@ const staticAlbums = [
   },
   {
     id: 8,
-    title: 'Album 2',
-    description: 'album2 description',
-    posterImage: 'https://thumb1.shutterstock.com/display_pic_with_logo/923585/117628360/stock-vector-a-old-wanted-posters-vector-wanted-poster-image-117628360.jpg'
+    title: 'Sculputural art',
+    description: 'Anna gillepsie',
+    posterImage: 'http://www.earthgrow.us/wp-content/uploads/2016/11/anna-gillespie-fuses-nature-and-art-in-her-figurative-sculptures-pertaining-to-sculpture-art.jpg'
   },
   {
     id: 9,
