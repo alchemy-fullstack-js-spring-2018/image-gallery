@@ -6,6 +6,7 @@ import { addAlbums } from '../action';
 import AlbumsForm from './AlbumsForm';
 import AlbumsList from './AlbumList';
 
+
 class Albums extends Component {
 
     static propTypes = {
@@ -19,13 +20,15 @@ class Albums extends Component {
     render() {
 
       return (
-        <Switch>
-          <Route exact path="/albums" component={AlbumsList}/>
-          <Route path="/albums/new" render = {() => {
-            return <AlbumsForm onAdd={this.handleAdd}/>;
-          }}/>
-          <Redirect to="/albums"/>
-        </Switch>
+        <div>
+          <Switch>
+            <Route exact path="/albums" component={AlbumsList}/>
+            <Route path="/albums/new" render = {() => {
+              return <AlbumsForm onAdd={this.handleAdd}/>;
+            }}/>
+            <Redirect to="/albums"/>
+          </Switch>
+        </div>
       );
     }
 }
