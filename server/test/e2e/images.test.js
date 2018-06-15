@@ -19,10 +19,23 @@ describe('Image E2E API', () => {
         url: 'http://images.com/spain2.png',
     };
 
-    let album = {
+    let image3 = {
+        albumId: null,
+        title: 'The Prado',
+        description: 'Fuck yeah, art the Prado',
+        url: 'http://images.com/spain2.png',
+    };
+
+    let album1 = {
         title: 'Spain Trip',
         description: 'This one time I went to Spain',
         coverImage: 'http://images.com/spain.png'
+    };
+
+    let album2 = {
+        title: 'France Trip',
+        description: 'This other time I went to France',
+        coverImage: 'http://images.com/france.png'
     };
 
     const checkOk = res => {
@@ -37,11 +50,17 @@ describe('Image E2E API', () => {
 
     before(() => {
         return request.post('/api/albums/new')
-            .send(album)
+            .send(album1)
             .then(({ body }) => { 
-                album = body; 
+                album1 = body; 
                 image1.albumId = body._id;
                 image2.albumId = body._id;
+                return request.post('/api/albums/new')
+                    .send(album2);
+            })
+            .then(({ body }) => { 
+                album2 = body;
+                image3.albumId = body.__id; 
             });
     });
 
@@ -61,21 +80,26 @@ describe('Image E2E API', () => {
             });
     });
 
-    it('gets all image and all data', () => {
+    it('gets all image and all data, only from correct album', () => {
         return request.post(`/api/images/${image2.albumId}/new`)
             .send(image2)
             .then(checkOk)
             .then(({ body }) => {
                 image2 = body;
-                request.get(`/api/images/${image2.albumId}`)
-                    .then(checkOk)
-                    .then(({ body }) => {
-                        assert.deepEqual(body, [image1, image2]);
-                    });
+                return request.post(`/images/${image3.albumId}/new`)
+                    .send(image3);
+            })
+            .then(checkOk)
+            .then (() => {
+                return request.get(`/api/images/${image2.albumId}`);
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                assert.deepEqual(body, [image1, image2]);
             });
     });
-
-    it('gets all image and list data', () => {
+ 
+    it('gets image and list data by album', () => {
         return request.get(`/api/images/${image2.albumId}/list`)
             .then(checkOk)
             .then(({ body }) => {

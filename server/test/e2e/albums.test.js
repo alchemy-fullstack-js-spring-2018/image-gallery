@@ -46,11 +46,11 @@ describe('Album E2E API', () => {
             .then(checkOk)
             .then(( {body }) => {
                 france = body;
-                request.get('/api/albums')
-                    .then(checkOk)
-                    .then(({ body }) => {
-                        assert.deepEqual(body, [spain, france]);
-                    });
+                return request.get('/api/albums')
+            })
+            .then(checkOk)
+            .then(({ body }) => {
+                return assert.deepEqual(body, [spain, france]);
             });
     });
 
