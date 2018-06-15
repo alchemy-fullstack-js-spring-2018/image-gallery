@@ -1,5 +1,6 @@
 import {
   albums,
+  album,
   ALBUMS_LOAD,
   ALBUM_ADD,
   getAlbums } from './reducers';
@@ -29,6 +30,13 @@ describe('albums reducer', () => {
   it('adds an album', () => {
     const state = albums([album1], { type: ALBUM_ADD, payload: album2 });
     expect(state).toEqual([album1, album2]);
+  });
+});
+
+describe('album reducer', () => {
+  it('has a default value of an empty object', () => {
+    const state = album(undefined, {});
+    expect(state).toEqual({});
   });
 });
 
