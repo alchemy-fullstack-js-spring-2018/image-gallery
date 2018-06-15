@@ -1,7 +1,15 @@
 const router = require('express').Router();
 const Album = require('../models/Album');
+const Image = require('../models/Image');
 
 router
+    .post('/albums/:id/images', (req, res, next) => {
+        const image = req.body;
+        image.albumId = req.params.id;
+        return new Image(image).save()
+            .then(image => res.json(image))
+            .catch(next);
+    })
     .post('/albums', (req, res, next) => {
         const album = req.body;
         return new Album(album).save()
@@ -20,5 +28,6 @@ router
             .then(albums => res.json(albums))
             .catch(next);
     });
+
 
 module.exports = router;
