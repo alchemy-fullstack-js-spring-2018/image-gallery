@@ -9,6 +9,12 @@ router
             .catch(next);
     })
 
+    .delete('/albums/:id', (req, res, next) => {
+        return Album.findByIdAndRemove(req.params.id)
+            .then(() => res.json({ deleted: true }))
+            .catch(next);
+    })
+
     .get('/albums', (req, res, next) => {
         return Album.find()
             .then(albums => res.json(albums))
