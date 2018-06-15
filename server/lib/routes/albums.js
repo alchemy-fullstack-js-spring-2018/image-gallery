@@ -16,4 +16,8 @@ module.exports = router
     
     .get('/:id', respond(
         ({ id }) => Album.getDetailById(id)
+    ))
+    
+    .put('/:id', respond(
+        ({ id, body }) => Album.updateById(id, body)
     ));

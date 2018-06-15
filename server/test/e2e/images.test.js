@@ -14,7 +14,6 @@ describe('images API', () => {
     let album1 = {
         title: 'title2',
         description: 'des2',
-        // posterImage: {}
     };
 
     let image1 = {

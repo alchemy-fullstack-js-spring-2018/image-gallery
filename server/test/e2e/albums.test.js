@@ -15,13 +15,11 @@ describe('albums API', () => {
     let album1 = {
         title: 'title1',
         description: 'des1',
-        // posterImage: {}
     };
 
     let album2 = {
         title: 'title2',
         description: 'des2',
-        // posterImage: {}
     };
 
     let image1 = {
@@ -68,8 +66,16 @@ describe('albums API', () => {
             })
             .then(({ body }) => {
                 assert.equal(body.images.length, 1);
+            });  
+    });
+
+    it('updates an album with a poster image', () => {
+        album1.posterImage = image1._id;
+        return request.put(`/api/albums/${album1._id}`)
+            .send(album1)
+            .then(({ body }) => {
+                assert.equal(body.posterImage, album1.posterImage);
             });
-            
     });
 
 });
