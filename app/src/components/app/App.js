@@ -7,7 +7,6 @@ import Albums from '../albums/Albums';
 import Nav from '../nav/Nav';
 import styles from './App.css';
 import AlbumDetail from '../albums/AlbumDetail';
-// import Album from '../albums/Album';
 
 export default class App extends PureComponent {
   render() {

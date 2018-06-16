@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import { getAlbums } from './reducers';
 import { loadAlbums, addAlbum } from './actions';
 
-class Albums extends Component {
+class Albums extends PureComponent {
   static propTypes = {
     albums: PropTypes.array,
     loadAlbums: PropTypes.func.isRequired,
