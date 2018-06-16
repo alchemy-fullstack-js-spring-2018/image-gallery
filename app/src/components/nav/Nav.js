@@ -1,17 +1,17 @@
-import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Nav.css';
 
-export default class Nav extends PureComponent {
+export default class Nav extends Component {
 
   render() {
     return (
       <nav className={styles.nav}>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/albums">Albums</Link></li>
-          <li><Link to="/images">Images</Link></li>
+          <li><NavLink exact to="/" activeClassName="current">Home</NavLink></li>
+          <li><NavLink to="/about" activeClassName="current">About</NavLink></li>
+          <li><NavLink to="/albums" activeClassName="current">Albums</NavLink></li>
+          <li><NavLink to="/images" activeClassName="current">Images</NavLink></li>
         </ul>
       </nav>
     );

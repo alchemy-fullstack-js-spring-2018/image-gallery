@@ -10,9 +10,6 @@
       color: white;
       padding: 0.5rem 1.5rem 0.7rem 1.5rem;
       position: relative;
-      &:hover {
-        color: var(--teal);
-      }
       &::after {
         content: "";
         position: absolute;
@@ -23,10 +20,20 @@
         transition: all 0.3s ease;
       }
       &:hover::after {
-        border-bottom: 0.2rem solid var(--teal);
+        border-bottom: 0.2rem solid white;
         left: 0;
         right: 0;
         transition: all 0.3s ease;
+      }
+      &.current {
+        color: var(--teal);
+      }
+      &.current::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 0.2rem solid var(--teal);
       }
     }
   }
