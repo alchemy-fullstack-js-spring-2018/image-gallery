@@ -14,19 +14,19 @@ module.exports = router
         }
     ))
 
-    .post('/:albumId/new', respond(
+    .post('/new', respond(
         ({ body }) => {
             return Image.create(body);
         }
     ))
 
-    .put('/:albumId/:id', respond(
+    .put('/:id', respond(
         ({ body, id }) => {
             return Image.findByIdAndUpdate(id, body, { new: true});
         }
     ))
 
-    .delete('/:albumId/:id', respond(
+    .delete('/:id', respond(
         ({ id }) => {
             return Image.findByIdAndRemove(id);
         }

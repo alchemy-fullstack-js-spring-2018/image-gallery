@@ -1,5 +1,5 @@
-import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_SHOW } from './reducers';
-import { fetchLoadAlbums, fetchAddAlbum, fetchAlbum } from '../services/db';
+import { ALBUMS_LOAD, ALBUM_ADD, ALBUM_SHOW, IMAGE_ADD } from './reducers';
+import { fetchLoadAlbums, fetchAddAlbum, fetchAlbum, fetchAddImage } from '../services/db';
 
 export function loadAlbums() {
   return (dispatch) => {
@@ -13,7 +13,7 @@ export function loadAlbums() {
   };
 }
 
-export function addAlbums(data) {
+export function addAlbum(data) {
   return (dispatch) => {
     return fetchAddAlbum(data)
       .then(album => {
@@ -32,6 +32,18 @@ export function showAlbum(id) {
         dispatch({
           type: ALBUM_SHOW,
           payload: album
+        });
+      });
+  };
+}
+
+export function addImage(data) {
+  return (dispatch) => {
+    return fetchAddImage(data)
+      .then(image => {
+        dispatch({
+          type: IMAGE_ADD,
+          payload: image
         });
       });
   };
