@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAlbumById } from '../reducer';
+import styles from './AlbumItem.css';
 
 class AlbumItem extends PureComponent {
   
@@ -15,7 +16,7 @@ class AlbumItem extends PureComponent {
     
     return (
       <li>
-        <div>
+        <div className={styles.album}>
           <img src={album.coverImage}/>
           <Link to={`/album/${album._id}`}>{album.title}</Link>
           <p>{album.description}</p>

@@ -1,4 +1,15 @@
 :local(.navigation) {
-    display: grid;
+    header img {
+        max-width: 100%;
+    }
+    ul {
+        display: grid;
+        grid-template-columns: 5fr 1fr 1fr 1fr;
+        li {
+            background-color: #e6757b;
+            color: black;
+            padding: 2%;
+        }
+    }
 
 }
