@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loadAlbum } from './actions';
 import { getCurrentAlbum } from './reducers';
 
-
-class AlbumDetail extends Component {
+class AlbumDetail extends PureComponent {
 
   static propTypes = {
     loadAlbum: PropTypes.func.isRequired,
@@ -14,7 +13,6 @@ class AlbumDetail extends Component {
   };
 
   componentDidMount() {
-    console.log('ID', this.props.id);
     this.props.loadAlbum(this.props.id);
   }
 
@@ -25,8 +23,6 @@ class AlbumDetail extends Component {
     if(!album) return null;
 
     const { title, description, images } = album;
-
-    console.log('IMAGES', images);
   
     return (
       <div>
