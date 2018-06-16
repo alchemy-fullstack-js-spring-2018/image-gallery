@@ -23,6 +23,12 @@ router
             .catch(next);
     })
 
+    .get('/albums/:id/images', (req, res, next) => {
+        return Image.find({ albumId: req.params.id} )
+            .then(images => res.json(images))
+            .catch(next);
+    })
+
     .get('/albums', (req, res, next) => {
         return Album.find()
             .then(albums => res.json(albums))
