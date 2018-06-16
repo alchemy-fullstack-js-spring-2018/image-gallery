@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { loadAlbums, addAlbums } from '../actions';
-import { getAlbumsList } from '../reducer';
+import { loadAlbums, addAlbum } from '../actions';
+import { getAlbumsList } from '../reducers';
 import AlbumItem from './AlbumItem';
 import { connect } from 'react-redux';
 
@@ -11,7 +11,7 @@ class AlbumList extends Component {
     static propTypes = {
       albums: PropTypes.array,
       loadAlbums: PropTypes.func.isRequired,
-      addAlbums: PropTypes.func
+      addAlbum: PropTypes.func
     };
 
     componentDidMount(){
@@ -28,7 +28,7 @@ class AlbumList extends Component {
             <button>Add New</button>
           </Link>
           <ul>
-            {albums ? albums.map(album => <AlbumItem key={album} id = {album}/>) : null}
+            {albums ? albums.map((album, i) => <AlbumItem key={i} album={album}/>) : null}
           </ul>
         </div>
       );
@@ -37,5 +37,5 @@ class AlbumList extends Component {
 
 export default connect(
   state => ({ albums: getAlbumsList(state) }),
-  { loadAlbums, addAlbums }
+  { loadAlbums, addAlbum }
 )(AlbumList);

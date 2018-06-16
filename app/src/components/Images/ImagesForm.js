@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addAlbum } from '../actions';
+import { addImage } from '../actions';
 import { connect } from 'react-redux';
 
-
 const defaultState = {
-  id: '',
   title: '',
   description: '',
-  coverImage: '',
+  url: '',
 };
 
 class AlbumsForm extends Component {
 
   static propTypes = {
-    addAlbum: PropTypes.func.isRequired,
+    addImage: PropTypes.func.isRequired,
+    match: PropTypes.object.isRequired,
   };
 
   state = defaultState;
@@ -25,16 +24,18 @@ class AlbumsForm extends Component {
   
   handleSubmit = event => {
     event.preventDefault();
-    this.props.addAlbum(this.state);
-    this.setState(defaultState);
+    this.setState({ albumId: this.props.match.params.albumId }, () => {
+      this.props.addImage(this.state);
+      this.setState(defaultState);
+    });
   };
 
   render() {
-    const { title, description, coverImage } = this.state;
+    const { title, description, url } = this.state;
 
-    return (
+    return (      
       <div>
-        <h1>New Album:</h1>
+        <h1>Add an Image:</h1>
         <form onSubmit={this.handleSubmit}>
           <label>
           Title:
@@ -45,8 +46,8 @@ class AlbumsForm extends Component {
             <input name="description" value={description} onChange={this.handleChange} required/>
           </label>
           <label>
-          Cover:
-            <input name="coverImage" value={coverImage} onChange={this.handleChange} required/>
+          Image Url:
+            <input name="url" value={url} onChange={this.handleChange} required/>
           </label>
           <button type="submit">Create</button>
         </form>
@@ -57,5 +58,5 @@ class AlbumsForm extends Component {
 
 export default connect(
   null,
-  { addAlbum }
+  { addImage }
 )(AlbumsForm);

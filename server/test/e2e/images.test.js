@@ -43,8 +43,6 @@ describe('Image E2E API', () => {
         return res;
     };
 
-    const getListFields = ({ _id, albumId, title, description }) => ({ _id, albumId, title, description });
-
     before(() => dropCollection('albums'));
     before(() => dropCollection('images')); 
 
@@ -65,7 +63,7 @@ describe('Image E2E API', () => {
     });
 
     it('uploads an image', () => {
-        return request.post(`/api/images/${image1.albumId}/new`)
+        return request.post('/api/images/new')
             .send(image1)
             .then(checkOk)
             .then(( {body }) => {
@@ -81,12 +79,12 @@ describe('Image E2E API', () => {
     });
 
     it('gets all image and all data, only from correct album', () => {
-        return request.post(`/api/images/${image2.albumId}/new`)
+        return request.post('/api/images/new')
             .send(image2)
             .then(checkOk)
             .then(({ body }) => {
                 image2 = body;
-                return request.post(`/images/${image3.albumId}/new`)
+                return request.post('/images/new')
                     .send(image3);
             })
             .then(checkOk)
@@ -98,14 +96,6 @@ describe('Image E2E API', () => {
                 assert.deepEqual(body, [image1, image2]);
             });
     });
- 
-    it('gets image and list data by album', () => {
-        return request.get(`/api/images/${image2.albumId}/list`)
-            .then(checkOk)
-            .then(({ body }) => {
-                assert.deepEqual(body, [image1, image2].map(getListFields));
-            });
-    });
 
     it('updates an image', () => {
         image1 = { 
@@ -113,7 +103,7 @@ describe('Image E2E API', () => {
             description: 'Bob is kind of a creep',
         };
         
-        return request.put(`/api/images/${image1.albumId}/${image1._id}`)
+        return request.put(`/api/images/${image1._id}`)
             .send(image1)
             .then(({ body }) => {
                 assert.deepEqual(body, image1);
@@ -121,7 +111,7 @@ describe('Image E2E API', () => {
     });
 
     it('deletes an album', () => {
-        return request.delete(`/api/images/${image1.albumId}/${image1._id}`)
+        return request.delete(`/api/images/${image1._id}`)
             .then(() => {
                 return Image.findById(image1._id);
             })

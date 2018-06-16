@@ -1,31 +1,22 @@
 export const ALBUMS_LOAD = 'ALBUMS_LOAD';
 export const ALBUM_ADD = 'ALBUM_ADD';
 export const ALBUM_SHOW = 'ALBUM_SHOW';
+export const IMAGE_ADD = 'IMAGE_ADD';
+export const IMAGES_LOAD = 'IMAGES_LOAD';
 
-export const getAlbumsById = state => state.albumsById;
+export const getAlbumById = state => state.albumById;
 export const getAlbumsList = state => state.albumList;
-export const getAlbumById = (state, id) => getAlbumsById(state)[id];
 
-export const getAlbum = state => state.album;
-
-
-export function albumsById(state = [], { type, payload }) {
+export function albumById(state = {}, { type, payload }) {
   switch(type) {
-    case ALBUMS_LOAD:
-      return payload.reduce((map, album) => {
-        map[album._id] = { 
-          ...state[album._id],
-          ...album
-        };
-        return map;
-      }, {});
     case ALBUM_SHOW:
       return {
-        ...state,
         [payload._id]: payload
       };
     case ALBUM_ADD:
-      return [...state, payload];
+      return {
+        [payload._id]: payload
+      };
     default:
       return state;
   }
@@ -34,9 +25,9 @@ export function albumsById(state = [], { type, payload }) {
 export function albumList(state = [], { type, payload }) {
   switch(type) {
     case ALBUMS_LOAD:
-      return payload.map(album => album._id);
+      return payload;
     case ALBUM_ADD:
-      return [...state, payload._id];
+      return [state, payload];
     default: 
       return state;
   }
@@ -45,11 +36,8 @@ export function albumList(state = [], { type, payload }) {
 export function imagesByAlbum(state = [], { type, payload }) {
   switch(type) {
     case ALBUM_SHOW:
-      return {
-        ...state,
-        [payload._id]: payload
-      };
-    case ALBUM_ADD:
+      return [];
+    case IMAGE_ADD:
       return [...state, payload];
     default:
       return state;

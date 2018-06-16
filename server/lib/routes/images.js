@@ -14,27 +14,19 @@ module.exports = router
         }
     ))
 
-    .get('/:albumId/list', respond(
-        ({ query }) => {
-            return Image.find(query)
-                .lean()
-                .select('albumId title description');
-        }
-    ))
-
-    .post('/:albumId/new', respond(
+    .post('/new', respond(
         ({ body }) => {
             return Image.create(body);
         }
     ))
 
-    .put('/:albumId/:id', respond(
+    .put('/:id', respond(
         ({ body, id }) => {
             return Image.findByIdAndUpdate(id, body, { new: true});
         }
     ))
 
-    .delete('/:albumId/:id', respond(
+    .delete('/:id', respond(
         ({ id }) => {
             return Image.findByIdAndRemove(id);
         }

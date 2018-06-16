@@ -1,14 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { getAlbumById } from '../reducer';
 import styles from './AlbumItem.css';
 
-class AlbumItem extends PureComponent {
+export default class AlbumItem extends PureComponent {
   
   static propTypes = {
-    album: PropTypes.object
+    album: PropTypes.object,
   };
 
   render() {
@@ -18,17 +16,10 @@ class AlbumItem extends PureComponent {
       <li>
         <div className={styles.album}>
           <img src={album.coverImage}/>
-          <Link to={`/album/${album._id}`}>{album.title}</Link>
+          <Link to={`/albums/${album._id}`}>{album.title}</Link>
           <p>{album.description}</p>
         </div>
       </li>
     );
   }
 }
-
-export default connect(
-  (state, { id }) => ({
-    album: getAlbumById(state, id)
-  }),
-  null
-)(AlbumItem);

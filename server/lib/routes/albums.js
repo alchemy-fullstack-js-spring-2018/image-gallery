@@ -9,7 +9,8 @@ module.exports = router
     .get('/', respond(
         ({ query }) => {
             return Album.find(query)
-                .lean();
+                .lean()
+                .select('title coverImage');
         }
     ))
     
