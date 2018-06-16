@@ -32,8 +32,8 @@ class AlbumDetail extends PureComponent {
   
     return (
       <div>
-        <h1>{title}</h1>
-        <h2>{description}</h2>
+        <h2>{title}</h2>
+        <h3>{description}</h3>
         <ul>
           <li><Link to={`/albums/${_id}/images/thumbnail`}>thumbnail view</Link></li>
           <li><Link to={`/albums/${_id}/images/gallery`}>gallery view</Link></li>

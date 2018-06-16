@@ -3,4 +3,15 @@
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   grid-template-columns: 100%;
+  h1 {
+    font-family: 'Questrial', sans-serif;
+    font-size: 3em;
+    color: white;
+    background: linear-gradient(45deg, var(--teal), var(--cobalt));
+    padding: 0.7rem 0 0.5rem 0.7rem;
+  }
+  footer {
+    background-color: var(--soft-black);
+    color: white;
+  }
 }

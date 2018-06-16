@@ -1,7 +1,33 @@
+/* underline animation adapted from https://foundation.zurb.com/building-blocks/blocks/hover-underline-menu.html */
 :local(.nav) {
+  background-color: var(--soft-black);
   ul {
     display: flex;
     justify-content: space-around;
     list-style: none;
+    padding: 0.5rem 0 0.7rem 0;
+    a {
+      color: white;
+      padding: 0.5rem 1.5rem 0.7rem 1.5rem;
+      position: relative;
+      &:hover {
+        color: var(--teal);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        border-bottom: 0.2rem solid var(--soft-black);
+        left: 50%;
+        right: 50%;
+        transition: all 0.3s ease;
+      }
+      &:hover::after {
+        border-bottom: 0.2rem solid var(--teal);
+        left: 0;
+        right: 0;
+        transition: all 0.3s ease;
+      }
+    }
   }
 }

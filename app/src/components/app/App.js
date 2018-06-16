@@ -13,7 +13,7 @@ export default class App extends PureComponent {
     return (
       <Router>
         <div className={styles.app}>
-          <h1>Image Gallery!</h1>
+          <h1>Albuminable</h1>
           <Nav/>
           <main>
             <Switch>
