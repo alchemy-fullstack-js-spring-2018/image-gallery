@@ -13,5 +13,8 @@
   footer {
     background-color: var(--soft-black);
     color: white;
+    padding: 0.5rem;
+    font-size: 0.7em;
+    text-align: center;
   }
 }
