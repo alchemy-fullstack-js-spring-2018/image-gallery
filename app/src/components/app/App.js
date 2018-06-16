@@ -6,6 +6,7 @@ import Images from '../images/Images';
 import Albums from '../albums/Albums';
 import Nav from '../nav/Nav';
 import styles from './App.css';
+import AlbumDetail from '../albums/AlbumDetail';
 // import Album from '../albums/Album';
 
 export default class App extends PureComponent {
@@ -18,9 +19,10 @@ export default class App extends PureComponent {
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route path="/albums" component={Albums}/>
+              <Route exact path="/albums" component={Albums}/>
               <Route path="/about" component={About}/>
               <Route path="/images" component={Images}/>
+              <Route path="/albums/:id" render={({ match }) => <AlbumDetail id={match.params.id}/> }/>
               <Redirect to="/"/>
             </Switch>
           </main>

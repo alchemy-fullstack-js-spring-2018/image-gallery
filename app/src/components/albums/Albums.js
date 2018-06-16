@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'; 
 import { getAlbums } from './reducers';
 import { loadAlbums, addAlbum } from './actions';
 
@@ -41,7 +42,7 @@ class Albums extends Component {
           </fieldset>
         </form>
         <ul>
-          {albums.map(album => <li key={album._id}>{album.title}</li>)}
+          {albums.map(album => <li key={album._id}><Link to={`/albums/${album._id}`}>{album.title}</Link></li>)}
         </ul>
       </div>
     );
