@@ -17,13 +17,17 @@ describe.only('Album Reducers', () => {
     expect(state).toEqual([{ title: 'album1' }, { title: 'album2' }]);
   });
 
+});
+
+describe('Image Reducers', () => {
+
   it('Returns an empty array for default state', () => {
     const state = images(undefined, {});
     expect(state).toEqual([]);
   });
 
   it('loads album images', () => {
-    const state = images(undefined, { type: LOAD_IMAGES, payload: [{ title: 'fakeImage' }] });
+    const state = images(undefined, { type: LOAD_IMAGES, payload: [{ title: 'fakeImage1' }] }); 
     expect(state).toEqual([{ title: 'fakeImage' }]);
   });
 
@@ -31,5 +35,6 @@ describe.only('Album Reducers', () => {
     const state = images([{ title: 'fakeImage' }], { type: IMAGE_ADD, payload: { title: 'fakeImage2' } });
     expect(state).toEqual([{ title: 'fakeImage' }, { title: 'fakeImage2' }]);
   });
-  
+
 });
+  
