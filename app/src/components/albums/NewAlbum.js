@@ -47,15 +47,15 @@ export class NewAlbum extends PureComponent {
         <form onSubmit={this.handleSubmit}>
           <label>
           Title:
-            <input name="title" value={title} onChange={this.handleChange}/>
+            <input name="title" value={title} onChange={this.handleChange} required/>
           </label>
           <label>
           Description:
-            <input name="description" value={description} onChange={this.handleChange}/>
+            <input name="description" value={description} onChange={this.handleChange} required/>
           </label>
           <label>
           Poster Image URL:
-            <input name="posterImage" value={posterImage} onChange={this.handleChange}/>
+            <input name="posterImage" value={posterImage} onChange={this.handleChange} required/>
           </label>
           <button type="submit">Add</button>
         </form>
