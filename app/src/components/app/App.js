@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import Albums from '../albums/Albums';
 import About from '../about/About';
 import Images from '../images/Images';
@@ -18,7 +18,7 @@ export default class App extends PureComponent {
           <nav className = "nav-bar">
             <ul>
               <li><a>Albums</a></li>
-              <li><a>Add Albums</a></li>
+              <li><Link to="/albums/new">Add Albums</Link></li>
               <li><a>Images</a></li>
               <li><a>About</a></li>
             </ul>
@@ -28,7 +28,7 @@ export default class App extends PureComponent {
             {<Switch>
               <Route exact path="/" component={Albums}/>
               <Route path="/about" component={About}/>
-              <Route path="/albums" component={Albums}/>
+              <Route exact path="/albums" component={Albums}/>
               <Route path="/albums/new" component={NewAlbum}/>
               <Route path="/albums/:id" component={AlbumDetail}/>
               <Route path="/albums/:id/images/thumbnail" component={AlbumDetail}/>
