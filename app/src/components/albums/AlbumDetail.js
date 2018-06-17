@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Switch, Route, Redirect } from 'react-router-dom';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loadAlbum, clearAlbum } from './actions';
 import { getCurrentAlbum } from './reducers';
+import { getUrl } from '../../services/images';
+import styles from './AlbumDetail.css';
 
 class AlbumDetail extends PureComponent {
 
@@ -31,23 +33,32 @@ class AlbumDetail extends PureComponent {
     const { title, description, images, _id } = album;
   
     return (
-      <div>
-        <h2>{title}</h2>
-        <h3>{description}</h3>
-        <ul>
-          <li><Link to={`/albums/${_id}/images/thumbnail`}>thumbnail view</Link></li>
-          <li><Link to={`/albums/${_id}/images/gallery`}>gallery view</Link></li>
-          <li><Link to={`/albums/${_id}/images/list`}>list view</Link></li>
+      <div className={styles['album-detail']}>
+        <ul className="sub-nav">
+          <li><NavLink to={`/albums/${_id}/images/thumbnail`} activeClassName="current-sub">thumbnail view</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/gallery`} activeClassName="current-sub">gallery view</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/list`} activeClassName="current-sub">list view</NavLink></li>
         </ul>
-        <Switch>
-          <Route path={`/albums/${_id}/images/thumbnail`} render={() => (
-            <ul>
-              {images.map(image => <li key={image._id}><img src={image.url}/></li>)}
-            </ul>)}/>
-          <Route path="/albums/:id/images/gallery" />
-          <Route path="/albums/:id/images/list" />
-          <Redirect to={`/albums/${_id}/images/thumbnail`} />
-        </Switch>
+        <div className="album-display">
+          <div className="album-info">
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
+          <section className="images">
+            <Switch>
+              <Route path={`/albums/${_id}/images/thumbnail`} render={() => (
+                <ul className="thumbnails">
+                  {images.map(image => <li key={image._id}>
+                    <img src={getUrl(image.url, 'w_100')}/>
+                    <h4>{image.title}</h4>
+                  </li>)}
+                </ul>)}/>
+              <Route path="/albums/:id/images/gallery" />
+              <Route path="/albums/:id/images/list" />
+              <Redirect to={`/albums/${_id}/images/thumbnail`} />
+            </Switch>
+          </section>
+        </div>
       </div>
     );
   }
