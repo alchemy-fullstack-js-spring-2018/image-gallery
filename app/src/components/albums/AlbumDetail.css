@@ -36,30 +36,6 @@
       width: fit-content;
       margin: 0 auto;
     }
-    .thumbnails {
-      display: grid;
-      grid-template-columns: repeat(2, 120px);
-      grid-gap: 20px;
-      li {
-        padding: 10px;
-        background-color: white;
-        width: 120px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        h4 {
-          margin-top: 10px;
-          font-size: 0.8em;
-        }
-      }
-    }
-  }
-  @media (min-width: 600px) {
-    .album-display {
-      .thumbnails {
-        grid-template-columns: repeat(3, 120px);
-      }
-    }
   }
   @media (min-width: 768px) {
     grid-template-columns: 1fr 5.5fr;
@@ -76,9 +52,6 @@
     .album-display {
       .images {
         width: 100%;
-      }
-      .thumbnails {
-        grid-template-columns: repeat(auto-fit, 120px);
       }
     }
   }
