@@ -22,7 +22,8 @@ ul {
 }
 
 :root {
-  --teal: #0fbcdb;
+  --teal: #49abd0;
+  --bright-teal: #0fbcdb;
   --cobalt: #222b77;
   --soft-black: #141414;
   --pale-gray: #ebebeb;

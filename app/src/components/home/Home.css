@@ -6,7 +6,7 @@
     font-family: 'Questrial', sans-serif;
     font-size: 3em;
     font-weight: bold;
-    background: linear-gradient(135deg, var(--teal), var(--cobalt));
+    background: linear-gradient(135deg, var(--bright-teal), var(--cobalt));
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
