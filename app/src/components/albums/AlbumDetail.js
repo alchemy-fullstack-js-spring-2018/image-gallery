@@ -35,9 +35,9 @@ class AlbumDetail extends PureComponent {
     return (
       <div className={styles['album-detail']}>
         <ul className="sub-nav">
-          <li><NavLink to={`/albums/${_id}/images/thumbnail`} activeClassName="current-sub">thumbnail view</NavLink></li>
-          <li><NavLink to={`/albums/${_id}/images/gallery`} activeClassName="current-sub">gallery view</NavLink></li>
-          <li><NavLink to={`/albums/${_id}/images/list`} activeClassName="current-sub">list view</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/thumbnail`} activeClassName="current-sub">thumbnails</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/gallery`} activeClassName="current-sub">gallery</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/list`} activeClassName="current-sub">list</NavLink></li>
         </ul>
         <div className="album-display">
           <div className="album-info">
