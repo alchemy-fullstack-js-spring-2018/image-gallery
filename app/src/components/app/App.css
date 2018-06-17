@@ -1,3 +1,27 @@
 :local(.app) {
-
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 1fr;
+  h1 {
+    font-family: 'Questrial', sans-serif;
+    font-size: 3em;
+    color: white;
+    background: linear-gradient(135deg, var(--bright-teal), var(--cobalt));
+    padding: 0.7rem 0 0.5rem 0.7rem;
+  }
+  footer {
+    background-color: var(--soft-black);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.7em;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+  }
+  @media (min-width: 768px) {
+    footer {
+      position: static;
+    }
+  }
 }

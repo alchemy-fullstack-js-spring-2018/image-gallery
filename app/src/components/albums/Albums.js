@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'; 
 import { getAlbums } from './reducers';
 import { loadAlbums, addAlbum } from './actions';
+import styles from './Albums.css';
 
-class Albums extends Component {
+class Albums extends PureComponent {
   static propTypes = {
     albums: PropTypes.array,
     loadAlbums: PropTypes.func.isRequired,
@@ -32,10 +33,10 @@ class Albums extends Component {
     const { title, description } = this.state;
 
     return (
-      <div>
+      <div className={styles.albums}>
         <form onSubmit={this.handleSubmit}>
           <fieldset>
-            <legend>Add an album:</legend>
+            <legend>Add a new album:</legend>
             <label>title<input type="text" value={title} onChange={({ target }) => this.setState({ title: target.value })}/></label>
             <label>description<input type="text" value={description} onChange={({ target }) => this.setState({ description: target.value })}/></label>
             <button type="submit">ADD</button>

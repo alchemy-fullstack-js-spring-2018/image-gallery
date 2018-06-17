@@ -22,6 +22,13 @@ export function loadAlbum(id) {
   };
 }
 
+export function clearAlbum() {
+  return {
+    type: ALBUM_LOAD,
+    payload: null
+  };
+}
+
 export function addImage(albumId, image) {
   image.albumId = albumId;
 

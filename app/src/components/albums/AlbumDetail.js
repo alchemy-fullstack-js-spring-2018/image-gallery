@@ -1,21 +1,27 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loadAlbum } from './actions';
+import { loadAlbum, clearAlbum } from './actions';
 import { getCurrentAlbum } from './reducers';
+import Thumbnails from './Thumbnails';
+import styles from './AlbumDetail.css';
 
-
-class AlbumDetail extends Component {
+class AlbumDetail extends PureComponent {
 
   static propTypes = {
     loadAlbum: PropTypes.func.isRequired,
+    clearAlbum: PropTypes.func.isRequired,
     album: PropTypes.object,
     id: PropTypes.string
   };
 
   componentDidMount() {
-    console.log('ID', this.props.id);
     this.props.loadAlbum(this.props.id);
+  }
+
+  componentWillUnmount() {
+    this.props.clearAlbum();
   }
 
   render() {
@@ -24,17 +30,29 @@ class AlbumDetail extends Component {
 
     if(!album) return null;
 
-    const { title, description, images } = album;
-
-    console.log('IMAGES', images);
+    const { title, description, images, _id } = album;
   
     return (
-      <div>
-        <h1>{title}</h1>
-        <h1>{description}</h1>
-        <ul>
-          {images.map(image => <li key={image._id}><img src={image.url}/></li>)}
+      <div className={styles['album-detail']}>
+        <ul className="sub-nav">
+          <li><NavLink to={`/albums/${_id}/images/thumbnail`} activeClassName="current-sub">thumbnails</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/gallery`} activeClassName="current-sub">gallery</NavLink></li>
+          <li><NavLink to={`/albums/${_id}/images/list`} activeClassName="current-sub">list</NavLink></li>
         </ul>
+        <div className="album-display">
+          <div className="album-info">
+            <h2>{title}</h2>
+            <p>{description}</p>
+          </div>
+          <section className="images">
+            <Switch>
+              <Route path={`/albums/${_id}/images/thumbnail`} render={() => <Thumbnails images={images}/>}/>
+              <Route path="/albums/:id/images/gallery" />
+              <Route path="/albums/:id/images/list" />
+              <Redirect to={`/albums/${_id}/images/thumbnail`} />
+            </Switch>
+          </section>
+        </div>
       </div>
     );
   }
@@ -44,5 +62,5 @@ export default connect(
   state => ({
     album: getCurrentAlbum(state)
   }),
-  { loadAlbum }
+  { loadAlbum, clearAlbum }
 )(AlbumDetail);
