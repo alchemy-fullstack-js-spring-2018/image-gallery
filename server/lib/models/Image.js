@@ -10,12 +10,14 @@ const schema = new Schema({
         type: String,
         required: true
     },
-    posterImage: {
+    url: {
+        type: String,
+        required: true
+    },
+    albumId: {
         type: String,
         required: true
     }
 });
 
-
-
-module.exports = mongoose.model('Album', schema);
+module.exports = mongoose.model('Image', schema);

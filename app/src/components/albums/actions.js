@@ -73,10 +73,22 @@ export const loadAlbums = () => dispatch => {
     );
 };
 
-export function addAlbum(album) {
-  return {
-    type: ALBUM_ADD,
-    payload: postAlbum(album)
-      .then(deleted => deleted)
-  };
-}
+export const addAlbum = (album) => dispatch => {
+  postAlbum(album)
+    .then(
+      album => {
+        dispatch({
+          type: ALBUM_ADD,
+          payload: album
+        });
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  // return {
+  //   type: ALBUM_ADD,
+  //   payload: postAlbum(album)
+  //     .then(deleted => deleted)
+  // };
+};
