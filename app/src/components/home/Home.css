@@ -1,0 +1,14 @@
+:local(.home) {
+  width: 50%;
+  margin: 5rem auto;
+  p {
+    text-align: center;
+    font-family: 'Questrial', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--teal), var(--cobalt));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
