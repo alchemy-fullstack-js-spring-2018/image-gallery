@@ -2,10 +2,20 @@
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 5.5fr;
+  grid-template-areas: "display" "nav";
+  grid-template-rows: 1fr auto;
   .sub-nav {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    grid-area: nav;
     background-color: var(--soft-black);
-    height: 100%;
+    li {
+      width: 33.3%;
+      text-align: center;
+    }
     a {
       display: block;
       width: 100%;
@@ -18,27 +28,57 @@
   }
   .album-display {
     background-color: var(--pale-gray);
+    .album-info {
+      padding: 0.75rem 1.25rem 0 1.25rem;
+    }
+    .images {
+      padding: 1.25rem;
+      width: fit-content;
+      margin: 0 auto;
+    }
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(2, 120px);
+      grid-gap: 20px;
+      li {
+        padding: 10px;
+        background-color: white;
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        h4 {
+          margin-top: 10px;
+          font-size: 0.8em;
+        }
+      }
+    }
   }
-  .album-info {
-    padding: 0.75rem 1.25rem 0 1.25rem;
+  @media (min-width: 600px) {
+    .album-display {
+      .thumbnails {
+        grid-template-columns: repeat(3, 120px);
+      }
+    }
   }
-  .images {
-    padding: 1.25rem;
-  }
-  .thumbnails {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 120px);
-    grid-gap: 20px;
-    li {
-      padding: 10px;
-      background-color: white;
-      width: 120px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      h4 {
-        margin-top: 10px;
-        font-size: 0.8em;
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 5.5fr;
+    grid-template-areas: "nav display" "nav display";
+    .sub-nav {
+      height: 100%;
+      position: static;
+      display: block;
+      li {
+        width: 100%;
+        text-align: left;
+      }
+    }
+    .album-display {
+      .images {
+        width: 100%;
+      }
+      .thumbnails {
+        grid-template-columns: repeat(auto-fit, 120px);
       }
     }
   }
