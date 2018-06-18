@@ -6,7 +6,7 @@ import { loadAlbums } from './actions';
 import PropTypes from 'prop-types';
 import './Albums.css';
 
-export class Albums extends PureComponent {
+class Albums extends PureComponent {
 
   static propTypes = {
     albums: PropTypes.array,

@@ -10,7 +10,7 @@ const defaultState = {
   url: ''
 };
 
-export class NewImage extends PureComponent {
+class NewImage extends PureComponent {
 
   static propTypes = {
     albumId: PropTypes.string.isRequired,
