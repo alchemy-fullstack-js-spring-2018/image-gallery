@@ -15,7 +15,7 @@ export default class ImageGallery extends Component {
       return (
         <div>
           <ul>
-            {images ? images.map((image, i) => <ImageItem key={i} image={image}/>) : null}
+            {images ? images.map((images, i) => <ImageItem key={i} images={images}/>) : null}
           </ul>    
         </div>
       );
