@@ -131,6 +131,12 @@
         padding-left: 1em;
 
         }
+
+        ul {
+            align-items: center;
+            padding-left: 2%;
+        }
+        
     .foot {
         display: none;
     }
