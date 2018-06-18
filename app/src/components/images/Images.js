@@ -1,12 +1,21 @@
-import React, { PureComponent } from 'react';
+// import React, { PureComponent } from 'react';
 // import PropTypes from 'prop-types';
+// import { getImages } from '../../services/api';
 
-export default class Images extends PureComponent {
+// export default class Images extends PureComponent {
 
-  render() {
+//   static propTypes = {
+//     albumId: PropTypes.string.isRequired
+//   };
 
-    return (
-      <div>Images Component</div>
-    );
-  }
-}
+//   componentDidMount() {
+
+//   }
+
+//   render() {
+
+//     return (
+//       <div>Images Component</div>
+//     );
+//   }
+// }
