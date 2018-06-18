@@ -10,13 +10,13 @@ export default class Nav extends Component {
         <nav className={styles.navigation}>
           <ul>
             <li>Some Words</li>
-            <li>
+            <li id='home'>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li id='albums'>
               <Link to="/albums">Albums</Link>
             </li>
-            <li>
+            <li id='about'>
               <Link to="/about">About</Link>
             </li>
           </ul>

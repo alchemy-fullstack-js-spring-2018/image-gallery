@@ -33,7 +33,9 @@ class Images extends Component {
       <div>
         <Switch>
           <Route path="/albums/:albumId/images/new" component={ImagesForm}/>
-          <Route path="/albums/:albumId/images/thumbnail" component={ImageThumbnail}/>
+          <Route path="/albums/:albumId/images/thumbnail" render={() => <ImageThumbnail images={images} />}/>
+
+
           <Route path="/albums/:albumId/images/gallery" render={() => <ImageGallery images={images} />}/>
           {/* <Route path="/albums/:albumId/images/list" component={ImageList}/>  */}
         </Switch>

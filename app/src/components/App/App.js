@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import hero from '../CssImages/flowers.jpg';
 import Home from '../Home';
 import Header from '../Nav';
 import Albums from '../Albums/Albums';
@@ -19,6 +20,7 @@ export default class App extends Component {
               <Route path="/about" component={About}/>
               <Redirect to="/"/>
             </Switch>
+            <img src={hero} />
           </main>
         </div>
       </Router>
