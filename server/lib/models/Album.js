@@ -28,6 +28,7 @@ schema.statics = {
                 .select(),
             
             Image.find({ albumId: id })
+                .sort({ $natural: -1 })
                 .lean()
                 .select('title description url')
         ])
