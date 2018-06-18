@@ -86,9 +86,4 @@ export const addAlbum = (album) => dispatch => {
         console.log(err);
       }
     );
-  // return {
-  //   type: ALBUM_ADD,
-  //   payload: postAlbum(album)
-  //     .then(deleted => deleted)
-  // };
 };

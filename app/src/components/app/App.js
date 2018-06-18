@@ -24,13 +24,14 @@ export default class App extends PureComponent {
             </ul>
           </nav>
           <main className = "main-area">
-            Main
             {<Switch>
               <Route exact path="/" component={Albums}/>
               <Route path="/about" component={About}/>
               <Route exact path="/albums" component={Albums}/>
               <Route path="/albums/new" component={NewAlbum}/>
-              <Route path="/albums/:id" component={AlbumDetail}/>
+              <Route path="/albums/:id" render={({ match }) => {
+                return <AlbumDetail albumId={match.params.id}/>;
+              }}/>
               <Route path="/albums/:id/images/thumbnail" component={AlbumDetail}/>
               <Route path="/albums/:id/images/gallery" component={AlbumDetail}/>
               <Route path="/albums/:id/images/list" component={AlbumDetail}/>
@@ -46,3 +47,7 @@ export default class App extends PureComponent {
   }
 
 }
+
+{/* <Route path="/books/:id" render={({ match, history }) => {
+                return <BookDetail gbID={match.params.id} history={history}/>;
+              }}/> */}
