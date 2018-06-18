@@ -40,12 +40,14 @@
     grid-area: nav;
     line-height: 5rem; 
     padding-left: 20px;
+    text-decoration: none;
 
 }
 
 .nav-bar a {
     color: gray;
     opacity: 0.7;
+    text-decoration: none;
 } 
 
 .nav-bar a:hover {
@@ -67,6 +69,11 @@
     color: white;
 }
 
+#foot-type {
+    font-style: italic;
+    padding-top: 20px;
+}
+
 @media (max-width: 768px) {
     .grid-class {
         display: grid;
@@ -79,19 +86,32 @@
         height: 100vh;
     }
     .nav-bar li {
+        align-items: center;
         text-align: center;
         display: inline-block;
-        padding-right: 5em;
+        padding-top: 3em;
+        padding-right: 3em;
+        margin-left: auto;
+        margin-right: auto;
 
         }
 
-        #logo {
+        ul {
             align-items: center;
+            padding-left: 20%;
+        }
+
+        #logo {
+            display: flex;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 45%;
         }
   
 }
 
-@media(max-width: 585px) {
+@media(max-width: 600px) {
     .grid-class {
         display: grid;
         grid-template-columns: 2fr 1fr;
@@ -111,6 +131,12 @@
         padding-left: 1em;
 
         }
+
+        ul {
+            align-items: center;
+            padding-left: 2%;
+        }
+        
     .foot {
         display: none;
     }
