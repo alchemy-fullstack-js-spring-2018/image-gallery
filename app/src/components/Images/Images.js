@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; //eslint-disable-line
 import ImagesForm from './ImagesForm';
+import { getImagesByAlbum } from '../reducers';
 
-export default class Albums extends Component {
+class Images extends Component {
   
+  static proptypes = {
+    images: PropTypes.array,
+  };
+
   render() {
 
     return (
@@ -15,4 +22,9 @@ export default class Albums extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ images: getImagesByAlbum(state) }),
+  null
+)(Images);
 

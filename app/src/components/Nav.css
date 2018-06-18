@@ -5,10 +5,15 @@
     ul {
         display: grid;
         grid-template-columns: 5fr 1fr 1fr 1fr;
+        padding: 2%;
+        background-color: #e6757b;
         li {
             background-color: #e6757b;
             color: black;
-            padding: 2%;
+            align-self: center;
+        }
+        a {
+            color: #b8bdab;
         }
     }
 

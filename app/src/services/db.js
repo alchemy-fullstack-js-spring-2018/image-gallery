@@ -8,3 +8,4 @@ export const fetchLoadAlbums = () => get(ALBUMS_URL);
 export const fetchAlbum = (id) => get(`${ALBUMS_URL}/${id}`);
 export const fetchAddAlbum = (data) => post(`${ALBUMS_URL}/new`, data);
 export const fetchAddImage = (data) => post(`${IMAGES_URL}/new`, data);
+export const fetchLoadImages = (id) => get(`${IMAGES_URL}/${id}`);
