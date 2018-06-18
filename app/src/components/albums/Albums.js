@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { getAlbums } from './reducers';
 import { loadAlbums, addAlbum } from './actions';
 import styles from './Albums.css';
+import AddAlbum from './AddAlbum';
 
 class Albums extends PureComponent {
   static propTypes = {
@@ -14,38 +15,28 @@ class Albums extends PureComponent {
   };
 
   state = {
+    formOpen: false,
     title: '',
     description: ''
+  };
+
+  handleFormToggle = () => {
+    this.setState(prevState => ({ formOpen: !prevState.formOpen }));
   };
 
   componentDidMount() {
     this.props.loadAlbums();
   }
 
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.addAlbum(this.state);
-    this.setState({ title: '', description: '' });
-  };
-
   render() {
     const { albums } = this.props;
-    const { title, description } = this.state;
+    const { formOpen } = this.state;
 
     return (
-      <div className={styles.albums}>
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <legend>Add a new album:</legend>
-            <label>title<input type="text" value={title} onChange={({ target }) => this.setState({ title: target.value })}/></label>
-            <label>description<input type="text" value={description} onChange={({ target }) => this.setState({ description: target.value })}/></label>
-            <button type="submit">ADD</button>
-          </fieldset>
-        </form>
-        <ul>
-          {albums.map(album => <li key={album._id}><Link to={`/albums/${album._id}`}>{album.title}</Link></li>)}
-        </ul>
-      </div>
+      <ul className={styles.albums}>
+        {formOpen ? <li className="form"><AddAlbum onDone={this.handleFormToggle}/></li> : <li><div className="new-album" onClick={this.handleFormToggle}>+</div></li>}
+        {albums.map(album => <li key={album._id}><div className="each-album"><Link to={`/albums/${album._id}`}>{album.title}</Link></div></li>)}
+      </ul>
     );
   }
 }
