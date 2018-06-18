@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import Albums from '../albums/Albums';
 import About from '../about/About';
-// import Images from '../images/Images';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
 import './App.css';
@@ -49,7 +48,3 @@ export default class App extends PureComponent {
   }
 
 }
-
-{/* <Route path="/books/:id" render={({ match, history }) => {
-                return <BookDetail gbID={match.params.id} history={history}/>;
-              }}/> */}
