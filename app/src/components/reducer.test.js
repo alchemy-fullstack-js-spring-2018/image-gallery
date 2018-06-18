@@ -44,23 +44,22 @@ describe('albumById reducer', () => {
   });
 });
   
-// describe('album reducer', () => {
-//   it('has a default value of an empty object', () => {
-//     const state = album(undefined, {});
-//     expect(state).toEqual(null);
-//   });
+describe('albumList reducer', () => {
+  it('has a default value of an empty array', () => {
+    const state = albumList(undefined, []);
+    expect(state).toEqual([]);
+  });
   
-//   it('loads a single album', () => {
-//     const state = album(null, { type: ALBUM_LOAD, payload: album1 });
-//     expect(state).toEqual(album1);
-//   });
+  it('loads all albums', () => {
+    const state = albumList(null, { type: ALBUMS_LOAD, payload: [album1] });
+    expect(state).toEqual([album1]);
+  });
   
-//   it('adds an image to the current album', () => {
-//     const image2 = { title: 'kitten2' };
-//     const state = album(album1, { type: IMAGE_ADD, payload: image2 });
-//     expect(state).toEqual({ ...album1, images: [...album1.images, image2] });
-//   });
-// });
+  it('adds an album', () => {
+    const state = albumList(album1, { type: ALBUM_ADD, payload: album2 });
+    expect(state).toEqual([album1, album2]);
+  });
+});
   
 // describe('selectors', () => {
 //   it('gets albums', () => {
