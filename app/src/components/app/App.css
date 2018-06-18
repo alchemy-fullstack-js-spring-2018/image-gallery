@@ -10,13 +10,13 @@
 .grid-class {
  
     display: grid;
-    grid-template-columns: 200px 2fr 1fr;
-    grid-template-rows: 5fr 5fr 1fr;
+    grid-template-columns: 175px 1.75fr 1fr;
+    grid-template-rows: 2fr 5fr 1fr;
     grid-column-gap: 0.5rem;
     grid-row-gap: 0.5rem;
     grid-template-areas: "image head head" 
     "nav main main" 
-    "nav foot foot";
+    "foot foot foot";
     width: 100vw;
     height: 100vh;
    
@@ -24,6 +24,7 @@
 #logo {
     grid-area: image;
     padding-left: 20px;
+    padding-top: 20px;
 }
 
 .header {
@@ -62,6 +63,8 @@
 .foot {
     grid-area: foot;
     text-align: center;
+    background-color: black;
+    color: white;
 }
 
 @media (max-width: 768px) {
