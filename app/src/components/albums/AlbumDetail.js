@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { loadAlbum, clearAlbum } from './actions';
 import { getCurrentAlbum } from './reducers';
 import Thumbnails from './Thumbnails';
+import ListView from './ListView';
 import styles from './AlbumDetail.css';
 
 class AlbumDetail extends PureComponent {
@@ -48,7 +49,7 @@ class AlbumDetail extends PureComponent {
             <Switch>
               <Route path={`/albums/${_id}/images/thumbnail`} render={() => <Thumbnails images={images}/>}/>
               <Route path="/albums/:id/images/gallery" />
-              <Route path="/albums/:id/images/list" />
+              <Route path="/albums/:id/images/list" render={() => <ListView images={images}/>}/>
               <Redirect to={`/albums/${_id}/images/thumbnail`} />
             </Switch>
           </section>
