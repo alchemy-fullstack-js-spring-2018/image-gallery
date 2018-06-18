@@ -6,6 +6,7 @@ export const IMAGES_LOAD = 'IMAGES_LOAD';
 
 export const getAlbumById = state => state.albumById;
 export const getAlbumsList = state => state.albumList;
+export const getImagesByAlbum = state => state.imagesByAlbum;
 
 export function albumById(state = {}, { type, payload }) {
   switch(type) {
@@ -35,10 +36,10 @@ export function albumList(state = [], { type, payload }) {
 
 export function imagesByAlbum(state = [], { type, payload }) {
   switch(type) {
-    case ALBUM_SHOW:
-      return [];
     case IMAGE_ADD:
       return [...state, payload];
+    case IMAGES_LOAD:
+      return payload;
     default:
       return state;
   }
