@@ -17,6 +17,12 @@ router
             .catch(next);
     })
 
+    .get('/albums/:id', (req, res, next) => {
+        Album.findById(req.params.id)
+            .then(album => res.json(album))
+            .catch(next);
+    })
+
     .delete('/albums/:id', (req, res, next) => {
         return Album.findByIdAndRemove(req.params.id)
             .then(() => res.json({ deleted: true }))
