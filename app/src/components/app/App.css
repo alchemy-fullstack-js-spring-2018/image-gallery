@@ -19,6 +19,10 @@
     position: sticky;
     bottom: 0;
   }
+
+  main {
+    background-color: var(--pale-gray);
+  }
   @media (min-width: 768px) {
     footer {
       position: static;

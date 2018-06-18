@@ -1,5 +1,52 @@
 :local(.albums) {
-  fieldset {
-    border: none;
+  display: grid;
+  grid-template-columns: repeat(2, 120px);
+  grid-gap: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  li {
+    padding: 10px;
+    background-color: white;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .new-album {
+      font-size: 100px;
+      padding-bottom: 0.2rem;
+      font-weight: bold;
+      text-align: center;
+      margin: auto 0;
+      cursor: default;
+      &:hover {
+        color: var(--teal);
+      }
+    }
+    .each-album {
+      font-size: 1rem;
+      // padding-bottom: 0.2rem;
+      font-weight: bold;
+      justify-content: center;
+      text-align: center;
+      margin: auto 0;
+      cursor: default;
+      &:hover {
+        a {
+          color: var(--teal);
+        }
+      }
+    }
+    &.form {
+      background-color: var(--soft-black);
+      grid-column: 1 / 3;
+      width: 100%;
+    }
+  }
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(3, 120px);
+
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fit, 120px);
   }
 }

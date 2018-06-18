@@ -28,12 +28,6 @@ class Albums extends PureComponent {
     this.props.loadAlbums();
   }
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.props.addAlbum(this.state);
-  //   this.setState({ title: '', description: '' });
-  // };
-
   render() {
     const { albums } = this.props;
     const { formOpen } = this.state;
@@ -41,7 +35,7 @@ class Albums extends PureComponent {
     return (
       <ul className={styles.albums}>
         {formOpen ? <li className="form"><AddAlbum onDone={this.handleFormToggle}/></li> : <li><div className="new-album" onClick={this.handleFormToggle}>+</div></li>}
-        {albums.map(album => <li key={album._id}><Link to={`/albums/${album._id}`}>{album.title}</Link></li>)}
+        {albums.map(album => <li key={album._id}><div className="each-album"><Link to={`/albums/${album._id}`}>{album.title}</Link></div></li>)}
       </ul>
     );
   }
