@@ -1,0 +1,11 @@
+:local(.album) {
+  border: 2px solid;
+  padding: 1rem;
+  
+  .posterimage {
+    height: 10rem;
+  }
+  .album-description {
+    padding-left: 2rem;
+  }
+}

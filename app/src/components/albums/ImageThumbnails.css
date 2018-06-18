@@ -1,0 +1,9 @@
+:local(.thumbnails) {
+    border: 2px solid;
+    padding: 1rem;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

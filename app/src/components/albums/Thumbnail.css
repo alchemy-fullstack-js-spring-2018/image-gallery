@@ -1,0 +1,9 @@
+:local(.thumbnail) {
+  
+  .thumbnail-image {
+    height: 8rem;
+  }
+  .image-title {
+    padding-left: 2rem;
+  }
+}
