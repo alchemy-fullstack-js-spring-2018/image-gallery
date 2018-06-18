@@ -21,7 +21,17 @@ After you get those you are ready to add albums, so navigate to the Add images c
 
 3. npm i all dependencies.
 
-4. launch the application using web-dev-server, you can do this by typing npm start and the web server will appear on port Localhost:8080.
+4. get the application ready to launch by opening two terminal windows and navigating to the app directory and server directory respectively.
+
+5. get your mongodb up and running.
+
+6. next in the server directory type node server.js to get the server connection to Mongo going.
+
+7. in the app directory in your separate terminal window type npm start to begin the web server.
+
+8. after both these shells are running, you can go to locolhost: 8080 and interact with our gallery page.
+
+
 
 
 

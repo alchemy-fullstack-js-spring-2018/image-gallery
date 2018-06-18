@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getImagesByAlbum } from './reducers';
 import { loadImages } from './actions';
 import { getUrl } from '../../services/images';
+import './ImagesThumbnail.css';
 
 class ImagesThumbnail extends PureComponent {
 
@@ -21,10 +22,11 @@ class ImagesThumbnail extends PureComponent {
     const { images } = this.props;
     return (
       <div>
-        <ul>
+        <ul className = "thumbnail-list">
           {images.map(image => <li key={image._id}>
             <img src={getUrl(image.url)}/>
-            {image.title}
+            <div id ="title">{image.title}</div>
+            <div id = "description">{image.description}</div>
           </li>
           )}
         </ul>
