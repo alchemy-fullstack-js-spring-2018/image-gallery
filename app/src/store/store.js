@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import promiseMiddleware from './promise-middleware';
 import { albumList, albumById, imagesByAlbum } from '../components/reducers';
 
 const rootReducer = combineReducers({
@@ -14,7 +15,8 @@ const store = createStore(
   rootReducer,
   composeEnhancers(
     applyMiddleware(
-      thunk
+      thunk,
+      promiseMiddleware
     )
   )
 );

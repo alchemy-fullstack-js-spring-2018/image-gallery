@@ -1,18 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; //eslint-disable-line
 import ImagesForm from './ImagesForm';
 import ImageThumbnail from './ImageThumbnail';
 import ImageGallery from './ImageGallery';
 import ImageList from './ImageList';
 import { getImagesByAlbum } from '../reducers';
+import { loadImages } from '../actions';
+import PropTypes from 'prop-types';
 
 class Images extends Component {
   
-  static proptypes = {
+  static propTypes = {
+    match: PropTypes.object.isRequired,
     images: PropTypes.array,
+    loadImages: PropTypes.func.isRequired,
   };
+
+  state = {
+    albumId: this.props.match.params.albumId,
+  }
+
+  componentDidMount() {
+    this.props.loadImages(this.state.albumId);
+  }
 
   render() {
 
@@ -31,6 +42,6 @@ class Images extends Component {
 
 export default connect(
   state => ({ images: getImagesByAlbum(state) }),
-  null
+  { loadImages }
 )(Images);
 

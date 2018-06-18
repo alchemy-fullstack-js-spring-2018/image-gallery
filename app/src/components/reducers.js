@@ -36,8 +36,6 @@ export function albumList(state = [], { type, payload }) {
 
 export function imagesByAlbum(state = [], { type, payload }) {
   switch(type) {
-    case ALBUM_SHOW:
-      return [];
     case IMAGE_ADD:
       return [...state, payload];
     case IMAGES_LOAD:
