@@ -23,9 +23,9 @@ export default class Gallery extends PureComponent {
   
     return (
       <section className={styles.gallery}>
-        <button onClick={() => this.handleSwitch(-1)} disabled={currentIndex === 0}>&#10094;</button>
+        <button className="back" onClick={() => this.handleSwitch(-1)} disabled={currentIndex === 0}>&#10094;</button>
         <img src={images[currentIndex].url} alt={images[currentIndex].description}/>
-        <button onClick={() => this.handleSwitch(1)} disabled={currentIndex === images.length - 1}>&#10095;</button>
+        <button className="forward" onClick={() => this.handleSwitch(1)} disabled={currentIndex === images.length - 1}>&#10095;</button>
       </section>
     );
   }

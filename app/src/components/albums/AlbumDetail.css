@@ -28,6 +28,7 @@
   }
   .album-display {
     background-color: var(--pale-gray);
+    height: 100%;
     .album-info {
       padding: 0.75rem 1.25rem 0 1.25rem;
     }
