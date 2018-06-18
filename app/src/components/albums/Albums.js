@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getAlbums } from './reducers';
 import { loadAlbums } from './actions';
 import PropTypes from 'prop-types';
@@ -21,12 +22,15 @@ export class Albums extends PureComponent {
     if(!albums) return null;
 
     return (
+
       <div><h1>Featured Albums</h1>
+
         <ul className = 'album-grid'>
           {albums.map((album, i) => <li key={i}>
-            <div id = 'title'>{album.title}</div>
-            <img src = {album.posterImage} id = 'poster-image'/>
-            <div id = 'description'>{album.description}</div>
+            <Link to={`/albums/${album._id}`}>
+              <div id = 'title'>{album.title}</div>
+              <img src = {album.posterImage} id = 'poster-image'/>
+            </Link>
           </li>)}
         </ul>
       </div> //mockup basic display of albums. list of albums.
