@@ -39,11 +39,11 @@ class AddImage extends PureComponent {
 
     return (
       <form className={styles['add-image']} onSubmit={this.handleSubmit}>
-        <input type="text" name="title" value={title} onChange={this.handleChange}/>
-        <input type="text" name="description" value={description} onChange={this.handleChange}/>
-        <input type="text" name="url" value={url} onChange={this.handleChange}/>
+        <input type="text" name="title" value={title} onChange={this.handleChange} placeholder="title"/>
+        <input type="text" name="description" value={description} onChange={this.handleChange} placeholder="description"/>
+        <input type="text" name="url" value={url} onChange={this.handleChange} placeholder="url"/>
+        <button type="submit">ADD IMAGE</button>
         <button type="button" onClick={onDone}>cancel</button>
-        <button type="submit">ADD</button>
       </form>
     );
   }
