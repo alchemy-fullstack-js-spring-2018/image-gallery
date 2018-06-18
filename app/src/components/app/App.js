@@ -20,7 +20,7 @@ export default class App extends PureComponent {
               <li><a>Albums</a></li>
               <li><Link to="/albums/new">Add Albums</Link></li>
               <li><a>Images</a></li>
-              <li><a>About</a></li>
+              <li><Link to="/about">About</Link></li>
             </ul>
           </nav>
           <main className = "main-area">
