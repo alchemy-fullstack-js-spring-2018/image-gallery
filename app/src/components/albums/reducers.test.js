@@ -6,9 +6,11 @@ import {
   ALBUM_LOAD,
   IMAGE_ADD,
   getAlbums,
-  getCurrentAlbum } from './reducers';
+  getCurrentAlbum,
+  getCurrentAlbumId } from './reducers';
 
 const album1 = {
+  _id: '123',
   title: 'kittens',
   description: 'all the best kittens',
   images: [{ title: 'kitten1' }]
@@ -66,5 +68,11 @@ describe('selectors', () => {
     const album = album1;
     const got = getCurrentAlbum({ album });
     expect(got).toEqual(album);
+  });
+
+  it('gets the current album id', () => {
+    const album = album1;
+    const got = getCurrentAlbumId({ album });
+    expect(got).toEqual(album._id);
   });
 });
