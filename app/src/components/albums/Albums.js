@@ -33,7 +33,7 @@ class Albums extends PureComponent {
             </Link>
           </li>)}
         </ul>
-      </div> //mockup basic display of albums. list of albums.
+      </div>
     );
   }
 }
