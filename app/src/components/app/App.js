@@ -42,7 +42,7 @@ export default class App extends PureComponent {
               <Redirect to="/"/>
             </Switch>}
           </main>
-          <footer className = "foot"><p id = "foot-type">&copy; 2018 Munro and Lonergan Gallery.</p></footer>
+          <footer className = "foot"><p id = "foot-type">&copy; 2018 Manro and Lonergan Gallery.</p></footer>
         </div>
       </Router>
     );
