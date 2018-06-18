@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAlbums } from './reducers';
 import { addAlbum } from './actions';
+import './NewAlbum.css';
 
 const defaultState = {
   title: '',
@@ -43,14 +44,14 @@ export class NewAlbum extends PureComponent {
     const { title, description, posterImage } = this.state.edit;
 
     return (
-      <div>NewAlbum Component
+      <div className = "new-album">NewAlbum Component
         <form onSubmit={this.handleSubmit}>
           <label>
           Title:
             <input name="title" value={title} onChange={this.handleChange} required/>
           </label>
           <label>
-          Description:
+           Description:
             <input name="description" value={description} onChange={this.handleChange} required/>
           </label>
           <label>
