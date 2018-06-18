@@ -14,7 +14,8 @@ class NewImage extends PureComponent {
 
   static propTypes = {
     albumId: PropTypes.string.isRequired,
-    addImage: PropTypes.func.isRequired
+    addImage: PropTypes.func.isRequired,
+    history: PropTypes.object
   };
 
   state= {
@@ -38,13 +39,14 @@ class NewImage extends PureComponent {
     this.setState({
       edit: { ...defaultState }
     });
+    this.props.history.push(`/albums/${this.props.albumId}/thumbnail`);
   };
 
   render() {
     const { title, description, url } = this.state.edit;
 
     return (
-      <div>NewImage Component
+      <div>Add New Image
         <form onSubmit={this.handleSubmit}>
           <label>
       Title:

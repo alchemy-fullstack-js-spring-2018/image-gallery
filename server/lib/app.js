@@ -7,7 +7,6 @@ const cors = require('cors')();
 
 app.use(morgan('dev'));
 app.use(cors);
-// app.use(express.static('./public'));
 app.use(bodyParser.json());
 
 const albums = require('./routes/albums');

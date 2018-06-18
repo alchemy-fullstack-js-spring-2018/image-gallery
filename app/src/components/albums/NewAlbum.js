@@ -44,7 +44,7 @@ export class NewAlbum extends PureComponent {
     const { title, description, posterImage } = this.state.edit;
 
     return (
-      <div className = "new-album"><h1>New Album Component</h1>&nbsp;
+      <div className = "new-album"><h1>Add New Album</h1>&nbsp;
         <form onSubmit={this.handleSubmit}>
           <label>
           Title:

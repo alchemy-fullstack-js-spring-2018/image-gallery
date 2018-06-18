@@ -31,13 +31,6 @@ export default class App extends PureComponent {
               <Route path="/albums/:id" render={({ match }) => {
                 return <AlbumDetail albumId={match.params.id} match={match}/>;
               }}/>
-              {/* <Route path="/albums/:id/images/" component={AlbumDetail}/> */}
-
-              {/* <Route path="/albums/:id/images/thumbnail" component={AlbumDetail}/>
-              <Route path="/albums/:id/images/gallery" component={AlbumDetail}/>
-              <Route path="/albums/:id/images/list" component={AlbumDetail}/>
-              <Route path="/albums/:id/images/new" component={AlbumDetail}/>
-              <Route path="/images" component={Images}/> */}
               <Redirect to="/"/>
             </Switch>}
           </main>

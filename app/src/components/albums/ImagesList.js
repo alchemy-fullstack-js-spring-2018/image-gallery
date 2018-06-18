@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getImagesByAlbum } from './reducers';
 import { loadImages } from './actions';
-import { getUrl } from '../../services/images';
 
-class ImagesThumbnail extends PureComponent {
+class ImagesList extends PureComponent {
 
   static propTypes = {
     albumId: PropTypes.string.isRequired,
@@ -19,15 +18,27 @@ class ImagesThumbnail extends PureComponent {
 
   render() {
     const { images } = this.props;
+
     return (
       <div>
-        <ul>
-          {images.map(image => <li key={image._id}>
-            <img src={getUrl(image.url)}/>
-            {image.title}
-          </li>
-          )}
-        </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            {images.map(image => 
+              <tr key={image._id}>
+                <td>{image.title}</td>
+                <td>{image.description}</td>
+                <td>{image.url}</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     );
   }
@@ -37,4 +48,4 @@ class ImagesThumbnail extends PureComponent {
 export default connect(
   state => ({ images: getImagesByAlbum(state) }),
   { loadImages }
-)(ImagesThumbnail);
+)(ImagesList);
