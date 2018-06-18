@@ -25,7 +25,7 @@ export function album(state = null, { type, payload }) {
     case IMAGE_ADD:
       return {
         ...state,
-        images: [...state.images, payload]
+        images: [payload, ...state.images]
       };
     default:
       return state;
