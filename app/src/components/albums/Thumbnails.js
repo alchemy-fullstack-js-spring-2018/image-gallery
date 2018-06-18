@@ -15,6 +15,7 @@ export default class Thumbnails extends PureComponent {
   
     return (
       <ul className={styles.thumbnails}>
+        <li><div className="new-image">+</div></li>
         {images.map(image => <li key={image._id}>
           <img src={getUrl(image.url, 'w_100')}/>
           <h4>{image.title}</h4>

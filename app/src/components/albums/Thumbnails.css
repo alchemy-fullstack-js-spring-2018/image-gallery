@@ -9,6 +9,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    .new-image {
+      font-size: 100px;
+      font-weight: bold;
+      text-align: center;
+      margin: auto 0;
+      cursor: default;
+      &:hover {
+        color: var(--teal);
+      }
+    }
     h4 {
       margin-top: 10px;
       font-size: 0.8em;
