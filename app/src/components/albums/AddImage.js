@@ -25,11 +25,6 @@ class AddImage extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.props.addImage(this.props.albumId, this.state);
-    this.setState({
-      title: '',
-      description: '',
-      url: ''
-    });
     this.props.onDone();
   };
 
