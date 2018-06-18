@@ -21,9 +21,17 @@
   }
 
   main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: var(--pale-gray);
   }
   @media (min-width: 768px) {
+    main {
+      display: block;
+      background-color: var(--pale-gray);
+    }
     footer {
       position: static;
     }
