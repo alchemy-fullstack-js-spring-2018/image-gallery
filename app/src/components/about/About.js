@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import './About.css';
 
 export default class About extends PureComponent {
 

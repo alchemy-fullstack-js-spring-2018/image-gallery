@@ -13,11 +13,11 @@ export default class App extends PureComponent {
     return (
       <Router>
         <div className = "grid-class">
-          <img src={require('../../assets/Logo2.png')} id="logo"/><header className="header"></header>
+        <Link to= "/"><img src={require('../../assets/Logo2.png')} id="logo"/></Link><header className="header"></header>
           
           <nav className = "nav-bar">
             <ul>
-              <li><a>Albums</a></li>
+              <li><Link to= "/">Albums</Link></li>
               <li><Link to="/albums/new">Add Albums</Link></li>
               <li><a>Images</a></li>
               <li><Link to="/about">About</Link></li>
@@ -42,7 +42,7 @@ export default class App extends PureComponent {
               <Redirect to="/"/>
             </Switch>}
           </main>
-          <footer className = "foot">footer</footer>
+          <footer className = "foot"><p id = "foot-type">&copy; 2018 Munro and Lonergan Gallery.</p></footer>
         </div>
       </Router>
     );

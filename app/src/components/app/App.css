@@ -40,12 +40,14 @@
     grid-area: nav;
     line-height: 5rem; 
     padding-left: 20px;
+    text-decoration: none;
 
 }
 
 .nav-bar a {
     color: gray;
     opacity: 0.7;
+    text-decoration: none;
 } 
 
 .nav-bar a:hover {
@@ -67,6 +69,11 @@
     color: white;
 }
 
+#foot-type {
+    font-style: italic;
+    padding-top: 20px;
+}
+
 @media (max-width: 768px) {
     .grid-class {
         display: grid;
@@ -81,17 +88,22 @@
     .nav-bar li {
         text-align: center;
         display: inline-block;
+        padding-top: 3em;
         padding-right: 5em;
+        margin-left: auto;
+        margin-right: auto;
 
         }
 
         #logo {
-            align-items: center;
-        }
+            display: block;
+    margin-left: auto;
+    margin-right: auto;
+                }
   
 }
 
-@media(max-width: 585px) {
+@media(max-width: 600px) {
     .grid-class {
         display: grid;
         grid-template-columns: 2fr 1fr;
