@@ -86,20 +86,28 @@
         height: 100vh;
     }
     .nav-bar li {
+        align-items: center;
         text-align: center;
         display: inline-block;
         padding-top: 3em;
-        padding-right: 5em;
+        padding-right: 3em;
         margin-left: auto;
         margin-right: auto;
 
         }
 
+        ul {
+            align-items: center;
+            padding-left: 20%;
+        }
+
         #logo {
-            display: block;
-    margin-left: auto;
-    margin-right: auto;
-                }
+            display: flex;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 45%;
+        }
   
 }
 
