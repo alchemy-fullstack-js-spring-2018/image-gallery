@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getImagesByAlbum } from './reducers';
 import { loadImages } from './actions';
+import { getUrl } from '../../services/images';
 
 class ImagesThumbnail extends PureComponent {
 
@@ -22,7 +23,8 @@ class ImagesThumbnail extends PureComponent {
       <div>
         <ul>
           {images.map(image => <li key={image._id}>
-            <img src={image.url}/>
+            <img src={getUrl(image.url)}/>
+            {image.title}
           </li>
           )}
         </ul>
