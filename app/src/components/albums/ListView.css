@@ -1,0 +1,15 @@
+:local(.listView) {
+  table {
+    max-width: 150px;
+    border-spacing: .5rem;
+    th {
+      padding: .5rem;
+      background-color: white;
+    }
+
+    td {
+      padding: .5rem;
+      background-color: white;
+    }
+  }
+}

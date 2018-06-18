@@ -1,0 +1,61 @@
+:local(.gallery) {
+  width: 90vw;
+  height: 55vh;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-rows: 1fr auto;
+  grid-template-areas: "image image" "back-button forward-button";
+  img {
+    grid-area: image; 
+    justify-self: center;
+    max-height: 100%;
+    max-width: 100%;
+  }
+  button {
+    border: none;
+    color: white;
+    background-color: var(--soft-black);
+    font-size: 1.5em;
+    width: 1.5em;
+    height: 1.5em;
+    &:hover {
+      color: var(--teal);
+    }
+    &.back {
+      left: 2rem;
+      grid-area: back-button;
+      justify-self: flex-end;
+      align-self: center;
+    }
+    &.forward {
+      right: 2rem;
+      grid-area: forward-button;
+      justify-self: flex-start;
+      align-self: center;
+    }
+    &[disabled] {
+      visibility: hidden;
+    }
+  }
+  @media (min-width: 769px) {
+    grid-template-rows: 1fr;
+    grid-template-areas: "image";
+    width: 81.8vw;
+    height: 67vh;
+    position: relative;
+    display: grid;
+    img {
+      align-self: center;
+      justify-self: center;
+      max-height: 100%;
+      max-width: 100%;
+    }
+    button {
+      position: absolute;
+      z-index: 1;
+      top: 40%;
+      bottom: 60%;
+      margin: 0.2rem;
+    }
+  }
+}
