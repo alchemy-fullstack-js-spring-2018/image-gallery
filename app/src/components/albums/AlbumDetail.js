@@ -41,8 +41,8 @@ export default class AlbumDetail extends PureComponent {
         <div>
           {title} <br/>
           <img src={posterImage}/> <br/>
-          {description}
-          <Link to={`${url}/new`}>New Image</Link>
+          {description}<br />
+          <Link to={`${url}/new`}>New Image</Link>&nbsp;
           <Link to={`${url}/thumbnail`}>Thumbnail</Link>
         </div>
         <div>
