@@ -25,7 +25,7 @@ export class Albums extends PureComponent {
       <div><h1>ALBUMS</h1>
         <ul className = 'album-grid'>
           {albums.map((album, i) => <li key={i}>
-            <Link to={`/albums/${album._id}`} album={album}>
+            <Link to={`/albums/${album._id}`}>
               <div id = 'title'>{album.title}</div>
               <img src = {album.posterImage} id = 'poster-image'/>
             </Link>
