@@ -1,3 +1,11 @@
+:root {
+  --teal: #49abd0;
+  --bright-teal: #0fbcdb;
+  --cobalt: #222b77;
+  --soft-black: #141414;
+  --pale-gray: #ebebeb;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +19,7 @@ html, body, #root {
 
 body {
   font-family: 'Open Sans', sans-serif;
+  color: var(--soft-black);
 }
 
 a {
@@ -19,12 +28,4 @@ a {
 
 ul {
   list-style: none;
-}
-
-:root {
-  --teal: #49abd0;
-  --bright-teal: #0fbcdb;
-  --cobalt: #222b77;
-  --soft-black: #141414;
-  --pale-gray: #ebebeb;
 }
