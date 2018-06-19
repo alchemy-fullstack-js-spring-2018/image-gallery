@@ -5,6 +5,7 @@ import Home from '../Home';
 import Header from '../Nav';
 import Albums from '../Albums/Albums';
 import About from '../About';
+import PrivateRoute from './PrivateRoute';
 
 export default class App extends Component {
 
