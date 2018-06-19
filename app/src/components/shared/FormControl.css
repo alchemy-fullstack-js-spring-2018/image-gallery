@@ -1,0 +1,23 @@
+:local(.form-control) {
+  max-width: 250px;
+  padding: 1rem;
+  .control {
+    input {
+      width: 100%;
+      font-size: 0.9em;
+      padding: 0.25rem;
+      border: none;
+      margin-bottom: 0.75rem;
+    }
+    button {
+      font-family: 'Open Sans', sans-serif;
+      float: right;
+      margin-left: 0.75rem;
+      padding: 0.25rem;
+      border: none;
+      &[type="submit"]:hover {
+        background-color: var(--teal);
+      }
+    }
+  }
+}
