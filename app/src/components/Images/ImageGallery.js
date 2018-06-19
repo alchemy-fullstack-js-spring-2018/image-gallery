@@ -14,9 +14,14 @@ export default class ImageGallery extends Component {
 
       return (
         <div>
-          <ul>
-            {images ? images.map((images, i) => <ImageItem key={i} images={images}/>) : null}
-          </ul>    
+          <ul>(
+            {images.map(image => 
+              <li key={image._id}>
+                <img src={image.url} />
+                <h4>{image.title}</h4>
+              </li>
+            )}
+          </ul>      
         </div>
       );
     }
