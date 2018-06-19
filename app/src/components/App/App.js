@@ -1,26 +1,46 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { tryLoadUser } from '../auth/actions';
+import { getCheckedAuth } from '../auth/reducers';
 import hero from '../CssImages/flowers.jpg';
-import Home from '../Home';
-import Header from '../Nav';
+import Home from '../HomePage/Home';
+import Header from '../Navigation/Nav';
 import Albums from '../Albums/Albums';
-import About from '../About';
+import About from '../AboutPage/About';
 import PrivateRoute from './PrivateRoute';
+import Auth from '../auth/Auth';
 
-export default class App extends Component {
+class App extends Component {
+
+  static propTypes = {
+    tryLoadUser: PropTypes.func.isRequired,
+    checkedAuth: PropTypes.func.isRequired
+  };
+
+  componentDidMount() {
+    this.props.tryLoadUser;
+  }
 
   render() {
+
+    const { checkedAuth } = this.props;
+
     return (
       <Router>
         <div>
           <Header/>
           <main>
+            { checkedAuth && 
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route path="/albums" component={Albums}/>
-              <Route path="/about" component={About}/>
+              <Route path="/auth" component={Auth}/>
+              <PrivateRoute path="/albums" component={Albums}/>
+              <PrivateRoute path="/about" component={About}/>
               <Redirect to="/"/>
             </Switch>
+            }
             <img src={hero} />
           </main>
         </div>
@@ -28,3 +48,8 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({ checkedAuth: getCheckedAuth(state) }),
+  { tryLoadUser }
+)(App);
