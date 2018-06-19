@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { connect } from 'react-redux';
 import { getCheckedAuth } from '../auth/reducers';
 import { tryLoadUser } from '../auth/actions';
-import hero from '../CssImages/flowers.jpg';
+import hero from '../../assets/images/flowers.jpg';
 import PrivateRoute from './PrivateRoute';
 import Home from '../Home';
 import Header from '../Nav';

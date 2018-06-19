@@ -63,7 +63,7 @@ module.exports = router
                             error: 'Invalid username or password'
                         };
                     }  
-                    return Promise.all([user, sign(user)])
+                    return Promise.all([user, sign(user)]);
                 })
                 .then( ([ user, token ]) => {
                     return {
