@@ -2,12 +2,13 @@
 module.exports = function createErrorHandler(log = console.log) {
 
     // eslint-disable-next-line
-  return (err, req, res, next) => {
+    return (err, req, res, next) => {
+        // eslint-disable-next-line
         let showLog = process.env.NODE_ENV !== 'production';
         let code = 500;
         let error = 'Internal Server Error';
 
-        if(err.code) {
+        if(err.code && err.code !== 'ENOENT') {
             code = err.code;
             error = err.error;
         }
@@ -23,7 +24,7 @@ module.exports = function createErrorHandler(log = console.log) {
             showLog = true;
         }
 
-        if(showLog) log(code, error);
+        log(err);
 
         res.status(code).json({ error });
     };
