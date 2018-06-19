@@ -1,3 +1,32 @@
+import store from '../store';
+import { getUser } from '../components/auth/reducers';
+
+let token = '';
+
+const key = 'user';
+const storage = window.localStorage;
+
+store.subscribe(() => {
+  const user = getUser(store.getState());
+  const nextToken = user ? (user.token || '') : '';
+  if(nextToken === token) return;
+
+  token = nextToken;
+  token ? storage.setItem(key, JSON.stringify(user)) : clearStoredUser();
+});
+
+export const getStoredUser = () => {
+  const json = storage.getItem(key);
+  try {
+    return JSON.parse(json);
+  }
+  catch(err) {
+    clearStoredUser();
+  }
+};
+
+export const clearStoredUser = () => storage.removeItem(key);
+
 function request(url, options = {}, data) {
   if(data) options.body = JSON.stringify(data);
 
