@@ -8,6 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import Home from '../Home';
 import Header from '../Nav';
 import Albums from '../Albums/Albums';
+import Auth from '../Auth/Auth';
 import About from '../About';
 import PropTypes from 'prop-types';
 

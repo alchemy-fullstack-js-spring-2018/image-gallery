@@ -1,4 +1,4 @@
-jest.mock('../../services/api', () => ({
+jest.mock('../../services/db', () => ({
   signin: jest.fn(),
   signup: jest.fn(),
   verify: jest.fn()
@@ -8,7 +8,7 @@ import { signup, signin, logout } from './actions';
 import { USER_AUTH, LOGOUT } from './reducers';
 import { 
   signup as signupSvc, 
-  signin as signinSvc } from '../../services/api'; 
+  signin as signinSvc } from '../../services/db'; 
   
 describe('auth action creators', () => {
   

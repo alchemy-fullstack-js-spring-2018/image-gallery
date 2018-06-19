@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import styles from './Credentials.css';
 
 export default class Credentials extends PureComponent {
 
@@ -30,7 +29,7 @@ export default class Credentials extends PureComponent {
     const { username, email, password } = this.state;
 
     return (
-      <form className={styles.credentials} onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         { allowName && 
           <div>
             <label>Username</label>

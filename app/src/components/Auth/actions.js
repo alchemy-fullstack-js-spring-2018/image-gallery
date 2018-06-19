@@ -1,11 +1,11 @@
 import { USER_AUTH, LOGOUT, CHECKED_AUTH } from './reducers';
-import { verifyUser } from '../../services/api';
+import { verifyUser } from '../../services/db';
 import { getStoredUser, clearStoredUser } from '../../services/request';
 
 import { 
   signup as signupApi, 
   signin as signinApi
-} from '../../services/api';
+} from '../../services/db';
 
 const makeAuth = api => credentials => ({
   type: USER_AUTH,
