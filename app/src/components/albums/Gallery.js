@@ -9,15 +9,42 @@ class Gallery extends PureComponent {
   static propTypes = {
     albumId: PropTypes.string.isRequired,
     loadImages: PropTypes.func.isRequired,
-    images: PropTypes.array
+    images: PropTypes.array.isRequired
+  };
+
+  state = {
+    imageSpot: 0
   };
 
   componentDidMount() {
     this.props.loadImages(this.props.albumId);
   }
 
+  handlePrev = () => {
+    this.setState({ imageSpot: this.state.imageSpot - 1 });
+  };
+
+  handleNext = () => {
+    this.setState({ imageSpot: this.state.imageSpot + 1 });
+  };
+
   render() {
-    return (<div>Gallery</div>);
+    const { images } = this.props;
+    const { imageSpot } = this.state;
+
+    if(!images) return null;
+
+    return (
+      <div>
+        {(!!imageSpot) && <button onClick={this.handlePrev}>&lt;</button>}
+        {images.map((image, i) => {
+          if(i === imageSpot) return <img key={image._id} src={image.url}/>;
+          return <img key={image._id} src={image.url} hidden/>;
+        })}
+        {(imageSpot !== images.length - 1) && (!images) && <button onClick={this.handleNext}>&gt;</button>}
+
+      </div>
+    );
   }
 
 }
