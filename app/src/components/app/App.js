@@ -10,6 +10,7 @@ import About from '../about/About';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
 import Auth from '../auth/Auth';
+import Header from './Header';
 import './App.css';
 
 class App extends PureComponent {
@@ -30,7 +31,7 @@ class App extends PureComponent {
       <Router>
         <div className = "grid-class">
           <Link to= "/"><img src={require('../../assets/Logo2.png')} id="logo"/></Link>
-          <header className="header"></header>
+          <Header className="header"/>
           <nav className = "nav-bar">
             <ul>
               <li><Link to= "/">Albums</Link></li>

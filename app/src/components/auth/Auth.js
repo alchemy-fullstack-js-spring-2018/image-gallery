@@ -32,7 +32,7 @@ class Auth extends PureComponent {
           <Route path="/auth/signup" render={() => (
             <div>
               <p>Already Have an Account? <Link to="/auth/signin">Sign In</Link></p>
-              <Credentials action="Sign IP" submit={signup} allowName={true}/>
+              <Credentials action="Sign Up" submit={signup} allowName={true}/>
             </div>
           )}/>
           <Redirect to="/auth/signin"/>
