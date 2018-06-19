@@ -27,3 +27,11 @@ export function images(state = [], { type, payload }) {
       return state;
   }
 }
+
+export function user(state = null, { type, payload }) {
+  switch (type) {  
+    default:
+      return state;
+  
+  }
+}

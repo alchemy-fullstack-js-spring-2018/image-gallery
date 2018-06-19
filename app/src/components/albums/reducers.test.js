@@ -1,6 +1,6 @@
-import { albums, ALBUMS_LOAD, ALBUM_ADD, images, LOAD_IMAGES, IMAGE_ADD, } from './reducers';
+import { user, getUser, USER_AUTH, LOGOUT, albums, ALBUMS_LOAD, ALBUM_ADD, images, LOAD_IMAGES, IMAGE_ADD, } from './reducers';
 
-describe.only('Album Reducers', () => {
+describe('Album Reducers', () => {
 
   it('Returns an empty array for default state', () => {
     const state = albums(undefined, {});
@@ -28,13 +28,23 @@ describe('Image Reducers', () => {
 
   it('loads album images', () => {
     const state = images(undefined, { type: LOAD_IMAGES, payload: [{ title: 'fakeImage1' }] }); 
-    expect(state).toEqual([{ title: 'fakeImage' }]);
+    expect(state).toEqual([{ title: 'fakeImage1' }]);
   });
 
   it('Adds an Image', () => {
     const state = images([{ title: 'fakeImage' }], { type: IMAGE_ADD, payload: { title: 'fakeImage2' } });
     expect(state).toEqual([{ title: 'fakeImage' }, { title: 'fakeImage2' }]);
   });
+
+});
+
+describe('Auth Reducers tests', () => {
+
+  it('initializers to null', () => {
+    const state = user(undefined, {});
+    expect(state).toBe(null);
+  });
+
 
 });
   
