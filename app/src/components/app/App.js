@@ -8,6 +8,7 @@ import { tryLoadUser } from '../auth/actions';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
 import { getCheckedAuth } from '../auth/reducers';
+import PrivateRoute from './PrivateRoute';
 import Auth from '../auth/Auth';
 import './App.css';
 
@@ -15,7 +16,7 @@ class App extends PureComponent {
   
   static propTypes = {
     tryLoadUser: PropTypes.func.isRequired,
-    checkedAuth: PropTypes.bool.isRequired
+    checkedAuth: PropTypes.bool
   };
 
   componentDidMount() {
@@ -44,9 +45,9 @@ class App extends PureComponent {
                 <Route exact path="/" component={Albums}/>
                 <Route path="/auth" component={Auth}/>
                 <Route path="/about" component={About}/>
-                <Route exact path="/albums" component={Albums}/>
-                <Route path="/albums/new" component={NewAlbum}/>
-                <Route path="/albums/:id" render={({ match }) => {
+                <PrivateRoute exact path="/albums" component={Albums}/>
+                <PrivateRoute path="/albums/new" component={NewAlbum}/>
+                <PrivateRoute path="/albums/:id" render={({ match }) => {
                   return <AlbumDetail albumId={match.params.id} match={match}/>;
                 }}/>
                 <Redirect to="/"/>
