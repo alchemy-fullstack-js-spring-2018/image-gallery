@@ -7,14 +7,12 @@ const key = 'user';
 const storage = window.localStorage;
 
 store.subscribe(() => {
-  console.log('GOT HERE');
   const user = getUser(store.getState());
   const nextToken = user ? (user.token || '') : '';
   if(nextToken === token) return;
   
   token = nextToken;
   token ? storage.setItem(key, JSON.stringify(user)) : clearStoredUser();
-  console.log(storage);
 });
 
 export const getStoredUser = () => {
