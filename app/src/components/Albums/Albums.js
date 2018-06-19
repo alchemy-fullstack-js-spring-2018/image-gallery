@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; //eslint-disable-line
+import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom'; //eslint-disable-line
 import AlbumsForm from './AlbumsForm';
 import AlbumsList from './AlbumList';
 import AlbumDetail from './AlbumDetail';
 import Images from '../Images/Images';
+import PrivateRoute from '../App/PrivateRoute';
 
 export default class Albums extends Component {
   
@@ -12,10 +13,10 @@ export default class Albums extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/albums" component={AlbumsList}/>
-          <Route path="/albums/new" component={AlbumsForm}/>
-          <Route exact path="/albums/:albumId" component={AlbumDetail}/>
-          <Route path="/albums/:albumId/images" component={Images}/>
+          <PrivateRoute exact path="/albums" component={AlbumsList}/>
+          <PrivateRoute path="/albums/new" component={AlbumsForm}/>
+          <PrivateRoute exact path="/albums/:albumId" component={AlbumDetail}/>
+          <PrivateRoute path="/albums/:albumId/images" component={Images}/>
           <Redirect to="/albums"/>
         </Switch>
       </div>
