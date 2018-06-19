@@ -5,6 +5,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import NewImage from './NewImage';
 import ImagesThumbnail from './ImagesThumbnail';
 import ImagesList from './ImagesList';
+import Gallery from './Gallery';
 
 
 export default class AlbumDetail extends PureComponent {
@@ -35,12 +36,13 @@ export default class AlbumDetail extends PureComponent {
     return (
       <section>
         <div>
-          {title} <br/>
+          <h1>{title.toUpperCase()}</h1>
+          <p>{description}</p><br/>
           <img src={posterImage}/> <br/>
-          {description}<br />
-          <Link to={`${url}/new`}>New Image</Link>&nbsp;
-          <Link to={`${url}/thumbnail`}>Thumbnail</Link>
-          <Link to={`${url}/list`}>List</Link>
+          <Link to={`${url}/new`}>NEW IMAGE</Link>&nbsp;-&nbsp;
+          <Link to={`${url}/thumbnail`}>THUMBNAILS</Link>&nbsp;-&nbsp;
+          <Link to={`${url}/list`}>LIST</Link>
+          <Link to={`${url}/gallery`}>GALLERY</Link>
         </div>
         <div>
           <Switch>
@@ -52,6 +54,9 @@ export default class AlbumDetail extends PureComponent {
             }}/>
             <Route path={`${url}/list`} render={() => {
               return <ImagesList albumId={albumId}/>;
+            }}/>
+            <Route path={`${url}/gallery`} render={() => {
+              return <Gallery albumId={albumId}/>;
             }}/>
           </Switch>
         </div>
