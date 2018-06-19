@@ -16,11 +16,11 @@ function hasEmailAndPassword(req, res, next) {
 }
 
 router
-    .get('/verify', ensureAuth, (req, res) => {
+    .get('/auth/verify', ensureAuth, (req, res) => {
         res.send({ valid: true});
     })
 
-    .post('/signup', bodyParser, hasEmailAndPassword, (req, res, next) => {
+    .post('/auth/signup', bodyParser, hasEmailAndPassword, (req, res, next) => {
         const { name, email, password } = req.body;
         delete req.body.password;
 
@@ -39,7 +39,7 @@ router
             .catch(next);
     })
 
-    .post('/signin', bodyParser, hasEmailAndPassword, (req, res, next) => {
+    .post('/auth/signin', bodyParser, hasEmailAndPassword, (req, res, next) => {
         const { email, password } = req.body;
         delete req.body.password;
 

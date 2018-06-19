@@ -1,8 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { albums, images } from '../src/components/albums/reducers';
+import { user, checkedAuth } from './components/auth/reducers';
 
 const rootReducer = combineReducers({
+  user,
+  checkedAuth,
   albums,
   images
 });

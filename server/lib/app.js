@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const auth = require('./routes/auth');
 const albums = require('./routes/albums');
 
-app.use('/auth', auth);
+app.use('/api', auth);
 app.use('/api', albums);
 
 app.use((req, res) => {
