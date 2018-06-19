@@ -12,7 +12,6 @@ const hasUsernameAndPassword = ({body}, res, next) => {
             error: 'Username and password are required.'
         };
     }
-
     next();
 };
 

@@ -16,14 +16,12 @@ schema.static('exists', function (query) {
         .then(count => (count > 0));
 });
 
-schema.methods = {
+schema.method('generateHash', function (password) {
+    this.hash = bcrypt.hashSync(password, 8);
+});
 
-    generateHash(password) {
-        this.hash = bcrypt.hashSync(password, 8);
-    },
-    comparePassword(password) {
-        return bcrypt.compareSync(password, this.hash);
-    }
-};
+schema.method('comparePassword', function (password) {
+    return bcrypt.compareSync(password, this.hash);
+});
 
 module.exports = mongoose.model('User', schema);

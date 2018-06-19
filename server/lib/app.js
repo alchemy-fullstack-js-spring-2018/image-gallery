@@ -10,15 +10,11 @@ app.use(bodyParser.json());
 
 const albums = require('./routes/albums');
 const images = require('./routes/images');
+const auth = require('./routes/auth');
 
-// add routes
-// app.get('/api/whatever', (req, res) => {
-//     res.json([1, 2, 3]);
-// });
-
-// bunch o other routes
 app.use('/api/albums', albums);
 app.use('/api/images', images);
+app.use('/api/auth', auth);
 app.use((req, res) => {
     res.sendFile('index.html', { root: './public'} );
 });
