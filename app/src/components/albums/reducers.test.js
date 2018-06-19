@@ -1,4 +1,4 @@
-import { user, getUser, USER_AUTH, LOGOUT, albums, ALBUMS_LOAD, ALBUM_ADD, images, LOAD_IMAGES, IMAGE_ADD, } from './reducers';
+import { albums, ALBUMS_LOAD, ALBUM_ADD, images, LOAD_IMAGES, IMAGE_ADD, } from './reducers';
 
 describe('Album Reducers', () => {
 
@@ -38,28 +38,4 @@ describe('Image Reducers', () => {
 
 });
 
-describe('Auth Reducers tests', () => {
 
-  it('initializers to null', () => {
-    const state = user(undefined, {});
-    expect(state).toBe(null);
-  });
-
-  it('loads user', () => {
-    const data = { name: 'user' };
-    const state = user(null, { type: USER_AUTH, payload: data });
-    expect(state).toEqual(data);
-  });
-
-  it('clears user on logout', () => {
-    const state = user({}, { type: LOGOUT });
-    expect(state).toBe(null);
-  });
-
-  it('gets user from state', () => {
-    const user = {};
-    expect(getUser({ user })).toBe(user);
-  });
-
-});
-  
