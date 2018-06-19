@@ -6,6 +6,7 @@ import NewImage from './NewImage';
 import ImagesThumbnail from './ImagesThumbnail';
 import ImagesList from './ImagesList';
 import Gallery from './Gallery';
+import { getUrl } from '../../services/images';
 
 
 export default class AlbumDetail extends PureComponent {
@@ -37,11 +38,11 @@ export default class AlbumDetail extends PureComponent {
       <section>
         <div>
           <h1>{title.toUpperCase()}</h1>
-          <p>{description}</p><br/>
-          <img src={posterImage}/> <br/>
+          <p>{description}</p>
+          <img src={getUrl(posterImage)}/> <br/>
           <Link to={`${url}/new`}>NEW IMAGE</Link>&nbsp;-&nbsp;
           <Link to={`${url}/thumbnail`}>THUMBNAILS</Link>&nbsp;-&nbsp;
-          <Link to={`${url}/list`}>LIST</Link>
+          <Link to={`${url}/list`}>LIST</Link>&nbsp;-&nbsp;
           <Link to={`${url}/gallery`}>GALLERY</Link>
         </div>
         <div>

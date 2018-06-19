@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getImagesByAlbum } from './reducers';
 import { loadImages } from './actions';
+import './Gallery.css';
 
 class Gallery extends PureComponent {
 
   static propTypes = {
     albumId: PropTypes.string.isRequired,
     loadImages: PropTypes.func.isRequired,
-    images: PropTypes.array.isRequired
+    images: PropTypes.array
   };
 
   state = {
@@ -41,12 +42,10 @@ class Gallery extends PureComponent {
           if(i === imageSpot) return <img key={image._id} src={image.url}/>;
           return <img key={image._id} src={image.url} hidden/>;
         })}
-        {(imageSpot !== images.length - 1) && (!images) && <button onClick={this.handleNext}>&gt;</button>}
-
+        {(images.length > 1) && (imageSpot !== images.length - 1) && <button onClick={this.handleNext}>&gt;</button>}
       </div>
     );
   }
-
 }
 
 export default connect(
