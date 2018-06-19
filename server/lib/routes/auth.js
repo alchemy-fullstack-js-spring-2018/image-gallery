@@ -38,10 +38,12 @@ module.exports = router
                     return user.save();
                 })
                 .then(user => {
+                    return Promise.all([user, sign(user)]);
+                })
+                .then(([ user, token ]) => {
                     return {
-                        token: sign(user),
+                        token: token,
                         _id: user._id,
-                        role: user.role,
                         username: user.username
                     };
                 });
@@ -60,13 +62,15 @@ module.exports = router
                             status: 401,
                             error: 'Invalid username or password'
                         };
-                    } else {
-                        return {
-                            token: sign(user),
-                            role: user.role ,
-                            username: user.username
-                        };
-                    }
+                    }  
+                    return Promise.all([user, sign(user)])
+                })
+                .then( ([ user, token ]) => {
+                    return {
+                        token: token,
+                        _id: user._id,
+                        username: user.username
+                    };
                 });
         }
     ));

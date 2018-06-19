@@ -21,11 +21,11 @@ describe.only('Auth E2E API', () => {
             .catch(error => console.error(error));
     });
 
-    it.skip('signup', () => {
+    it('signup', () => {
         assert.ok(token);
     });
 
-    it.skip('verifies', () => {
+    it('verifies', () => {
         return request
             .get('/api/auth/verify')
             .set('Token', token)
@@ -34,12 +34,12 @@ describe.only('Auth E2E API', () => {
             });
     });
 
-    it.skip('signin', () => {
+    it('signin', () => {
         return request
             .post('/api/auth/signin')
             .send({
-                username: 'Julio Martinez',
-                password: 'ilovedoingthings'
+                username: 'Don Juan John Sean',
+                password: 'frogs',
             })
             .then(({ body }) => {
                 assert.ok(body.token);
