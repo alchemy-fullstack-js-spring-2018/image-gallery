@@ -10,8 +10,7 @@ describe('Image model', () => {
             albumId: Types.ObjectId(),
             title: 'Spainish House',
             description: 'We stayed here',
-            url: 'http://images.com/spainHouse.png',
-            added: new Date()
+            url: 'http://images.com/spainHouse.png'
         };
 
         const image = new Image(data);
