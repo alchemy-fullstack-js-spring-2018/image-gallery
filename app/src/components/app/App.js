@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { tryLoadUser } from '../auth/actions';
-import { getCheckedAuth } from '../auth/reducers';
+import { getCheckedAuth, getUser } from '../auth/reducers';
 import PrivateRoute from './PrivateRoute';
 import Home from '../home/Home';
 import About from '../about/About';
@@ -18,7 +18,8 @@ class App extends PureComponent {
 
   static propTypes = {
     tryLoadUser: PropTypes.func.isRequired,
-    checkedAuth: PropTypes.bool.isRequired
+    checkedAuth: PropTypes.bool.isRequired,
+    user: PropTypes.object
   };
 
   componentDidMount() {
@@ -27,12 +28,19 @@ class App extends PureComponent {
 
   render() {
 
-    const { checkedAuth } = this.props;
+    const { checkedAuth, user } = this.props;
 
     return (
       <Router>
         <div className={styles.app}>
-          <h1>Albuminable</h1>
+          { 
+            user 
+              ? <div>
+                <h1>Albuminable</h1>
+                <h2 className="user-name">Hello {user.name}</h2>
+              </div>
+              : <h1>Albuminable</h1>
+          }
           <Nav/>
           <main>
             { checkedAuth &&
@@ -55,6 +63,9 @@ class App extends PureComponent {
 }
 
 export default connect(
-  state => ({ checkedAuth: getCheckedAuth(state) }),
+  state => ({ 
+    checkedAuth: getCheckedAuth(state), 
+    user: getUser(state) 
+  }),
   { tryLoadUser }
 )(App);

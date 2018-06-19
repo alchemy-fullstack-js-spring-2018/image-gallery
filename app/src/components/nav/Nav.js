@@ -31,7 +31,7 @@ class Nav extends Component {
           {
             user
               ? <li><NavLink to="/" onClick={this.handleLogout}>Logout</NavLink></li>
-              : <li><NavLink to="/auth" >Login</NavLink></li>
+              : <li><NavLink to="/auth" activeClassName="current">Login</NavLink></li>
           }
         </ul>
       </nav>
