@@ -1,14 +1,30 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 import Albums from '../albums/Albums';
 import About from '../about/About';
+import { connect } from 'react-redux';
+import { tryLoadUser } from '../auth/actions';
 import AlbumDetail from '../albums/AlbumDetail';
 import NewAlbum from '../albums/NewAlbum';
+import { getCheckedAuth } from '../auth/reducers';
+import Auth from '../auth/Auth';
 import './App.css';
 
-export default class App extends PureComponent {
+class App extends PureComponent {
+  
+  static propTypes = {
+    tryLoadUser: PropTypes.func.isRequired,
+    checkedAuth: PropTypes.bool.isRequired
+  };
+
+  componentDidMount() {
+    this.props.tryLoadUser();
+  }
+  
   render() {
 
+    const { checkedAuth } = this.props;
     return (
       <Router>
         <div className = "grid-class">
@@ -23,21 +39,27 @@ export default class App extends PureComponent {
             </ul>
           </nav>
           <main className = "main-area">
-            {<Switch>
-              <Route exact path="/" component={Albums}/>
-              <Route path="/about" component={About}/>
-              <Route exact path="/albums" component={Albums}/>
-              <Route path="/albums/new" component={NewAlbum}/>
-              <Route path="/albums/:id" render={({ match }) => {
-                return <AlbumDetail albumId={match.params.id} match={match}/>;
-              }}/>
-              <Redirect to="/"/>
-            </Switch>}
+            { checkedAuth &&
+              <Switch>
+                <Route exact path="/" component={Albums}/>
+                <Route path="/auth" component={Auth}/>
+                <Route path="/about" component={About}/>
+                <Route exact path="/albums" component={Albums}/>
+                <Route path="/albums/new" component={NewAlbum}/>
+                <Route path="/albums/:id" render={({ match }) => {
+                  return <AlbumDetail albumId={match.params.id} match={match}/>;
+                }}/>
+                <Redirect to="/"/>
+              </Switch>}
           </main>
           <footer className = "foot"><p id = "foot-type">&copy; 2018 Manro and Lonergan Gallery.</p></footer>
         </div>
       </Router>
     );
   }
-
 }
+
+export default connect(
+  state => ({ checkedAuth: getCheckedAuth(state) }),
+  { tryLoadUser }
+)(App);
