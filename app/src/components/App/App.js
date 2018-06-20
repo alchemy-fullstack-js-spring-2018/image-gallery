@@ -10,6 +10,7 @@ import Albums from '../Albums/Albums';
 import Auth from '../Auth/Auth';
 import About from '../App/About';
 import PropTypes from 'prop-types';
+import './App.less';
 
 class App extends Component {
 
@@ -27,7 +28,7 @@ class App extends Component {
 
     return (
       <Router>
-        <div>
+        <div className="container">
           <Header/>
           <main>
             { checkedAuth && 
