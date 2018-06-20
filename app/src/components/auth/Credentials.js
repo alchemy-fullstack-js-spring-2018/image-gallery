@@ -7,7 +7,7 @@ export default class Credentials extends PureComponent {
 
     static propTypes = {
       submit: PropTypes.func.isRequired,
-      action: PropTypes.func.isRequired,
+      action: PropTypes.string.isRequired,
       allowName: PropTypes.bool
     };
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
@@ -12,15 +12,15 @@ import About from '../AboutPage/About';
 import PrivateRoute from './PrivateRoute';
 import Auth from '../auth/Auth';
 
-class App extends Component {
+class App extends PureComponent {
 
   static propTypes = {
     tryLoadUser: PropTypes.func.isRequired,
-    checkedAuth: PropTypes.func.isRequired
+    checkedAuth: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
-    this.props.tryLoadUser;
+    this.props.tryLoadUser();
   }
 
   render() {
@@ -37,7 +37,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route path="/auth" component={Auth}/>
               <PrivateRoute path="/albums" component={Albums}/>
-              <PrivateRoute path="/about" component={About}/>
+              <Route path="/about" component={About}/>
               <Redirect to="/"/>
             </Switch>
             }
