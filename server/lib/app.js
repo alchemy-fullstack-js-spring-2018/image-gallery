@@ -3,7 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const errorHandler = require('./utils/error-handler');
-const ensureAuth = require('./auth/ensure-auth');
+const ensureAuth = require('./auth/ensure-auth')();
 
 app.use(morgan('dev'));
 app.use(express.static('./public'));

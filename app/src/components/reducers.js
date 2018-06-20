@@ -1,3 +1,5 @@
+import { LOGOUT } from './auth/reducers';
+
 export const ALBUMS_LOAD = 'ALBUMS_LOAD';
 export const ALBUM_ADD = 'ALBUM_ADD';
 export const ALBUM_SHOW = 'ALBUM_SHOW';
@@ -18,6 +20,8 @@ export function albumById(state = {}, { type, payload }) {
       return {
         [payload._id]: payload
       };
+    case LOGOUT: 
+      return {};
     default:
       return state;
   }
@@ -29,6 +33,8 @@ export function albumList(state = [], { type, payload }) {
       return payload;
     case ALBUM_ADD:
       return [state, payload];
+    case LOGOUT:
+      return [];
     default: 
       return state;
   }
@@ -40,6 +46,8 @@ export function imagesByAlbum(state = [], { type, payload }) {
       return [...state, payload];
     case IMAGES_LOAD:
       return payload;
+    case LOGOUT:
+      return [];
     default:
       return state;
   }

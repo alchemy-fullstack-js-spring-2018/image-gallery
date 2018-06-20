@@ -10,6 +10,11 @@ const schema = new Schema({
         maxlength: 200
     },
     coverImage: RequiredString,
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    }
 });
 
 module.exports = mongoose.model('Album', schema);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addAlbum } from '../actions';
 import { connect } from 'react-redux';
-
+import FormControl from '../shared/FormControl';
 
 const defaultState = {
   id: '',
@@ -36,19 +36,21 @@ class AlbumsForm extends Component {
       <div>
         <h1>New Album:</h1>
         <form onSubmit={this.handleSubmit}>
-          <label>
-          Title:
-            <input name="title" value={title} onChange={this.handleChange} required/>
-          </label>
-          <label>
-          Description:
-            <input name="description" value={description} onChange={this.handleChange} required/>
-          </label>
-          <label>
-          Cover:
-            <input name="coverImage" value={coverImage} onChange={this.handleChange} required/>
-          </label>
-          <button type="submit">Create</button>
+          <FormControl label="title">
+            <input name="title" value={title} onChange={this.handleChange}/>
+          </FormControl>
+          
+          <FormControl label="description">
+            <input name="description" value={description} onChange={this.handleChange}/>
+          </FormControl>
+          
+          <FormControl label="coverImage">
+            <input name="coverImage" value={coverImage} onChange={this.handleChange}/>
+          </FormControl>
+          
+
+          <button>create</button>
+
         </form>
       </div>
     );

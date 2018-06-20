@@ -7,7 +7,8 @@ module.exports = router
     .param('id', getParam)
 
     .get('/', respond(
-        ({ query }) => {
+        ({ query, user }) => {
+            query.userId = user.id;
             return Album.find(query)
                 .lean()
                 .select('title coverImage');
@@ -22,7 +23,8 @@ module.exports = router
     ))
     
     .post('/new', respond(
-        ({ body }) => {
+        ({ body, user }) => {
+            body.userId = user.id;
             return Album.create(body);
         }
     ))
