@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './AlbumItem.css';
+import { getURL } from '../../services/images';
+import { gallerySize } from '../images/actions';
 
 export default class AlbumItem extends PureComponent {
   
@@ -9,16 +10,30 @@ export default class AlbumItem extends PureComponent {
     album: PropTypes.object,
   };
 
+  resize = () => this.forceUpdate()
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resize);
+  }
+
   render() {
     const { album } = this.props;
+    const options = gallerySize();
     
     return (
       <li>
-        <div className={styles.album}>
-          <img src={album.coverImage}/>
-          <Link to={`/albums/${album._id}`}>{album.title}</Link>
-          <p>{album.description}</p>
-        </div>
+        <Link to={`/albums/${album._id}`}>
+          <div className="album-card">
+            <img src={getURL(album.coverImage, options)} />
+            <div className="album-hover">
+              <h3>{album.title}</h3>
+            </div>
+          </div>
+        </Link>
       </li>
     );
   }

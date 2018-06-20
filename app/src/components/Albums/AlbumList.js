@@ -5,6 +5,7 @@ import { loadAlbums, addAlbum } from './actions';
 import { getAlbumsList } from './reducers';
 import AlbumItem from './AlbumItem';
 import { connect } from 'react-redux';
+import './AlbumList.less';
 
 class AlbumList extends Component {
     
@@ -22,15 +23,18 @@ class AlbumList extends Component {
       const { albums } = this.props;
   
       return (
-        <div>
-          <h2>Albums</h2>
-          <Link to={'/albums/new'}>
-            <button>Add New</button>
-          </Link>
+        <section id="album-gallery">
+          <div id="add-album">
+            <h2>Albums
+              <Link to={'/albums/new'}>
+                <button>+</button>
+              </Link>
+            </h2>
+          </div>
           <ul>
             {albums ? albums.map((album, i) => <AlbumItem key={i} album={album}/>) : null}
           </ul>
-        </div>
+        </section>
       );
     }
 }

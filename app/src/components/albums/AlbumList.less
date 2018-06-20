@@ -1,0 +1,53 @@
+@card-width: 400px;
+
+#add-album {
+    margin-bottom: .5em;
+
+    h2 {
+        display: block;
+        width: fit-content;
+        margin: auto;
+
+        button {
+            display: inline-block;
+        }
+    }
+}
+
+.album-card {
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    width: @card-width;
+
+    .album-hover{
+        position: absolute;
+        visibility: hidden;
+        top: 0;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.397);
+        width: @card-width;
+        height: 100%;
+
+        h3{
+            position: absolute;
+            color: white;
+            bottom: 0;
+            right: 0;
+        }
+         
+    }
+    :hover + .album-hover {
+        visibility: visible;
+    }
+
+    .album-hover:hover {
+        visibility: visible;
+    }
+    
+    // @media (min-width: 800px) {
+    //     grid-template-rows: repeat(2, 1fr);
+    //     grid-template-columns: repeat(3, 1fr);
+    // }
+}

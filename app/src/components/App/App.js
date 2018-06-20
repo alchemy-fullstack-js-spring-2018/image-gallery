@@ -5,12 +5,13 @@ import { getCheckedAuth } from '../auth/reducers';
 import { tryLoadUser } from '../auth/actions';
 import PrivateRoute from './PrivateRoute';
 import Home from '../App/Home';
-import Header from '../App/Header';
+import Nav from '../App/Nav';
 import Albums from '../Albums/Albums';
 import Auth from '../Auth/Auth';
 import About from '../App/About';
 import PropTypes from 'prop-types';
 import './App.less';
+import './Main.less';
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <Header/>
+          <Nav/>
           <main>
             { checkedAuth && 
             <Switch>

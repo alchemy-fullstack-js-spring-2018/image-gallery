@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { getUser } from '../auth/reducers';
 import { logout } from '../auth/actions';
 import PropTypes from 'prop-types';
-import './header.less';
+import './nav.less';
 
 
-class Header extends Component {
+class Nav extends Component {
 
   static propTypes = {
     user: PropTypes.object,
@@ -48,4 +48,4 @@ class Header extends Component {
 export default connect(
   state => ({ user: getUser(state) }),
   { logout }
-)(Header);
+)(Nav);
