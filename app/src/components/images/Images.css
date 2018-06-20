@@ -1,0 +1,9 @@
+:local(.imageUl) {
+  list-style-type: none;
+}
+
+:local(.imageLi) img {
+  border: 1px solid black;
+  max-height: 250px;
+  max-width: 250px;
+}
