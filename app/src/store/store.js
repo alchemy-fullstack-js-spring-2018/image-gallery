@@ -6,11 +6,11 @@ import { imagesByAlbum } from '../components/Images/reducers';
 import { user, checkedAuth } from '../components/Auth/reducers';
 
 const rootReducer = combineReducers({
+  user,
+  checkedAuth,
   albumById,
   albumList,
   imagesByAlbum,
-  user,
-  checkedAuth
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
