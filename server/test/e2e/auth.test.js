@@ -1,9 +1,9 @@
 const { assert } = require('chai');
 const request = require('./request');
-const { dropCollection } = require('./db');
 /* eslint no-console: off */
+const { dropCollection } = require('./db');
 
-describe.only('Auth E2E API', () => {
+describe('Auth E2E API', () => {
 
     before(() => dropCollection('users'));
 

@@ -1,3 +1,4 @@
+/* eslint no-console: off */
 const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./db');
@@ -25,9 +26,25 @@ describe('Album E2E API', () => {
     const getListFields = ({ _id, title, coverImage }) => ({ _id, title, coverImage });
 
     before(() => dropCollection('albums'));
+    before(() => dropCollection('users'));
+
+    let token = null;
+
+    before(() => {
+        return request
+            .post('/api/auth/signup')
+            .send({
+                username: 'Don Juan John Sean',
+                email: 'me@you.com',
+                password: 'frogs',
+            })
+            .then(({ body }) => token = body.token)
+            .catch(error => console.error(error));
+    });
 
     it('adds an album', () => {
         return request.post('/api/albums/new')
+            .set('Token', token)
             .send(spain)
             .then(checkOk)
             .then(( {body }) => {
@@ -44,11 +61,13 @@ describe('Album E2E API', () => {
 
     it('gets all albums', () => {
         return request.post('/api/albums/new')
+            .set('Token', token)
             .send(france)
             .then(checkOk)
             .then(( {body }) => {
                 france = body;
-                return request.get('/api/albums');
+                return request.get('/api/albums')
+                    .set('Token', token);
             })
             .then(checkOk)
             .then(({ body }) => {
@@ -58,6 +77,7 @@ describe('Album E2E API', () => {
 
     it('gets an album by id', () => {
         return request.get(`/api/albums/${france._id}`)
+            .set('Token', token)
             .then(({ body }) => {
                 assert.deepEqual(body._id, france._id);
             });
@@ -70,6 +90,7 @@ describe('Album E2E API', () => {
         };
         
         return request.put(`/api/albums/${france._id}`)
+            .set('Token', token)
             .send(france)
             .then(({ body }) => {
                 assert.deepEqual(body, france);
@@ -78,11 +99,19 @@ describe('Album E2E API', () => {
 
     it('deletes an album', () => {
         return request.delete(`/api/albums/${france._id}`)
+            .set('Token', token)
             .then(() => {
                 return Album.findById(france._id);
             })
             .then(found => {
                 assert.isNull(found);
+            });
+    });
+
+    it('returns unauthorized when not signed in', () => {
+        return request.get('/api/albums')
+            .catch(err => { 
+                assert.equal(err, 'Error: Unauthorized');
             });
     });
 });

@@ -45,15 +45,32 @@ describe('Image E2E API', () => {
 
     before(() => dropCollection('albums'));
     before(() => dropCollection('images')); 
+    before(() => dropCollection('users')); 
+
+    let token = null;
+
+    before(() => {
+        return request
+            .post('/api/auth/signup')
+            .send({
+                username: 'Don Juan John Sean',
+                email: 'me@you.com',
+                password: 'frogs',
+            })
+            .then(({ body }) => token = body.token)
+            .catch(error => console.error(error));
+    });
 
     before(() => {
         return request.post('/api/albums/new')
+            .set('Token', token)
             .send(album1)
             .then(({ body }) => { 
                 album1 = body; 
                 image1.albumId = body._id;
                 image2.albumId = body._id;
                 return request.post('/api/albums/new')
+                    .set('Token', token)
                     .send(album2);
             })
             .then(({ body }) => { 
@@ -65,6 +82,7 @@ describe('Image E2E API', () => {
     it('uploads an image', () => {
         return request.post('/api/images/new')
             .send(image1)
+            .set('Token', token)
             .then(checkOk)
             .then(( {body }) => {
                 const { _id, __v } = body;
@@ -80,16 +98,19 @@ describe('Image E2E API', () => {
 
     it('gets all image and all data, only from correct album', () => {
         return request.post('/api/images/new')
+            .set('Token', token)
             .send(image2)
             .then(checkOk)
             .then(({ body }) => {
                 image2 = body;
                 return request.post('/images/new')
-                    .send(image3);
+                    .send(image3)
+                    .set('Token', token);
             })
             .then(checkOk)
             .then (() => {
-                return request.get(`/api/images/${image2.albumId}`);
+                return request.get(`/api/images/${image2.albumId}`)
+                    .set('Token', token);
             })
             .then(checkOk)
             .then(({ body }) => {
@@ -104,6 +125,7 @@ describe('Image E2E API', () => {
         };
         
         return request.put(`/api/images/${image1._id}`)
+            .set('Token', token)
             .send(image1)
             .then(({ body }) => {
                 assert.deepEqual(body, image1);
@@ -112,11 +134,19 @@ describe('Image E2E API', () => {
 
     it('deletes an album', () => {
         return request.delete(`/api/images/${image1._id}`)
+            .set('Token', token)
             .then(() => {
                 return Image.findById(image1._id);
             })
             .then(found => {
                 assert.isNull(found);
+            });
+    });
+
+    it('returns unauthorized when not signed in', () => {
+        return request.get('/api/albums')
+            .catch(err => { 
+                assert.equal(err, 'Error: Unauthorized');
             });
     });
 });
