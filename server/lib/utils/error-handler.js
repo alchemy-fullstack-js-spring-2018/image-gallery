@@ -6,7 +6,6 @@ module.exports = function createErrorHandler(log = console.log) {
         let showLog = process.env.NODE_ENV !== 'production';
         let code = 404;
         let error = 'Not Found';
-        if(err.error){ console.error(err.error); }
 
         if(err.code) {
             code = err.code;

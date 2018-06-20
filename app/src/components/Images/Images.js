@@ -5,8 +5,8 @@ import ImagesForm from './ImagesForm';
 import ImageThumbnail from './ImageThumbnail';
 import ImageGallery from './ImageGallery';
 import ImageList from './ImageList';
-import { getImagesByAlbum } from '../reducers';
-import { loadImages } from '../actions';
+import { getImagesByAlbum } from './reducers';
+import { loadImages } from './actions';
 import PropTypes from 'prop-types';
 
 class Images extends Component {

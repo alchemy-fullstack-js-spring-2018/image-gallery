@@ -1,7 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import promiseMiddleware from './promise-middleware';
-import { albumList, albumById, imagesByAlbum } from '../components/reducers';
+import { albumList, albumById } from '../components/Albums/reducers';
+import { imagesByAlbum } from '../components/Images/reducers';
 import { user, checkedAuth } from '../components/Auth/reducers';
 
 const rootReducer = combineReducers({

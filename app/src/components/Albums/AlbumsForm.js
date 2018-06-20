@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addAlbum } from '../actions';
+import { addAlbum } from '../Albums/actions';
 import { connect } from 'react-redux';
 
 

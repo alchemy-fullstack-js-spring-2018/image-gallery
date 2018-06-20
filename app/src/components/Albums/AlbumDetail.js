@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { showAlbum } from '../actions';
-import { getAlbumById } from '../reducers';
+import { showAlbum } from './actions';
+import { getAlbumById } from './reducers';
 import { Link } from 'react-router-dom';
 
 class AlbumDetail extends PureComponent {

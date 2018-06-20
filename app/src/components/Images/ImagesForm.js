@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addImage } from '../actions';
+import { addImage } from '../Albums/actions';
 import { connect } from 'react-redux';
 
 const defaultState = {

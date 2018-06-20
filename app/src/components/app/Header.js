@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Nav.css';
+import styles from './Header.css';
 
-export default class Nav extends Component {
+export default class Header extends Component {
   
   render() {
     return (

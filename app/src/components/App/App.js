@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { connect } from 'react-redux';
 import { getCheckedAuth } from '../auth/reducers';
 import { tryLoadUser } from '../auth/actions';
-import hero from '../../assets/images/flowers.jpg';
 import PrivateRoute from './PrivateRoute';
-import Home from '../Home';
-import Header from '../Nav';
+import Home from '../App/Home';
+import Header from '../App/Header';
 import Albums from '../Albums/Albums';
 import Auth from '../Auth/Auth';
-import About from '../About';
+import About from '../App/About';
 import PropTypes from 'prop-types';
 
 class App extends Component {
@@ -40,7 +39,6 @@ class App extends Component {
               <Redirect to="/"/>
             </Switch>
             }
-            <img src={hero} />
           </main>
         </div>
       </Router>
