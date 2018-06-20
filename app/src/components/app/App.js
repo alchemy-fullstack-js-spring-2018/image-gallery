@@ -46,7 +46,8 @@ class App extends PureComponent {
                 <Route path="/auth" component={Auth}/>
                 <Route path="/about" component={About}/>
                 <PrivateRoute exact path="/albums" component={Albums}/>
-                <PrivateRoute path="/albums/new" component={NewAlbum}/>
+                <Route path="/albums/new" render={({ history }) => {
+                  return <NewAlbum history={history}/>;}}/>
                 <PrivateRoute path="/albums/:id" render={({ match }) => {
                   return <AlbumDetail albumId={match.params.id} match={match}/>;
                 }}/>
