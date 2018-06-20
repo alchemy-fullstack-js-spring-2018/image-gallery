@@ -49,7 +49,7 @@ class AlbumsForm extends Component {
           </FormControl>
           
 
-          <button>create</button>
+          <button type="submit">create</button>
 
         </form>
       </div>
