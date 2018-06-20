@@ -7,7 +7,6 @@ const createEnsureAuth = require('../utils/ensure-auth');
 const hasEmailandPassword = ({body}, res, next) => {
     const { email, password } = body;
     if(!email || !password ) {
-        console.log(body);
         throw {
             status: 400,
             error: 'Email and password are required.'
@@ -45,7 +44,8 @@ module.exports = router
                     return {
                         token: token,
                         _id: user._id,
-                        email: user.email
+                        email: user.email,
+                        username: user.username
                     };
                 });
         }
@@ -70,7 +70,8 @@ module.exports = router
                     return {
                         token: token,
                         _id: user._id,
-                        email: user.email
+                        email: user.email,
+                        username: user.username
                     };
                 });
         }

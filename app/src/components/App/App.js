@@ -15,7 +15,7 @@ class App extends Component {
 
   static propTypes = {
     tryLoadUser: PropTypes.func.isRequired,
-    checkedAuth: PropTypes.bool.isRequired
+    checkedAuth: PropTypes.bool.isRequired,
   };
 
   componentDidMount() {
@@ -47,6 +47,8 @@ class App extends Component {
 }
 
 export default connect(
-  state => ({ checkedAuth: getCheckedAuth(state) }),
+  state => ({ 
+    checkedAuth: getCheckedAuth(state),
+  }),
   { tryLoadUser }
 )(App);
