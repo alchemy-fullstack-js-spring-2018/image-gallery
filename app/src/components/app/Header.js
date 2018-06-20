@@ -21,11 +21,10 @@ class Header extends Component {
 
     return (
       <header>
-        <h1>Pets 4 All</h1>
         <nav>
           <Link to="/">Home</Link>
           &nbsp;
-          <Link to="/pets">Pets</Link>
+          <Link to="/albums">Pets</Link>
           &nbsp;
           {
             user
