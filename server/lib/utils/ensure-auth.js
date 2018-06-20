@@ -1,4 +1,3 @@
-
 /* eslint no-console: off */
 const tokenService = require('./token-service');
 

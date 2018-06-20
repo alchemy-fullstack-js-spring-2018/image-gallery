@@ -14,9 +14,6 @@ export default class About extends Component {
           <p>{'But we\'re not there yet, so we don\'t need to worry about it. Didn\'t you know you had that much power? You can move mountains. You can do anything. Even the worst thing we can do here is good. It is a lot of fun.'}</p>
         </div>
       </div>
-
-
-
     );
   }
 }

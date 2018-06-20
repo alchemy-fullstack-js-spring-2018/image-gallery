@@ -2,6 +2,7 @@ const { assert } = require('chai');
 const request = require('./request');
 const { dropCollection } = require('./db');
 const Image = require('../../lib/models/Image');
+/* eslint no-console: off */
 
 describe('Image E2E API', () => {
 
