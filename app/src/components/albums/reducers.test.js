@@ -50,10 +50,10 @@ describe('album reducer', () => {
     expect(state).toEqual(album1);
   });
 
-  it.skip('adds an image to the current album', () => {
+  it('adds an image to the current album', () => {
     const image2 = { title: 'kitten2' };
     const state = album(album1, { type: IMAGE_ADD, payload: image2 });
-    expect(state).toEqual({ ...album1, images: [...album1.images, image2] });
+    expect(state).toEqual({ ...album1, images: [image2, ...album1.images] });
   });
 });
 
