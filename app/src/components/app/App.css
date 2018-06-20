@@ -1,0 +1,46 @@
+:local(.app) {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 1fr;
+  h1 {
+    font-family: 'Questrial', sans-serif;
+    font-size: 3em;
+    color: white;
+    background: linear-gradient(135deg, var(--bright-teal), var(--cobalt));
+    padding: 0.7rem 0 0.5rem 0.7rem;
+  }
+  .user-name {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.5em;
+    color: white;
+    background: var(--soft-black);
+    padding: 0.7rem 0 0.5rem 0.7rem;
+  }
+  footer {
+    background-color: var(--soft-black);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.7em;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pale-gray);
+  }
+  @media (min-width: 768px) {
+    main {
+      display: block;
+      background-color: var(--pale-gray);
+    }
+    footer {
+      position: static;
+    }
+  }
+}

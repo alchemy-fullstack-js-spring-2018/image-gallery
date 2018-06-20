@@ -1,0 +1,19 @@
+:local(.add-image) {
+  input {
+    width: 100%;
+    font-size: 0.9em;
+    padding: 0.25rem;
+    border: none;
+    margin-bottom: 0.75rem;
+  }
+  button {
+    font-family: 'Open Sans', sans-serif;
+    float: right;
+    margin-left: 0.75rem;
+    padding: 0.25rem;
+    border: none;
+    &[type="submit"]:hover {
+      background-color: var(--teal);
+    }
+  }
+}
