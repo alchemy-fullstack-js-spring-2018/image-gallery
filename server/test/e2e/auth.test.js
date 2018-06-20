@@ -38,7 +38,7 @@ describe.only('Auth E2E API', () => {
         return request
             .post('/api/auth/signin')
             .send({
-                username: 'Don Juan John Sean',
+                email: 'me@you.com',
                 password: 'frogs',
             })
             .then(({ body }) => {

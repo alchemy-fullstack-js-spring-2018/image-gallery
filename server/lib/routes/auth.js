@@ -4,12 +4,13 @@ const User = require('../../lib/models/User');
 const { sign } = require('../utils/token-service');
 const createEnsureAuth = require('../utils/ensure-auth');
 
-const hasUsernameAndPassword = ({body}, res, next) => {
-    const { username, password } = body;
-    if(!username || !password ) {
+const hasEmailandPassword = ({body}, res, next) => {
+    const { email, password } = body;
+    if(!email || !password ) {
+        console.log(body);
         throw {
             status: 400,
-            error: 'Username and password are required.'
+            error: 'Email and password are required.'
         };
     }
     next();
@@ -20,17 +21,17 @@ module.exports = router
         () => Promise.resolve({ verified: true })
     ))
 
-    .post('/signup', hasUsernameAndPassword, respond(
+    .post('/signup', hasEmailandPassword, respond(
         ({ body }) => {
-            const { username, password } = body;
+            const { email, password } = body;
             delete body.password;
 
-            return User.exists({ username })
+            return User.exists({ email })
                 .then(exists => {
                     if(exists) {
                         throw {
                             status: 400,
-                            error: 'Username already exists'
+                            error: 'Email already exists'
                         };
                     }
                     const user = new User(body);
@@ -44,23 +45,23 @@ module.exports = router
                     return {
                         token: token,
                         _id: user._id,
-                        username: user.username
+                        email: user.email
                     };
                 });
         }
     ))
 
-    .post('/signin', hasUsernameAndPassword, respond(
+    .post('/signin', hasEmailandPassword, respond(
         ({ body }) => {
-            const { username, password } = body;
+            const { email, password } = body;
             delete body.password;
 
-            return User.findOne({ username })
+            return User.findOne({ email })
                 .then(user => {
                     if(!user || !user.comparePassword(password)) {
                         throw {
                             status: 401,
-                            error: 'Invalid username or password'
+                            error: 'Invalid email or password'
                         };
                     }  
                     return Promise.all([user, sign(user)]);
@@ -69,7 +70,7 @@ module.exports = router
                     return {
                         token: token,
                         _id: user._id,
-                        username: user.username
+                        email: user.email
                     };
                 });
         }
