@@ -22,27 +22,13 @@ class Header extends Component {
     return (
       <header>
         <nav>
-          <Link to="/">Home</Link>
-          &nbsp;
-          <Link to="/albums">Pets</Link>
+          {/* <Link to="/">Home</Link> */}
           &nbsp;
           {
             user
               ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
               : <Link to="/auth">Login</Link>
           }
-          
-          &nbsp;
-          <Route path="/pets/:id" render={({ match: { url } }) => {
-            return (
-              <Fragment>
-                &nbsp;
-                <Link to={`${url}/paragraph`}>paragraph view</Link>
-                &nbsp;
-                <Link to={`${url}/list`}>list view</Link>
-              </Fragment>
-            );
-          }}/>
         </nav>
         { user && <span>Welcome {user.name}!</span> }
       </header>

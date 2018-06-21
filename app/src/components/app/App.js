@@ -10,6 +10,7 @@ import NewAlbum from '../albums/NewAlbum';
 import { getCheckedAuth } from '../auth/reducers';
 import PrivateRoute from './PrivateRoute';
 import Auth from '../auth/Auth';
+import Header from './Header';
 import './App.css';
 
 class App extends PureComponent {
@@ -30,13 +31,14 @@ class App extends PureComponent {
       <Router>
         <div className = "grid-class">
           <Link to= "/"><img src={require('../../assets/Logo2.png')} id="logo"/></Link><header className="header"></header>
-          
           <nav className = "nav-bar">
             <ul>
               <li><Link to= "/">Albums</Link></li>
               <li><Link to="/albums/new">Add Albums</Link></li>
               <li><a>Images</a></li>
               <li><Link to="/about">About</Link></li>
+              <Header className="header" />
+              {/* <li><Link to="/auth/signin/">Login</Link></li> */}
             </ul>
           </nav>
           <main className = "main-area">
