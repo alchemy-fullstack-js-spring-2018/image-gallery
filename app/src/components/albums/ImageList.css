@@ -1,0 +1,22 @@
+:local(.imagelist) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 1px solid;
+
+
+  div {
+    border: 1px solid;
+  }
+
+  span {
+    display: block;
+    -webkit-margin-before: 1.33em;
+    -webkit-margin-after: 1.33em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+  }
+  h4, span {
+    padding-left: 1.33em;
+  }
+
+}
