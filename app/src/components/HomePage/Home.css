@@ -1,19 +1,15 @@
 :local(.content) {
-    img { 
-        position: relative; 
+    margin-top: 20%; 
+    h2 { 
         width: 100%;
-    }
-    
-    h2 span { 
-        position: absolute; 
-        top: 70%; 
-        width: 50%;
         height: 10%;
         font-size: 2em;
-        margin: auto;
-        text-align: center;
         color: #b8bdab;
-        background:rgb(12,37,41, 0.7);
         padding: 5%;
+        margin-left: 5%;
+    }
+    p {
+        margin-left: 20%;
+        color: #b8bdab;
     }
 }

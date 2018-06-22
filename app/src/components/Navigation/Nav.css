@@ -1,19 +1,32 @@
 :local(.navigation) {
-    header img {
+        // desktop view navigation bar
         max-width: 100%;
-    }
     ul {
         display: grid;
-        grid-template-columns: 5fr 1fr 1fr 1fr;
+        grid-template-columns: 5fr 1fr 1fr 1fr 1fr;
         padding: 2%;
-        background-color: #e6757b;
-        li {
-            background-color: #e6757b;
-            color: black;
+        .link {
+            background: transparent;
             align-self: center;
+            justify-self: center;
+            transition: all .2s ease-in-out;
         }
-        a {
+        .link:hover {
+            background-color: #ca526d;
+            border-radius: 5%;
+            transform: scale(1.2);
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+        #tagline {
+            padding: 0;
+            margin: 0;
+            font-size: 1.2em;
+            font-style: italic;
+            letter-spacing: .2rem;
             color: #b8bdab;
+            border-bottom: 3px solid #b8bdab;
+            align-self: end;
         }
     }
 

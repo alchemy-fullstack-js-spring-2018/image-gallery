@@ -1,12 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins:300');
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, table, th, td, embed, object {padding: 0; margin: 0;}
-table {border-collapse: collapse; border-spacing: 0;}
-fieldset, img, abbr {border: 0;}
-address, caption, cite, code, dfn, em, h1, h2, h3, h4, h5, h6, strong, th, var {font-weight: normal; font-style: normal;}
-ul {list-style: none;}
-caption, th {text-align: left;}
-h1, h2, h3, h4, h5, h6 {font-size: 1.0em; font-family: 'Abril Fatface', cursive;}
-q:before, q:after {content: '';}
-a, ins {text-decoration: none;}
-p, li { font-family: 'Poppins', sans-serif}
+ /* resets and app constants */
+body {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(#0c2529, #00000000), url("../src/components/CssImages/flowers.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, table, th, td {
+    padding: 0;
+    margin: 0;
+    }
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+fieldset, img, abbr {
+    border: 0;
+    }
+ul {
+    list-style: none;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.0em;
+    font-family: 'Abril Fatface', cursive;
+    }
+a, ins {
+    text-decoration: none;
+    color: #b8bdab
+    }
+p, li {
+    font-family: 'Poppins', sans-serif;
+    }

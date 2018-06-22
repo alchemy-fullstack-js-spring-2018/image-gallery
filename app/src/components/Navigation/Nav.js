@@ -25,17 +25,17 @@ class Nav extends Component {
       <header>
         <nav className={styles.navigation}>
           <ul>
-            <li>Some Words</li>
-            <li id='home'>
+            <li id='tagline'>APPshot Gallery</li>
+            <li className='link' id='home'>
               <Link to="/">Home</Link>
             </li>
-            <li id='albums'>
+            <li className='link' id='albums'>
               <Link to="/albums">Albums</Link>
             </li>
-            <li id='about'>
+            <li className='link' id='about'>
               <Link to="/about">About</Link>
             </li>
-            <li>
+            <li className='link' >
               {
                 user
                   ? <Link to="/" onClick={this.handleLogout}>Logout</Link>
@@ -44,7 +44,6 @@ class Nav extends Component {
             </li>
           </ul>
         </nav>
-        { user && <span>Welcome {user.name}!</span> }
       </header>
     );
   }

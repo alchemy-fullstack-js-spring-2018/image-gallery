@@ -5,9 +5,10 @@ import styles from './Home.css';
 export default class Home extends Component {
   render() {
     return (
-      <section>
-        <div className={styles.content}>
-          <h2><span>A Picture Says a Thousand Words</span></h2>
+      <section className={styles.content}>
+        <div>
+          <h2>A Picture Says a Thousand Words</h2>
+          <p>What will they say about you?</p>
         </div>
       </section>
     );

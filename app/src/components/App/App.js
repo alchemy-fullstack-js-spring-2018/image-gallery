@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { tryLoadUser } from '../auth/actions';
 import { getCheckedAuth } from '../auth/reducers';
-import hero from '../CssImages/flowers.jpg';
 import Home from '../HomePage/Home';
 import Header from '../Navigation/Nav';
 import Albums from '../Albums/Albums';
 import About from '../AboutPage/About';
 import PrivateRoute from './PrivateRoute';
 import Auth from '../auth/Auth';
+import styles from './App.css';
 
 class App extends PureComponent {
 
@@ -29,9 +29,9 @@ class App extends PureComponent {
 
     return (
       <Router>
-        <div>
+        <main className={styles.app}>
           <Header/>
-          <main>
+          <div>
             { checkedAuth && 
             <Switch>
               <Route exact path="/" component={Home}/>
@@ -41,9 +41,8 @@ class App extends PureComponent {
               <Redirect to="/"/>
             </Switch>
             }
-            <img src={hero} />
-          </main>
-        </div>
+          </div>
+        </main>
       </Router>
     );
   }
