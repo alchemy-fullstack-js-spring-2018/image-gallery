@@ -11,7 +11,6 @@ describe('Image model', () => {
             title: 'Spainish House',
             description: 'We stayed here',
             url: 'http://images.com/spainHouse.png',
-            added: new Date()
         };
 
         const image = new Image(data);
