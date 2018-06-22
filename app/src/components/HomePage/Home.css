@@ -1,0 +1,15 @@
+:local(.content) {
+    margin-top: 20%; 
+    h2 { 
+        width: 100%;
+        height: 10%;
+        font-size: 2em;
+        color: #b8bdab;
+        padding: 5%;
+        margin-left: 5%;
+    }
+    p {
+        margin-left: 20%;
+        color: #b8bdab;
+    }
+}
