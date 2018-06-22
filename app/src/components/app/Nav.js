@@ -24,20 +24,17 @@ class Nav extends Component {
     return (
       <nav>
         <ul>
-          <li>{user ? `Welcome, ${user.username}!` : 'Welcome, please sign in!' } </li>
-          <li id='home'>
-            <Link to="/">Home</Link>
-          </li>
+          <li><h2>{user ? `Welcome, ${user.username}!` : 'Welcome, please sign in!' }</h2></li>
           <li id='albums'>
-            <Link to="/albums">Albums</Link>
+            <Link to="/albums">albums</Link>
           </li>
           <li id='about'>
-            <Link to="/about">About</Link>
+            <Link to="/about">about</Link>
           </li>
           <li>
             { user 
-              ? <Link to="/" onClick={this.handleLogout}>Logout</Link> 
-              : <Link to="/auth">Login</Link> }
+              ? <Link to="/" onClick={this.handleLogout}>logout</Link> 
+              : <Link to="/auth">login</Link> }
           </li>
         </ul>
       </nav>

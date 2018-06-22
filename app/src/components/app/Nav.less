@@ -5,15 +5,31 @@ nav {
         height:100%;
         display: grid;
         grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
-        background-color: @salmon;
-    
+
         li {
             display: inline-block;
-            background-color: @salmon;
             text-align: center;
+
+            @media (min-width: 950px) {
+                font-size: 1.2em;
+            }
+
+            @media (min-width: 1200px) {
+                font-size: 1.5em;
+            }
+
+            @media (min-width: 1800px) {
+                font-size: 2em;
+            }
         }   
+        
+        li:first-child{
+            padding-left: .8em;
+            text-align: left;
+        }   
+
         li a {
-            color: @gray;
+            text-decoration: none;
         }
     }
 }

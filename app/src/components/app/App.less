@@ -1,26 +1,64 @@
 @import './../../constants.less';
+@import (css) url('https://fonts.googleapis.com/css?family=Pacifico|Roboto+Condensed:400,400i,700');
 
-@media (max-width: 200000px) {
-    .container {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        grid-template-rows: @header-height auto;
-        grid-column-gap: 1rem;
-        grid-template-areas:
-            "nav nav"
-            "main main";
+h1, h2 {
+    font-family: 'Pacifico', cursive;
+    color: @grass;
+}
+
+h3, h4, body {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h2 {
+    font-size: 2em;
+    padding: .4em;
+}
+
+h3 {
+    font-size: 1.8em;
+    padding: .8em;
+}
+
+body {
+    background-color: @night;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: @header-height auto;
+    grid-column-gap: 1rem;
+    grid-template-areas:
+        "nav nav"
+        "main main";
+}
+
+nav { 
+    color: @evening;
+    height: @header-height;
+    grid-area: nav;
+
+    h2{
+        font-size: 1em;
+        color: @evening;
     }
 
-    nav { 
-        grid-area: nav;
-        height: @header-height;
+    ul {
+        background-color: @sunflower;
     }
+    
+}
 
-    main {
-        grid-area: main;
-        height: calc(100vh - @header-height);
+main {
+    grid-area: main;
+    height: calc(100vh - @header-height);
+
+    > section {
+        height: 100%;
+        overflow: scroll;
     }
 }

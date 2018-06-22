@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { loadAlbums, addAlbum } from './actions';
 import { getAlbumsList } from './reducers';
 import AlbumItem from './AlbumItem';
+import AlbumsForm from './AlbumsForm';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'; //eslint-disable-line
 import { connect } from 'react-redux';
 import './AlbumList.less';
 
@@ -34,6 +36,7 @@ class AlbumList extends Component {
           <ul>
             {albums ? albums.map((album, i) => <AlbumItem key={i} album={album}/>) : null}
           </ul>
+          <Route path="/albums/new" render={() => <AlbumsForm />}/> 
         </section>
       );
     }

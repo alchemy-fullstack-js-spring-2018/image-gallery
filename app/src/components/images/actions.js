@@ -21,8 +21,17 @@ export function gallerySize(){
     case window.innerWidth > 1800:
       size = 'w_580';
       return size;
-    case window.innerWidth > 600:
-      size = 'w_500';
+    case window.innerWidth > 1400:
+      size = 'w_450';
+      return size;
+    case window.innerWidth > 1200:
+      size = 'w_600';
+      return size;
+    case window.innerWidth > 950:
+      size = 'w_450';
+      return size;
+    case window.innerWidth > 650:
+      size = 'w_600';
       return size;
     case window.innerWidth > 400:
       size = 'w_400';
