@@ -1,0 +1,55 @@
+@import './../../constants.less';
+
+#add-album {
+    margin-bottom: .5em;
+
+    h2 {
+        display: block;
+        width: fit-content;
+        margin: auto;
+
+        button {
+            display: inline-block;
+        }
+    }
+}
+
+.album-card {
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    width: fit-content;
+
+    .album-hover{
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.397);
+        width: 100%;
+        height: 4em;
+
+        h3{
+            position: absolute;
+            color: white;
+            bottom: 0;
+            right: 0;
+        }
+
+        @media (min-width: 800px) {
+            top: 0;
+            bottom: auto;
+            height: 100%;
+            visibility: hidden;
+        }
+         
+    }
+    :hover + .album-hover {
+        visibility: visible;
+    }
+
+    .album-hover:hover {
+        visibility: visible;
+    }
+
+}

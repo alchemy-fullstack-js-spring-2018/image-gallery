@@ -1,0 +1,7 @@
+./src/components/app/Home.js
+docs
+node_modules
+./docs
+./node_modules
+dist
+./dist

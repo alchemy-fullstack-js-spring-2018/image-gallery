@@ -1,0 +1,35 @@
+@import './../../constants.less';
+
+nav {
+    ul {
+        height:100%;
+        display: grid;
+        grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+
+        li {
+            display: inline-block;
+            text-align: center;
+
+            @media (min-width: 950px) {
+                font-size: 1.2em;
+            }
+
+            @media (min-width: 1200px) {
+                font-size: 1.5em;
+            }
+
+            @media (min-width: 1800px) {
+                font-size: 2em;
+            }
+        }   
+        
+        li:first-child{
+            padding-left: .8em;
+            text-align: left;
+        }   
+
+        li a {
+            text-decoration: none;
+        }
+    }
+}
